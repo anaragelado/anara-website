@@ -57,23 +57,17 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   ## Phase 3: Core Features & SPA Sections
 **Goal:** Build the content sections of the one-pager, enforcing the "farm-to-cone" storytelling, the warm aesthetics, and the dynamic location data.
 
-* [ ] **3.1 Hero Section (`#hero`):**
-  * Implement responsive media rendering:
-    * Mobile: Load a vertical (9:16) looping video.
-    * Desktop: Load a landscape (16:9) looping video or an ultra-wide static image (to prevent stretching).
-  * Build the text overlay using `next-intl` for translations.
-  * H1: "Artesanal Ice Cream" (Use the clean, elegant headline font).
-  * H2: "From the farm to the cone" (Use the handwritten `Amatic SC` accent font).
-  * Add a pill-shaped CTA button ("Find Us") that triggers a smooth scroll to `#locations`.
-* [ ] **3.2 Trust & Story Section (`#story`):**
-  * Build an image-and-text layout detailing the "Best Ingredients" philosophy.
-  * Emphasize core USPs: Bourbon Vanilla from Madagascar, 50% to 75% pure fruit content, real milk/cream, and zero artificial additives.
-  * Apply strict `rounded-2xl` or `rounded-3xl` classes to all imagery to enforce the "warm, no hard corners" design rule.
-* [ ] **3.3 Menu & Flavors Grid (`#menu`):**
-  * Create a static data array for staple flavors and a highlighted "Flavor of the Week" (avoiding daily dynamic lists to prevent maintenance bloat).
-  * Build a responsive grid (1 column mobile, 2 to 3 columns desktop).
-  * Implement completely rounded (`rounded-full`) badges for "Vegan" and "Gluten-Free".
-  * Explicitly note next to the GF badge that "All flavors are Gluten-Free except Oreo".
+* [x] **3.1 Hero Section (`#hero`):**
+  * Responsive video: mobile loads `hero-video-smartphone.mp4` (9:16, hidden on `md:`), desktop loads `hero-video-desktop.mp4` (16:9, hidden below `md:`). Both `autoPlay muted loop playsInline`.
+  * Dark overlay (`bg-black/30`) for text legibility. H1 in `font-heading`, H2 in `font-accent`.
+  * Pill-shaped CTA scrolls to `#locations`. Full viewport height (`min-h-[100svh]`).
+* [x] **3.2 Trust & Story Section (`#story`):**
+  * 2-column grid (stacks on mobile): image column with `rounded-3xl` main image + overlapping accent product shot (`rounded-2xl`), text column with USP copy.
+  * Key mentions: Bourbon Vanilla, 50-75% fruit, real milk/cream, zero artificial.
+* [x] **3.3 Menu & Flavors Grid (`#menu`):**
+  * Static data array in `src/data/flavors.ts` — 12 staple flavors with images, vegan flag, and `flavorOfTheWeek` highlight.
+  * Grid: `grid-cols-2` mobile, `md:grid-cols-3`. Hover zoom on images.
+  * `rounded-full` badges for Vegan (green) and Gluten-Free (yellow). Note: "All flavors are Gluten-Free except Oreo" shown above grid.
 * [ ] **3.4 Sustainability & Takeaway Section (`#takeaway`):**
   * Create a dedicated section focusing on eco-conscious operations.
   * Highlight the recyclable takeaway boxes using dedicated photos.
@@ -94,7 +88,12 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Build an elegant review slider or grid. 
   * Design: Use the clean, thin typography. Include 5 yellow stars (Lucide icons filled with `#FDDB00`) and the reviewer's first name.
   * Apply `rounded-2xl` to the review cards and use a very soft shadow (`shadow-sm`) or a thin border to keep the UI warm and minimal.
-
+* [ ] **3.8 Language selector**
+  * Move the language selector in the desktop version into the footer.In teh mobiel version it should be in the hamburger menu below the ""visit us" button.
+* [ ] **Button hover over effect**
+  * In addition to the current button hover over effect, add a color change from yellow to green.
+* [ ] **Favicon**
+  * Add the favicon. It already exists in the assets folder.
 
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.

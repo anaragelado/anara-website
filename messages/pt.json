@@ -15,6 +15,35 @@
     "subheadline": "Da quinta para o cone.",
     "cta": "Encontre-nos"
   },
+  "story": {
+    "title": "Os Melhores Ingredientes",
+    "subtitle": "Nada artificial. Nunca.",
+    "p1": "Usamos Baunilha Bourbon de Madagáscar, fruta fresca com 50% a 75% de conteúdo puro, leite e nata reais — e absolutamente zero aditivos artificiais, corantes ou pós.",
+    "p2": "Cada sabor é feito à mão em pequenos lotes na nossa cozinha em Charneca de Caparica, onde qualidade significa tudo.",
+    "imageAlt": "Ingredientes frescos para gelado artesanal"
+  },
+  "menu": {
+    "title": "Os Nossos Sabores",
+    "subtitle": "Feito à mão. Sempre fresco.",
+    "flavorOfTheWeek": "Sabor da Semana",
+    "vegan": "Vegano",
+    "glutenFree": "Sem Glúten",
+    "glutenFreeNote": "Todos os sabores são sem glúten, exceto Oreo.",
+    "flavors": {
+      "belgian-chocolate": "Chocolate Belga",
+      "salted-pistachio": "Pistáchio Salgado",
+      "strawberry": "Morango",
+      "mango": "Manga",
+      "vanilla-bourbon": "Baunilha Bourbon",
+      "pastel-de-nata": "Pastel de Nata",
+      "lemon": "Limão",
+      "cookies-cream": "Cookies & Cream",
+      "matcha": "Matcha",
+      "dark-chocolate": "Chocolate Negro",
+      "coconut": "Coco",
+      "watermelon": "Melancia"
+    }
+  },
   "footer": {
     "imprint": "Impressum",
     "privacy": "Política de Privacidade",
