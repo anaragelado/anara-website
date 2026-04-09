@@ -9,6 +9,7 @@ import { routing } from "@/i18n/routing";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PageShell from "@/components/PageShell";
 import Footer from "@/components/Footer";
+import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 import "../globals.css";
 
 const workSans = Work_Sans({
@@ -48,7 +49,16 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
-  const messages = await getMessages();
+  const [messages, locations] = await Promise.all([
+    getMessages(),
+    fetchLocationsWithHours(),
+  ]);
+
+  // Serialize just the hours for the header open/closed indicator
+  const locationHours = locations.map((loc) => ({
+    id: loc.id,
+    hours: loc.hours,
+  }));
 
   return (
     <html
@@ -58,7 +68,7 @@ export default async function LocaleLayout({
       <body className="min-h-full flex flex-col bg-background-primary text-text-primary font-body">
         <NextIntlClientProvider messages={messages}>
           <SmoothScrollProvider>
-            <PageShell>{children}</PageShell>
+            <PageShell locationHours={locationHours}>{children}</PageShell>
             <Footer />
           </SmoothScrollProvider>
         </NextIntlClientProvider>

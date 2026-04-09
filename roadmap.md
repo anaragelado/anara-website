@@ -92,8 +92,11 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Added `hover:bg-brand-green hover:text-white` to all pill-shaped CTA buttons (Header, MobileMenu, HeroSection).
 * [x] **3.10 Favicon**
   * Copied `public/assets/favicon.ico` to `src/app/favicon.ico` (Next.js App Router metadata convention).
-* [ ] **3.11 We´re open indicator**
-  * A visual indicator in the nav bar (desktop and mobile) that gives immediately away if one of the shops is open or closed. tapping on it links to the locations section.
+* [x] **3.11 We're open indicator**
+  * `OpenBadge` component in `Header.tsx` — pill-shaped badge with pulsing green dot (open) or red dot (closed). Tapping links to `#locations`.
+  * Uses `isOpenNow()` against real hours data (fetched server-side, passed via layout → PageShell → Header).
+  * Client-only rendering (deferred until mount) to avoid hydration mismatch. Re-checks every 60 seconds via `setInterval`.
+  * Visible on both desktop and mobile viewports (next to logo).
 * [ ] **3.12 Google Review badge**
   * Add a google review badge to the review section to showcase the full rating. the HQ has 4.7 and the caparica shop has 5 stars.
 * [ ] **3.13 Active Section indicator**

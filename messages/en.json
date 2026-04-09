@@ -8,7 +8,11 @@
     "menu": "Flavors",
     "takeaway": "Takeaway",
     "locations": "Locations",
-    "visitUs": "Visit Us"
+    "visitUs": "Visit Us",
+    "openAll": "Open",
+    "openHq": "Charneca Open",
+    "openMobile": "Costa Open",
+    "closedNow": "Closed"
   },
   "hero": {
     "headline": "Artisanal Ice Cream",

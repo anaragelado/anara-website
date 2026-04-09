@@ -8,7 +8,11 @@
     "menu": "Sabores",
     "takeaway": "Takeaway",
     "locations": "Localizações",
-    "visitUs": "Visite-nos"
+    "visitUs": "Visite-nos",
+    "openAll": "Aberto",
+    "openHq": "Charneca Aberto",
+    "openMobile": "Costa Aberto",
+    "closedNow": "Fechado"
   },
   "hero": {
     "headline": "Gelado Artesanal",
