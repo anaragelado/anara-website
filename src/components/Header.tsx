@@ -13,6 +13,9 @@ const NAV_LINKS = [
   { id: "locations", key: "locations" },
 ] as const;
 
+/** Section IDs tracked by the active-section observer */
+export const SECTION_IDS = NAV_LINKS.map((l) => l.id);
+
 interface LocationHours {
   id: string;
   hours: DayHours[];
@@ -21,6 +24,7 @@ interface LocationHours {
 interface HeaderProps {
   onMobileMenuOpen: () => void;
   locationHours: LocationHours[];
+  activeSection: string;
 }
 
 type OpenState = "both" | "hq" | "mobile" | "closed";
@@ -79,7 +83,7 @@ function OpenBadge({ locationHours }: { locationHours: LocationHours[] }) {
   );
 }
 
-export default function Header({ onMobileMenuOpen, locationHours }: HeaderProps) {
+export default function Header({ onMobileMenuOpen, locationHours, activeSection }: HeaderProps) {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
 
@@ -118,9 +122,16 @@ export default function Header({ onMobileMenuOpen, locationHours }: HeaderProps)
             <a
               key={id}
               href={`#${id}`}
-              className="text-sm font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-brand-green"
+              className={`relative text-sm font-medium transition-all duration-300 ease-in-out hover:text-brand-green ${
+                activeSection === id ? "text-brand-green" : "text-text-primary"
+              }`}
             >
               {t(key)}
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 rounded-full bg-brand-green transition-all duration-300 ${
+                  activeSection === id ? "w-full" : "w-0"
+                }`}
+              />
             </a>
           ))}
         </nav>

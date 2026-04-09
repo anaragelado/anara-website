@@ -100,8 +100,10 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **3.12 Google Review badge**
   * Two badges between section header and review cards — Charneca (4.7) and Costa (5.0). Each shows Google "G" icon, rating number, star row, and location name.
   * Badges link to the respective Google Maps listing. `rounded-2xl`, `shadow-sm`, hover lifts to `shadow-md`.
-* [ ] **3.13 Active Section indicator**
-  * Add a visual indicator in the nav bar (desktop and mobile) that shows the active section.
+* [x] **3.13 Active Section indicator**
+  * `useActiveSection` hook in `PageShell.tsx` — `IntersectionObserver` on all section IDs with `rootMargin: "-20% 0px -60% 0px"` to trigger when a section enters the top 20-40% of the viewport.
+  * Desktop: active link turns `text-brand-green` with an animated underline (`h-0.5 rounded-full bg-brand-green`, width transitions from `w-0` to `w-full`).
+  * Mobile menu: active link text turns `text-brand-green`. State reflects whatever section was visible when the menu opened.
 * [ ] **3.14 Font testsite**
   * Create a testsite that shows different pairings of the hero section. that means everything stays the same as on the current hero section but the h1 an h2 fonts change. This will be used to give the client a few options to choose from. Create at least 4 additional options and make it easy to switch between them. That means show the option number but also include the current font paring as the first option and then add 4 additional options. 
   ## Phase 4: Secondary Pages & UI Polish

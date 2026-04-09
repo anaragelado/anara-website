@@ -15,9 +15,10 @@ const NAV_LINKS = [
 interface MobileMenuProps {
   open: boolean;
   onClose: () => void;
+  activeSection: string;
 }
 
-export default function MobileMenu({ open, onClose }: MobileMenuProps) {
+export default function MobileMenu({ open, onClose, activeSection }: MobileMenuProps) {
   const t = useTranslations("nav");
 
   return (
@@ -49,7 +50,9 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
                 key={id}
                 href={`#${id}`}
                 onClick={onClose}
-                className="flex min-h-[44px] min-w-[44px] items-center justify-center px-6 py-3 text-xl font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-brand-green"
+                className={`flex min-h-[44px] min-w-[44px] items-center justify-center px-6 py-3 text-xl font-medium transition-all duration-300 ease-in-out hover:text-brand-green ${
+                  activeSection === id ? "text-brand-green" : "text-text-primary"
+                }`}
               >
                 {t(key)}
               </a>
