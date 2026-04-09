@@ -39,20 +39,19 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Scroll event listener adds `shadow-xl shadow-black/5` when scrolled past 10px.
   * 3-column flex layout: Logo (Left), Anchor Links (Center), pill-shaped "Visit Us" CTA (Right).
   * Correct anchor IDs: `#story`, `#menu`, `#takeaway`, `#locations`.
-* [ ] **2.4 Mobile Navigation Menu:**
-  * Implement the hamburger menu utilizing a thin-stroke `lucide-react` icon.
-  * Build a full-screen overlay or right-side slide-out drawer for mobile navigation.
-  * Ensure all mobile links have a minimum touch target of 44x44 pixels.
-  * Place the Language Toggle (PT | EN) at the bottom of this mobile menu.
-*[ ] **2.5 Footer Component Construction:**
-  * Create the `<Footer>` component using a minimalist warm off-white or solid white background.
-  * Add the clickable Instagram link (using a Lucide icon).
-  * Add the clickable Email link (`mailto:hello@anaragelado.pt` with a fallback to `anara.gelado@gmail.com`). 
-  * Add text links for Imprint and Privacy Policy.
-* [ ] **2.6 Webmaster Backlink Integration:**
-  * Embed the required developer signature in the bottom right (desktop) or bottom center (mobile) of the footer.
+* [x] **2.4 Mobile Navigation Menu:**
+  * Hamburger icon (Lucide `Menu`, `strokeWidth={1.5}`) triggers right-to-left slide-out drawer (`src/components/MobileMenu.tsx`).
+  * Animated with Framer Motion (`AnimatePresence` + slide transition).
+  * All links use `min-h-[44px] min-w-[44px]` touch targets.
+  * Language Toggle (`src/components/LanguageToggle.tsx`) placed at the bottom of the menu. Also added to desktop header right column.
+* [x] **2.5 Footer Component Construction:**
+  * Created `<Footer>` (`src/components/Footer.tsx`) with solid white `bg-background-secondary`.
+  * Instagram link (custom inline SVG — `lucide-react` doesn't export an Instagram icon) + Email `mailto:hello@anaragelado.pt`.
+  * Imprint and Privacy Policy text links. All interactive elements meet 44px touch target.
+* [x] **2.6 Webmaster Backlink Integration:**
+  * Integrated into Footer bottom row. Text-center on mobile (`text-center`), text-right on desktop (`md:text-right`).
   * Exact text: "Web design by VideoMetrixs. Like this site? Let's build yours."
-  * Ensure "VideoMetrixs" correctly hyperlinks to `https://www.videometrixs.com` with `target="_blank"` and `rel="noopener noreferrer"`.
+  * "VideoMetrixs" links to `https://www.videometrixs.com` with `target="_blank"` and `rel="noopener noreferrer"`.
 
 
   ## Phase 3: Core Features & SPA Sections

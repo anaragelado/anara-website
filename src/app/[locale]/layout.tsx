@@ -8,6 +8,7 @@ import { Work_Sans, Playfair_Display, Amatic_SC } from "next/font/google";
 import { routing } from "@/i18n/routing";
 import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 import PageShell from "@/components/PageShell";
+import Footer from "@/components/Footer";
 import "../globals.css";
 
 const workSans = Work_Sans({
@@ -58,6 +59,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <SmoothScrollProvider>
             <PageShell>{children}</PageShell>
+            <Footer />
           </SmoothScrollProvider>
         </NextIntlClientProvider>
       </body>
