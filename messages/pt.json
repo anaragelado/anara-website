@@ -51,6 +51,29 @@
     "p2": "Desde a escolha de ingredientes locais até embalagens ecológicas — cada decisão é pensada para o planeta.",
     "imageAlt": "Embalagem reciclável de gelado artesanal Anara"
   },
+  "locations": {
+    "title": "Onde Estamos",
+    "subtitle": "Venha visitar-nos.",
+    "hq": "Sede — Charneca",
+    "mobile": "Loja Móvel — Costa",
+    "openNow": "Aberto agora",
+    "closed": "Fechado",
+    "hours": "Horário",
+    "getDirections": "Como chegar",
+    "days": {
+      "Mon": "Segunda",
+      "Tue": "Terça",
+      "Wed": "Quarta",
+      "Thu": "Quinta",
+      "Fri": "Sexta",
+      "Sat": "Sábado",
+      "Sun": "Domingo"
+    },
+    "dayClosed": "Fechado",
+    "eventsTitle": "Eventos Privados & Catering",
+    "eventsText": "A nossa loja móvel está disponível para casamentos, festas privadas e eventos corporativos.",
+    "eventsCta": "Contacte-nos"
+  },
   "reviews": {
     "title": "O Que Dizem de Nós",
     "subtitle": "Avaliações reais. Sabores reais."

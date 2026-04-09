@@ -51,6 +51,29 @@
     "p2": "From sourcing local ingredients to eco-friendly packaging — every decision is made with the planet in mind.",
     "imageAlt": "Recyclable artisanal gelato packaging by Anara"
   },
+  "locations": {
+    "title": "Find Us",
+    "subtitle": "Come visit.",
+    "hq": "Headquarters — Charneca",
+    "mobile": "Mobile Shop — Costa",
+    "openNow": "Open now",
+    "closed": "Closed",
+    "hours": "Hours",
+    "getDirections": "Get directions",
+    "days": {
+      "Mon": "Monday",
+      "Tue": "Tuesday",
+      "Wed": "Wednesday",
+      "Thu": "Thursday",
+      "Fri": "Friday",
+      "Sat": "Saturday",
+      "Sun": "Sunday"
+    },
+    "dayClosed": "Closed",
+    "eventsTitle": "Private Events & Catering",
+    "eventsText": "Our mobile shop is available for weddings, private parties, and corporate events.",
+    "eventsCta": "Get in touch"
+  },
   "reviews": {
     "title": "What People Say",
     "subtitle": "Real reviews. Real flavors."

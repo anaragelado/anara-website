@@ -76,12 +76,12 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * *Method:* Fetch from a "Published to Web" Google Sheet (CSV format) to bypass API keys, OAuth, and GCP requirements, ensuring a flawless handover.
   * Parse the CSV data on the server and pass it to the UI components.
   * *Static Fallback:* Hardcode standard baseline hours directly in the app as a final safety net if the Google Sheet is deleted or unpublished.
-* [ ] **3.6 Locations UI & Events Callout (`#locations`):**
-  * Build a layout showcasing the two locations: HQ (Charneca) and Mobile Shop (Costa). Use a toggle switch for mobile and a two-column split for desktop.
-  * Embed Google Maps iframes for both addresses.
-  * Display the dynamically fetched hours clearly with an "Open Now / Closed" visual indicator (using the brand-green or a soft red).
-  * Add a dedicated "Private Events & Catering" block below the locations. State that the mobile shop is available for booking and include a `mailto:hello@anaragelado.pt` CTA.
-  * *CRITICAL CHECK:* Ensure no mentions, logos, or links to Uber Eats exist anywhere in this section.
+* [x] **3.6 Locations UI & Events Callout (`#locations`):**
+  * Two-column desktop split, mobile tab toggle (pill-shaped buttons). Location data in `src/data/locations.ts` with static fallback hours.
+  * Google Maps embed iframes from coordinates. "Open Now / Closed" indicator using `isOpenNow()` with Lisbon timezone.
+  * Hours table per location. "Get Directions" CTA linking to Google Maps. All cards `rounded-2xl`, maps `rounded-2xl`.
+  * "Private Events & Catering" block with `mailto:hello@anaragelado.pt` CTA.
+  * *VERIFIED:* Zero mentions, logos, or links to Uber Eats.
 * [x] **3.7 Social Proof & Reviews Component (`#reviews`):**
   * Static data in `src/data/reviews.ts` — 4 handpicked 5-star reviews (René Pfitzner, Carolina Mello, Rita Moreira, Kristine Joy Martin).
   * 2-column grid with `rounded-2xl` cards, `border-gray-100`, `shadow-sm`. 5 filled yellow stars via Lucide `Star` (fill `#FDDB00`).
@@ -91,6 +91,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Added `hover:bg-brand-green hover:text-white` to all pill-shaped CTA buttons (Header, MobileMenu, HeroSection).
 * [x] **3.10 Favicon**
   * Copied `public/assets/favicon.ico` to `src/app/favicon.ico` (Next.js App Router metadata convention).
+* [ ] **3.11 We´re open indicator**
+  * A visual indicator in the nav bar (desktop and mobile) that gives immediately away if one of the shops is open or closed. tapping on it links to the locations section.
 
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.

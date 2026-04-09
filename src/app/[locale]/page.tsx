@@ -3,6 +3,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import StorySection from "@/components/sections/StorySection";
 import MenuSection from "@/components/sections/MenuSection";
 import TakeawaySection from "@/components/sections/TakeawaySection";
+import LocationsSection from "@/components/sections/LocationsSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 
 export default async function HomePage({
@@ -19,6 +20,7 @@ export default async function HomePage({
       <StorySection />
       <MenuSection />
       <TakeawaySection />
+      <LocationsSection />
       <ReviewsSection />
     </main>
   );
