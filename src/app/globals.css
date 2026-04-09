@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* ── Base Colors ── */
+  --color-background-primary: #FAFAFA;
+  --color-background-secondary: #FFFFFF;
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+
+  /* ── Brand Accents ── */
+  --color-brand-yellow: #FDDB00;
+  --color-brand-green: #68B34A;
+
+  /* ── Secondary Accents (Instagram Highlights — micro-interactions only) ── */
+  --color-highlight-light-green: #8BCF68;
+  --color-highlight-sand: #DEA361;
+  --color-highlight-pink: #EA567A;
+  --color-highlight-orange: #FF7802;
+
+  /* ── Typography ── */
+  --font-body: var(--font-work-sans);
+  --font-heading: var(--font-playfair-display);
+  --font-accent: var(--font-amatic-sc);
+}
+
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body), system-ui, sans-serif;
+}

@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Anara Gelado Artesanal | From the farm to the cone",
+    "description": "Artisanal ice cream made with the finest natural ingredients. Bourbon Vanilla from Madagascar, pure fruit and zero artificial additives."
+  },
+  "nav": {
+    "story": "Our Story",
+    "menu": "Flavors",
+    "takeaway": "Takeaway",
+    "locations": "Locations",
+    "visitUs": "Visit Us"
+  },
+  "hero": {
+    "headline": "Artisanal Ice Cream",
+    "subheadline": "From the farm to the cone.",
+    "cta": "Find Us"
+  },
+  "footer": {
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy",
+    "webdesign": "Web design by",
+    "webdesignCta": "Like this site? Let's build yours."
+  }
+}

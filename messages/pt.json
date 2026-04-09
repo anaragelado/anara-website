@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Anara Gelado Artesanal | Da quinta para o cone",
+    "description": "Gelado artesanal feito com os melhores ingredientes naturais. Baunilha Bourbon de Madagáscar, fruta pura e zero aditivos artificiais."
+  },
+  "nav": {
+    "story": "A Nossa História",
+    "menu": "Sabores",
+    "takeaway": "Takeaway",
+    "locations": "Localizações",
+    "visitUs": "Visite-nos"
+  },
+  "hero": {
+    "headline": "Gelado Artesanal",
+    "subheadline": "Da quinta para o cone.",
+    "cta": "Encontre-nos"
+  },
+  "footer": {
+    "imprint": "Impressum",
+    "privacy": "Política de Privacidade",
+    "webdesign": "Web design por",
+    "webdesignCta": "Gosta deste site? Vamos construir o seu."
+  }
+}

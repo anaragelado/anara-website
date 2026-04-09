@@ -12,16 +12,16 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 ## Phase 1: Foundation & Architecture Setup
 **Goal:** Establish the strict technical base, styling configuration, and internationalization routing.
 
-* [ ] **1.1 Next.js Initialization:** Verify or initialize Next.js App Router with TypeScript. Clean out default boilerplate code from `app/page.tsx` and `app/globals.css`.
-* [ ] **1.2 Tailwind CSS v4 Configuration:** Set up the exact brand color variables (backgrounds, primary text, brand-yellow, brand-green, and secondary IG colors) as defined in the Brand Guidelines context file.
-* [ ] **1.3 Typography Setup:** Implement `next/font/google` in the root layout. Load `Work Sans` (Body), `Playfair Display` (Headings), and `Amatic SC` (Decorative).
-* [ ] **1.4 i18n Setup (next-intl):** 
+* [x] **1.1 Next.js Initialization:** Verify or initialize Next.js App Router with TypeScript. Clean out default boilerplate code from `app/page.tsx` and `app/globals.css`.
+* [x] **1.2 Tailwind CSS v4 Configuration:** Set up the exact brand color variables (backgrounds, primary text, brand-yellow, brand-green, and secondary IG colors) as defined in the Brand Guidelines context file.
+* [x] **1.3 Typography Setup:** Implement `next/font/google` in the root layout. Load `Work Sans` (Body), `Playfair Display` (Headings), and `Amatic SC` (Decorative).
+* [x] **1.4 i18n Setup (next-intl):** 
   * Install and configure `next-intl`.
   * Set up Next.js middleware for browser language auto-detection.
   * Create the `messages/` folder with `pt.json` (default) and `en.json`.
-  * Establish the `[lang]` dynamic routing structure in the `app/` directory.
-*[ ] **1.5 Asset Directory Organization:** Ensure `public/assets/images` and `public/assets/videos` are correctly mapped and base assets (logo, favicon) are accessible.
-* [ ] **1.6 Dependency Installation:** Install required production packages (`lucide-react`, `framer-motion`, `@studio-freight/react-lenis`).
+  * Establish the `[locale]` dynamic routing structure in the `app/` directory.
+* [x] **1.5 Asset Directory Organization:** Ensure `public/assets/images` and `public/assets/videos` are correctly mapped and base assets (logo, favicon) are accessible.
+* [x] **1.6 Dependency Installation:** Install required production packages (`lucide-react`, `framer-motion`, `lenis` — replaces deprecated `@studio-freight/react-lenis`).
 
 
 ## Phase 2: Global UI & Core Layout
