@@ -5,6 +5,7 @@ import MenuSection from "@/components/sections/MenuSection";
 import TakeawaySection from "@/components/sections/TakeawaySection";
 import LocationsSection from "@/components/sections/LocationsSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
+import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 
 export default async function HomePage({
   params,
@@ -14,13 +15,15 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
 
+  const locations = await fetchLocationsWithHours();
+
   return (
     <main>
       <HeroSection />
       <StorySection />
       <MenuSection />
       <TakeawaySection />
-      <LocationsSection />
+      <LocationsSection locations={locations} />
       <ReviewsSection />
     </main>
   );

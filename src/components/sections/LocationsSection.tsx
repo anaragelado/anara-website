@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { MapPin, Mail } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
-import { locations, isOpenNow, type Location, type DayHours } from "@/data/locations";
+import { isOpenNow, type Location, type DayHours } from "@/data/locations";
 
 function OpenIndicator({ hours }: { hours: DayHours[] }) {
   const t = useTranslations("locations");
@@ -88,7 +88,11 @@ function LocationCard({ location }: { location: Location }) {
   );
 }
 
-export default function LocationsSection() {
+interface LocationsSectionProps {
+  locations: Location[];
+}
+
+export default function LocationsSection({ locations }: LocationsSectionProps) {
   const t = useTranslations("locations");
   const [activeTab, setActiveTab] = useState<"hq" | "mobile">("hq");
 

@@ -71,11 +71,12 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **3.4 Sustainability & Takeaway Section (`#takeaway`):**
   * 2-column grid (text left, image right on desktop; image-first on mobile). Recyclable badge with Lucide `Recycle` icon.
   * Image: `food-cart-exterior-with-anara-branding-sign.jpg` with `rounded-3xl`. Background: `bg-background-primary` (#FAFAFA).
-* [ ] **3.5 Dynamic Data Fetching (Locations & Hours):**
-  * Create a Next.js Server Component to fetch dynamic hours/locations.
-  * *Method:* Fetch from a "Published to Web" Google Sheet (CSV format) to bypass API keys, OAuth, and GCP requirements, ensuring a flawless handover.
-  * Parse the CSV data on the server and pass it to the UI components.
-  * *Static Fallback:* Hardcode standard baseline hours directly in the app as a final safety net if the Google Sheet is deleted or unpublished.
+* [x] **3.5 Dynamic Data Fetching (Locations & Hours):**
+  * Server-side fetcher in `src/lib/fetch-hours.ts`. Fetches CSV from Google Sheet URL (stored in `.env` as `HOURS_CSV_URL`).
+  * Parses CSV headers: `location_id, location_name, day, status, open_time, close_time`. Maps full day names to abbreviations.
+  * `next: { revalidate: 3600 }` — 1-hour ISR cache. Confirmed in build output.
+  * Silent fallback to `src/data/locations.ts` on any failure (network, malformed CSV, missing env var).
+  * Page fetches server-side in `page.tsx` and passes `locations` as props to `LocationsSection`.
 * [x] **3.6 Locations UI & Events Callout (`#locations`):**
   * Two-column desktop split, mobile tab toggle (pill-shaped buttons). Location data in `src/data/locations.ts` with static fallback hours.
   * Google Maps embed iframes from coordinates. "Open Now / Closed" indicator using `isOpenNow()` with Lisbon timezone.
@@ -95,7 +96,10 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * A visual indicator in the nav bar (desktop and mobile) that gives immediately away if one of the shops is open or closed. tapping on it links to the locations section.
 * [ ] **3.12 Google Review badge**
   * Add a google review badge to the review section to showcase the full rating. the HQ has 4.7 and the caparica shop has 5 stars.
-
+* [ ] **3.13 Active Section indicator**
+  * Add a visual indicator in the nav bar (desktop and mobile) that shows the active section.
+* [ ] **3.14 Font testsite**
+  * Create a testsite that shows different pairings of the hero section. that means everything stays the same as on the current hero section but the h1 an h2 fonts change. This will be used to give the client a few options to choose from. Create at least 4 additional options and make it easy to switch between them. That means show the option number but also include the current font paring as the first option and then add 4 additional options. 
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.
 
