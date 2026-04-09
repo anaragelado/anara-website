@@ -2,8 +2,12 @@ import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { Work_Sans, Playfair_Display, Amatic_SC } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
+import PageShell from "@/components/PageShell";
 import "../globals.css";
 
 const workSans = Work_Sans({
@@ -43,6 +47,7 @@ export default async function LocaleLayout({
   }
 
   setRequestLocale(locale);
+  const messages = await getMessages();
 
   return (
     <html
@@ -50,7 +55,11 @@ export default async function LocaleLayout({
       className={`${workSans.variable} ${playfairDisplay.variable} ${amaticSC.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background-primary text-text-primary font-body">
-        {children}
+        <NextIntlClientProvider messages={messages}>
+          <SmoothScrollProvider>
+            <PageShell>{children}</PageShell>
+          </SmoothScrollProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

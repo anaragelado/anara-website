@@ -1,24 +1,39 @@
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
+import SectionWrapper from "@/components/SectionWrapper";
 
-export default function HomePage({
+export default async function HomePage({
   params,
 }: {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  setRequestLocale(params.locale);
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return <HomeContent />;
+}
+
+function HomeContent() {
   const t = useTranslations("hero");
 
   return (
-    <main className="flex flex-1 items-center justify-center">
-      <div className="text-center px-4">
-        <h1 className="font-heading text-4xl md:text-6xl font-bold tracking-tight">
-          {t("headline")}
-        </h1>
-        <h2 className="font-accent text-2xl md:text-4xl mt-4 text-text-secondary">
-          {t("subheadline")}
-        </h2>
-      </div>
+    <main>
+      <SectionWrapper id="hero" className="flex min-h-[80vh] items-center">
+        <div className="text-center">
+          <h1 className="font-heading text-4xl font-bold tracking-tight md:text-6xl">
+            {t("headline")}
+          </h1>
+          <h2 className="mt-4 font-accent text-3xl text-text-secondary md:text-5xl">
+            {t("subheadline")}
+          </h2>
+          <a
+            href="#locations"
+            className="mt-8 inline-block rounded-full bg-brand-yellow px-8 py-3 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105"
+          >
+            {t("cta")}
+          </a>
+        </div>
+      </SectionWrapper>
     </main>
   );
 }

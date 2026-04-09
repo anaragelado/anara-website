@@ -27,18 +27,18 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 ## Phase 2: Global UI & Core Layout
 **Goal:** Build the persistent global components (Header, Footer) and establish the responsive, mobile-first page layout.
 
-* [ ] **2.1 Root Layout & Smooth Scrolling Integration:** 
-  * Configure `app/[lang]/layout.tsx` to wrap all pages.
-  * Implement the Lenis smooth scrolling provider wrapper.
-  * *CRITICAL:* Write logic to automatically disable Lenis on touch devices (smartphones/tablets) so they default to native scroll physics.
-* [ ] **2.2 Global Section Wrapper Component:**
-  * Create a reusable `<SectionWrapper>` component to enforce horizontal padding (`px-4 md:px-8`) and the max-width container (`max-w-7xl mx-auto`).
-  * Implement standardized vertical padding (`py-16 md:py-32`) to give the design breathing room.
-* [ ] **2.3 Sticky Navigation Bar (Desktop):**
-  * Create the `<Header>` component with a solid white background (`bg-white`).
-  * Implement a scroll event listener to add a soft drop shadow only when the user scrolls down from the top.
-  * Implement a 3-column flex layout for desktop: Logo (Left), Anchor Links (Center), Language Toggle + "Visit Us" pill-shaped CTA (Right).
-  * Assign correct SPA anchor IDs to links (`#story`, `#menu`, `#takeaway`, `#locations`).
+* [x] **2.1 Root Layout & Smooth Scrolling Integration:** 
+  * Configure `app/[locale]/layout.tsx` to wrap all pages with `NextIntlClientProvider` + `SmoothScrollProvider`.
+  * Implement the Lenis smooth scrolling provider wrapper (`src/components/SmoothScrollProvider.tsx`).
+  * *CRITICAL:* Touch device detection via `ontouchstart` / `maxTouchPoints` — Lenis is fully skipped on mobile/tablet, defaulting to native scroll physics.
+* [x] **2.2 Global Section Wrapper Component:**
+  * Created reusable `<SectionWrapper>` (`src/components/SectionWrapper.tsx`) enforcing `px-4 md:px-8` and `max-w-7xl mx-auto`.
+  * Standardized vertical padding: `py-16 md:py-24 lg:py-32`.
+* [x] **2.3 Sticky Navigation Bar (Desktop):**
+  * Created `<Header>` component (`src/components/Header.tsx`) with solid `bg-background-secondary` (white).
+  * Scroll event listener adds `shadow-xl shadow-black/5` when scrolled past 10px.
+  * 3-column flex layout: Logo (Left), Anchor Links (Center), pill-shaped "Visit Us" CTA (Right).
+  * Correct anchor IDs: `#story`, `#menu`, `#takeaway`, `#locations`.
 * [ ] **2.4 Mobile Navigation Menu:**
   * Implement the hamburger menu utilizing a thin-stroke `lucide-react` icon.
   * Build a full-screen overlay or right-side slide-out drawer for mobile navigation.
