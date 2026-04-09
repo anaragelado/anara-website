@@ -62,3 +62,23 @@ The `page.tsx` file must render the following semantic `<section>` blocks in ord
 * Use strict HTML5 semantic tags (`<main>`, `<section>`, `<article>`, `<nav>`).
 * Ensure exactly one `<h1>` per page (in the Hero). Follow strictly with `<h2>` and `<h3>` tags for sections.
 * All imagery must include descriptive `alt` text focusing on local SEO keywords (e.g., "Gelado Artesanal Costa de Caparica", "Fresh fruit ice cream").
+
+## 5. Core Business Data
+The AI coding agent must use this exact data when building the Footer, the Locations & Hours section, and the JSON-LD Schema Markup.
+
+### Headquarter (HQ)
+* **Name:** Anara Gelado Artesanal
+* **Address:** Estrada da Bela Vista 144, 2820-166 Charneca de Caparica
+* **Google Maps Link:** https://maps.app.goo.gl/2eSjBQy21V8MnQ9U7
+* **GPS Coordinates:** 38.6290808471835, -9.18808227289466
+
+### Mobile Shop
+* **Name:** Anara Gelado Artesanal - Caparica
+* **Address:** Av. Gen. Humberto Delgado 3, 2825-337 Costa de Caparica
+* **Google Maps Link:** https://maps.app.goo.gl/qWspRKD1hvDDoyhq6
+* **GPS Coordinates:** 38.64057216634567, -9.23595848206488
+
+### Social Media & Contact
+* **Instagram:** https://www.instagram.com/anara.geladoartesanal
+* **Primary Email:** hello@anaragelado.pt
+* **Fallback Email:** anara.gelado@gmail.com
