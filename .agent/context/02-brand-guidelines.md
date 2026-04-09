@@ -20,12 +20,21 @@ Do not use default bright colors. The design relies on a restrained palette to m
 * `brand-yellow`: `#FDDB00` (Logo yellow).
 * `brand-green`: `#68B34A` (A slightly muted, organic "leafy" version of her original `#70C051` to pair better with the yellow).
 
-**Secondary Accents (Instagram Highlight Colors):**
-* `highlight-light-green`: `#8BCF68`
-* `highlight-sand`: `#DEA361`
-* `highlight-pink`: `#EA567A`
-* `highlight-orange`: `#FF7802`
-* *STRICT USAGE RULE:* These secondary colors must only be used for micro-interactions (e.g., hover states, tiny divider lines, flavor dots). Never use them for large background sections or main buttons.
+**The Instagram Sequence (Ordered Section Divider Palette):**
+The client requires specific brand colors to appear in a strict sequence (matching her Instagram highlights). Use these colors specifically for horizontal section dividers (e.g., thin top borders on `<section>` elements). 
+* Sequence 1 (Orange): `#FF7802`
+* Sequence 2 (Yellow): `#FDDB00` (Logo Yellow)
+* Sequence 3 (Green): `#68B34A` (Optimized Brand Green)
+* Sequence 4 (Sand): `#DEA361`
+* Sequence 5 (Pink): `#EA567A`
+
+**Strict Usage Rule for Sequence Colors:** 
+These colors must only be used for micro-interactions, flavor dots, or extremely thin (1px to 2px) horizontal section dividers. Never use them for large background sections or main buttons.
+
+**Legacy Client Hex Codes (Do Not Use Unless Explicitly Requested):**
+* Legacy Yellow: `#F2E209` (Replaced by Logo Yellow).
+* Legacy Green 1: `#70C051` (Replaced by Optimized Brand Green).
+* Legacy Green 2: `#8BCF68` (Discarded to prevent color clutter).
 
 ## 3. Typography (Google Fonts via next/font)
 Set up the following fonts in the Next.js layout file.
