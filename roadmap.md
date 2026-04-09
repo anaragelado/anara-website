@@ -104,8 +104,12 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * `useActiveSection` hook in `PageShell.tsx` — `IntersectionObserver` on all section IDs with `rootMargin: "-20% 0px -60% 0px"` to trigger when a section enters the top 20-40% of the viewport.
   * Desktop: active link turns `text-brand-green` with an animated underline (`h-0.5 rounded-full bg-brand-green`, width transitions from `w-0` to `w-full`).
   * Mobile menu: active link text turns `text-brand-green`. State reflects whatever section was visible when the menu opened.
-* [ ] **3.14 Font testsite**
-  * Create a testsite that shows different pairings of the hero section. that means everything stays the same as on the current hero section but the h1 an h2 fonts change. This will be used to give the client a few options to choose from. Create at least 4 additional options and make it easy to switch between them. That means show the option number but also include the current font paring as the first option and then add 4 additional options. 
+* [x] **3.14 Font testsite**
+  * Route: `/[locale]/font-test`. Client component with 5 pill-shaped option buttons in a sticky header.
+  * Full hero section replica (video, overlay, CTA) — only the H1/H2 font-family swaps via inline `style`.
+  * Pairings: (1) Playfair Display + Amatic SC, (2) Montserrat Light + Caveat, (3) Cormorant Garamond + Work Sans, (4) Bodoni Moda + Playfair Italic, (5) Work Sans Light + Amatic SC.
+  * Mobile: horizontal-scrollable option bar. Description bar below shows active pairing name.
+  
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.
 
