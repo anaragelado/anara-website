@@ -93,6 +93,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Copied `public/assets/favicon.ico` to `src/app/favicon.ico` (Next.js App Router metadata convention).
 * [ ] **3.11 We´re open indicator**
   * A visual indicator in the nav bar (desktop and mobile) that gives immediately away if one of the shops is open or closed. tapping on it links to the locations section.
+* [ ] **3.12 Google Review badge**
+  * Add a google review badge to the review section to showcase the full rating. the HQ has 4.7 and the caparica shop has 5 stars.
 
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.
