@@ -58,7 +58,7 @@ export default function MobileMenu({ open, onClose }: MobileMenuProps) {
             <a
               href="#locations"
               onClick={onClose}
-              className="mt-4 rounded-full bg-brand-yellow px-8 py-3 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105"
+              className="mt-4 rounded-full bg-brand-yellow px-8 py-3 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
             >
               {t("visitUs")}
             </a>

@@ -4,8 +4,6 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Menu } from "lucide-react";
-import LanguageToggle from "./LanguageToggle";
-
 const NAV_LINKS = [
   { id: "story", key: "story" },
   { id: "menu", key: "menu" },
@@ -60,12 +58,11 @@ export default function Header({ onMobileMenuOpen }: HeaderProps) {
           ))}
         </nav>
 
-        {/* Desktop Right: Language Toggle + CTA */}
+        {/* Desktop Right: CTA */}
         <div className="hidden items-center gap-2 lg:flex">
-          <LanguageToggle />
           <a
             href="#locations"
-            className="rounded-full bg-brand-yellow px-5 py-2 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105"
+            className="rounded-full bg-brand-yellow px-5 py-2 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
           >
             {t("visitUs")}
           </a>

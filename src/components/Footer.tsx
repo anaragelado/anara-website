@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
+import LanguageToggle from "./LanguageToggle";
 
 function InstagramIcon({ size = 22 }: { size?: number }) {
   return (
@@ -48,6 +49,9 @@ export default function Footer() {
               <Mail size={22} strokeWidth={1.5} />
             </a>
           </div>
+
+          {/* Language Toggle (desktop only — mobile version is in hamburger menu) */}
+          <LanguageToggle className="hidden lg:flex" />
 
           {/* Legal links */}
           <div className="flex items-center gap-6 text-sm text-text-secondary">

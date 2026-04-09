@@ -2,6 +2,8 @@ import { setRequestLocale } from "next-intl/server";
 import HeroSection from "@/components/sections/HeroSection";
 import StorySection from "@/components/sections/StorySection";
 import MenuSection from "@/components/sections/MenuSection";
+import TakeawaySection from "@/components/sections/TakeawaySection";
+import ReviewsSection from "@/components/sections/ReviewsSection";
 
 export default async function HomePage({
   params,
@@ -16,6 +18,8 @@ export default async function HomePage({
       <HeroSection />
       <StorySection />
       <MenuSection />
+      <TakeawaySection />
+      <ReviewsSection />
     </main>
   );
 }

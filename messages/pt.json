@@ -44,6 +44,17 @@
       "watermelon": "Melancia"
     }
   },
+  "takeaway": {
+    "title": "Sustentável por Natureza",
+    "subtitle": "Para levar, com consciência.",
+    "p1": "As nossas embalagens de takeaway são totalmente recicláveis. Acreditamos que gelado delicioso e responsabilidade ambiental andam de mãos dadas.",
+    "p2": "Desde a escolha de ingredientes locais até embalagens ecológicas — cada decisão é pensada para o planeta.",
+    "imageAlt": "Embalagem reciclável de gelado artesanal Anara"
+  },
+  "reviews": {
+    "title": "O Que Dizem de Nós",
+    "subtitle": "Avaliações reais. Sabores reais."
+  },
   "footer": {
     "imprint": "Impressum",
     "privacy": "Política de Privacidade",

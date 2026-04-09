@@ -68,10 +68,9 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Static data array in `src/data/flavors.ts` — 12 staple flavors with images, vegan flag, and `flavorOfTheWeek` highlight.
   * Grid: `grid-cols-2` mobile, `md:grid-cols-3`. Hover zoom on images.
   * `rounded-full` badges for Vegan (green) and Gluten-Free (yellow). Note: "All flavors are Gluten-Free except Oreo" shown above grid.
-* [ ] **3.4 Sustainability & Takeaway Section (`#takeaway`):**
-  * Create a dedicated section focusing on eco-conscious operations.
-  * Highlight the recyclable takeaway boxes using dedicated photos.
-  * Ensure the background color provides a warm, soft contrast (e.g., `#FAFAFA`).
+* [x] **3.4 Sustainability & Takeaway Section (`#takeaway`):**
+  * 2-column grid (text left, image right on desktop; image-first on mobile). Recyclable badge with Lucide `Recycle` icon.
+  * Image: `food-cart-exterior-with-anara-branding-sign.jpg` with `rounded-3xl`. Background: `bg-background-primary` (#FAFAFA).
 * [ ] **3.5 Dynamic Data Fetching (Locations & Hours):**
   * Create a Next.js Server Component to fetch dynamic hours/locations.
   * *Method:* Fetch from a "Published to Web" Google Sheet (CSV format) to bypass API keys, OAuth, and GCP requirements, ensuring a flawless handover.
@@ -83,17 +82,15 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Display the dynamically fetched hours clearly with an "Open Now / Closed" visual indicator (using the brand-green or a soft red).
   * Add a dedicated "Private Events & Catering" block below the locations. State that the mobile shop is available for booking and include a `mailto:hello@anaragelado.pt` CTA.
   * *CRITICAL CHECK:* Ensure no mentions, logos, or links to Uber Eats exist anywhere in this section.
-* [ ] **3.7 Social Proof & Reviews Component (`#reviews`):**
-  * Create a static data array (.agent/context/05-content-data.md) containing 3 to 4 handpicked 5-star Google Maps reviews. 
-  * Build an elegant review slider or grid. 
-  * Design: Use the clean, thin typography. Include 5 yellow stars (Lucide icons filled with `#FDDB00`) and the reviewer's first name.
-  * Apply `rounded-2xl` to the review cards and use a very soft shadow (`shadow-sm`) or a thin border to keep the UI warm and minimal.
-* [ ] **3.8 Language selector**
-  * Move the language selector in the desktop version into the footer.In teh mobiel version it should be in the hamburger menu below the ""visit us" button.
-* [ ] **Button hover over effect**
-  * In addition to the current button hover over effect, add a color change from yellow to green.
-* [ ] **Favicon**
-  * Add the favicon. It already exists in the assets folder.
+* [x] **3.7 Social Proof & Reviews Component (`#reviews`):**
+  * Static data in `src/data/reviews.ts` — 4 handpicked 5-star reviews (René Pfitzner, Carolina Mello, Rita Moreira, Kristine Joy Martin).
+  * 2-column grid with `rounded-2xl` cards, `border-gray-100`, `shadow-sm`. 5 filled yellow stars via Lucide `Star` (fill `#FDDB00`).
+* [x] **3.8 Language selector**
+  * Removed `LanguageToggle` from desktop Header. Added to Footer (`hidden lg:flex`). Mobile: remains in hamburger menu below "Visit Us" button.
+* [x] **3.9 Button hover over effect**
+  * Added `hover:bg-brand-green hover:text-white` to all pill-shaped CTA buttons (Header, MobileMenu, HeroSection).
+* [x] **3.10 Favicon**
+  * Copied `public/assets/favicon.ico` to `src/app/favicon.ico` (Next.js App Router metadata convention).
 
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.
