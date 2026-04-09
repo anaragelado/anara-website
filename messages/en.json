@@ -80,7 +80,9 @@
   },
   "reviews": {
     "title": "What People Say",
-    "subtitle": "Real reviews. Real flavors."
+    "subtitle": "Real reviews. Real flavors.",
+    "googleReviews": "Google Reviews",
+    "basedOn": "on Google"
   },
   "footer": {
     "imprint": "Imprint",

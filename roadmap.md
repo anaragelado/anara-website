@@ -97,8 +97,9 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Uses `isOpenNow()` against real hours data (fetched server-side, passed via layout → PageShell → Header).
   * Client-only rendering (deferred until mount) to avoid hydration mismatch. Re-checks every 60 seconds via `setInterval`.
   * Visible on both desktop and mobile viewports (next to logo).
-* [ ] **3.12 Google Review badge**
-  * Add a google review badge to the review section to showcase the full rating. the HQ has 4.7 and the caparica shop has 5 stars.
+* [x] **3.12 Google Review badge**
+  * Two badges between section header and review cards — Charneca (4.7) and Costa (5.0). Each shows Google "G" icon, rating number, star row, and location name.
+  * Badges link to the respective Google Maps listing. `rounded-2xl`, `shadow-sm`, hover lifts to `shadow-md`.
 * [ ] **3.13 Active Section indicator**
   * Add a visual indicator in the nav bar (desktop and mobile) that shows the active section.
 * [ ] **3.14 Font testsite**

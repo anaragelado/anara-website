@@ -80,7 +80,9 @@
   },
   "reviews": {
     "title": "O Que Dizem de Nós",
-    "subtitle": "Avaliações reais. Sabores reais."
+    "subtitle": "Avaliações reais. Sabores reais.",
+    "googleReviews": "Avaliações Google",
+    "basedOn": "no Google"
   },
   "footer": {
     "imprint": "Impressum",
