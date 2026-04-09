@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import SectionWrapper from "@/components/SectionWrapper";
+import FadeIn from "@/components/FadeIn";
 import { Recycle } from "lucide-react";
 
 export default function TakeawaySection() {
@@ -10,7 +11,7 @@ export default function TakeawaySection() {
     <SectionWrapper id="takeaway" className="bg-background-primary">
       <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
         {/* Text column */}
-        <div className="order-2 md:order-1">
+        <FadeIn className="order-2 md:order-1">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-4 py-1.5 text-sm font-medium text-brand-green">
             <Recycle size={16} strokeWidth={1.5} />
             100% Recyclable
@@ -27,10 +28,10 @@ export default function TakeawaySection() {
           <p className="mt-4 text-base leading-relaxed text-text-secondary md:text-lg">
             {t("p2")}
           </p>
-        </div>
+        </FadeIn>
 
         {/* Image column */}
-        <div className="order-1 md:order-2">
+        <FadeIn direction="right" delay={0.15} className="order-1 md:order-2">
           <Image
             src="/assets/images/food-cart-exterior-with-anara-branding-sign.jpg"
             alt={t("imageAlt")}
@@ -38,7 +39,7 @@ export default function TakeawaySection() {
             height={480}
             className="w-full rounded-3xl object-cover"
           />
-        </div>
+        </FadeIn>
       </div>
     </SectionWrapper>
   );

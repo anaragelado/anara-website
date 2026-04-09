@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Leaf } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import FadeIn from "@/components/FadeIn";
 import { flavors } from "@/data/flavors";
 
 export default function MenuSection() {
@@ -10,14 +11,14 @@ export default function MenuSection() {
   return (
     <SectionWrapper id="menu">
       {/* Section header */}
-      <div className="text-center">
+      <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
           {t("title")}
         </h2>
         <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">
           {t("subtitle")}
         </p>
-      </div>
+      </FadeIn>
 
       {/* Gluten-free note */}
       <p className="mt-6 text-center text-sm text-text-secondary">
@@ -25,7 +26,7 @@ export default function MenuSection() {
       </p>
 
       {/* Flavor grid */}
-      <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:gap-8">
+      <FadeIn delay={0.1} className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:gap-8">
         {flavors.map((flavor) => (
           <div key={flavor.id} className="group relative">
             {/* Flavor of the week badge */}
@@ -67,7 +68,7 @@ export default function MenuSection() {
             </div>
           </div>
         ))}
-      </div>
+      </FadeIn>
     </SectionWrapper>
   );
 }

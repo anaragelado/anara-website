@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Star } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import FadeIn from "@/components/FadeIn";
 import { reviews } from "@/data/reviews";
 
 const RATINGS = [
@@ -56,24 +57,24 @@ export default function ReviewsSection() {
 
   return (
     <SectionWrapper id="reviews">
-      <div className="text-center">
+      <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
           {t("title")}
         </h2>
         <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">
           {t("subtitle")}
         </p>
-      </div>
+      </FadeIn>
 
       {/* Google Review badges */}
-      <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+      <FadeIn delay={0.1} className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
         {RATINGS.map((r) => (
           <a
             key={r.location}
             href={r.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-background-secondary px-5 py-3 shadow-sm transition-all duration-300 ease-in-out hover:shadow-md"
+            className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-background-secondary px-5 py-3 shadow-sm transition-all duration-300 ease-in-out hover:border-highlight-pink hover:shadow-md"
           >
             <GoogleIcon />
             <div>
@@ -87,10 +88,10 @@ export default function ReviewsSection() {
             </div>
           </a>
         ))}
-      </div>
+      </FadeIn>
 
       {/* Review cards */}
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <FadeIn delay={0.2} className="mt-10 grid gap-6 md:grid-cols-2">
         {reviews.map((review) => (
           <div
             key={review.name}
@@ -105,7 +106,7 @@ export default function ReviewsSection() {
             </p>
           </div>
         ))}
-      </div>
+      </FadeIn>
     </SectionWrapper>
   );
 }

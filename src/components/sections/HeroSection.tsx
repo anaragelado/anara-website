@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import FadeIn from "@/components/FadeIn";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
@@ -31,7 +32,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* Text overlay */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 text-center md:px-8">
+      <FadeIn className="relative z-10 mx-auto max-w-7xl px-4 text-center md:px-8">
         <h1 className="font-heading text-4xl font-bold tracking-tight text-white md:text-6xl lg:text-7xl">
           {t("headline")}
         </h1>
@@ -44,7 +45,7 @@ export default function HeroSection() {
         >
           {t("cta")}
         </a>
-      </div>
+      </FadeIn>
     </section>
   );
 }

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { MapPin, Mail } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
+import FadeIn from "@/components/FadeIn";
 import { isOpenNow, type Location, type DayHours } from "@/data/locations";
 
 function OpenIndicator({ hours }: { hours: DayHours[] }) {
@@ -99,21 +100,21 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
   return (
     <SectionWrapper id="locations">
       {/* Section header */}
-      <div className="text-center">
+      <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
           {t("title")}
         </h2>
         <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">
           {t("subtitle")}
         </p>
-      </div>
+      </FadeIn>
 
       {/* Mobile toggle */}
       <div className="mt-10 flex justify-center gap-2 md:hidden">
         <button
           type="button"
           onClick={() => setActiveTab("hq")}
-          className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out ${
+          className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:scale-105 ${
             activeTab === "hq"
               ? "bg-brand-yellow text-text-primary"
               : "bg-gray-100 text-text-secondary"
@@ -124,7 +125,7 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
         <button
           type="button"
           onClick={() => setActiveTab("mobile")}
-          className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out ${
+          className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:scale-105 ${
             activeTab === "mobile"
               ? "bg-brand-yellow text-text-primary"
               : "bg-gray-100 text-text-secondary"
@@ -144,14 +145,14 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
       </div>
 
       {/* Desktop: two-column split */}
-      <div className="mt-10 hidden gap-6 md:grid md:grid-cols-2">
+      <FadeIn delay={0.1} className="mt-10 hidden gap-6 md:grid md:grid-cols-2">
         {locations.map((loc) => (
           <LocationCard key={loc.id} location={loc} />
         ))}
-      </div>
+      </FadeIn>
 
       {/* Private Events & Catering */}
-      <div className="mt-12 rounded-2xl border border-gray-100 bg-background-secondary p-6 text-center shadow-sm md:p-8">
+      <FadeIn delay={0.2} className="mt-12 rounded-2xl border border-gray-100 bg-background-secondary p-6 text-center shadow-sm md:p-8">
         <h3 className="font-heading text-xl font-semibold md:text-2xl">
           {t("eventsTitle")}
         </h3>
@@ -165,7 +166,7 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
           <Mail size={16} strokeWidth={1.5} />
           {t("eventsCta")}
         </a>
-      </div>
+      </FadeIn>
     </SectionWrapper>
   );
 }

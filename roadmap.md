@@ -118,31 +118,31 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   ## Phase 4: Secondary Pages & UI Polish
 **Goal:** Build out the required legal/utility pages, apply smooth scroll-triggered animations, and conduct a strict UI audit against the brand guidelines.
 
-* [ ] **4.1 Legal Pages Integration (Imprint & Privacy):**
-  * Create static routes for `app/[lang]/imprint/page.tsx` and `app/[lang]/privacy/page.tsx`.
-  * Wrap content in the global `<SectionWrapper>` to maintain consistent constraints and padding.
-  * Use simple, clean typography (Work Sans) for high readability.
-  * Ensure localization is fully mapped via `next-intl`.
-* [ ] **4.2 Custom 404 Page (`not-found.tsx`):**
-  * Create a custom, brand-aligned 404 page (e.g., a simple message like "Looks like this flavor melted").
-  * Include a pill-shaped `rounded-full` CTA button to return users smoothly to the homepage.
-* [ ] **4.3 GDPR & Cookie Banner Strategy:**
-  * *Compliance Check:* Verify that zero third-party tracking scripts (Google Analytics, Meta Pixel, etc.) are installed. 
-  * If absolutely no tracking scripts are used, **do not build a cookie banner**. This keeps the minimalist UI pristine and is fully GDPR compliant (essential session cookies do not require consent).
-  * If tracking is later added, build a strictly minimalistic banner using `bg-white`, `rounded-2xl` corners, and a subtle drop shadow, placed at the bottom-left of the screen.
-* [ ] **4.4 Framer Motion Implementation (Scroll Reveals):**
-  * Wrap core `<section>` elements and internal grids with `<motion.div>`.
-  * Implement `whileInView` for subtle, elegant reveal animations (e.g., `initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}`).
-  * Configure `viewport={{ once: true, margin: "-100px" }}` so animations only trigger once per session and feel natural as the user scrolls.
-* [ ] **4.5 Micro-Interactions & Hover Polish:**
-  * Apply uniform transitions to all buttons and links (`transition-all duration-300 ease-in-out`).
-  * Implement the secondary Instagram colors (`#8BCF68`, `#DEA361`, `#EA567A`, `#FF7802`) **strictly** as subtle hover effects (e.g., link underlines or text color shifts on hover).
-  * Add a subtle scale effect (`hover:scale-105`) to all pill-shaped buttons.
-* [ ] **4.6 Geometry & "Warmth" UI Audit:**
-  * Conduct a DOM-wide sweep to verify absolutely **zero** sharp corners exist (`rounded-none`).
-  * Ensure all images, map iframes, and cards use `rounded-2xl` or `rounded-3xl`.
-  * Ensure all buttons and badges use `rounded-full`.
-  * Verify text colors are using the warm dark grey (`#1A1A1A`) and not pure black (`#000000`).
+* [x] **4.1 Legal Pages Integration (Imprint & Privacy):**
+  * Imprint: `app/[locale]/imprint/page.tsx` — Company info (business name, address, email, VAT as placeholders), Alternative Dispute Resolution section, WebDesign credit. Full PT/EN i18n.
+  * Privacy: `app/[locale]/privacy/page.tsx` — No-tracking policy, essential cookies only, Google Maps embed disclosure, GDPR rights note, contact. Full PT/EN i18n.
+  * Both wrapped in `<SectionWrapper>`, Work Sans body text, locale-aware footer links updated.
+* [x] **4.2 Custom 404 Page (`not-found.tsx`):**
+  * `app/[locale]/not-found.tsx` — "Looks like this flavor melted" / "Parece que este sabor derreteu". Large `404` in accent font, pill-shaped CTA back to homepage.
+* [x] **4.3 GDPR & Cookie Banner Strategy:**
+  * *Verified:* Zero third-party tracking scripts installed. No Google Analytics, no Meta Pixel, no tracking cookies.
+  * Privacy policy explicitly states: no data collection, essential technical cookies only (language preference).
+  * Only third-party embed: Google Maps iframes (disclosed in privacy policy).
+  * **No cookie banner built** — fully GDPR compliant as-is.
+* [x] **4.4 Framer Motion Implementation (Scroll Reveals):**
+  * Created reusable `<FadeIn>` client component (`src/components/FadeIn.tsx`) with `initial={{ opacity: 0 }}`, `whileInView`, directional slide (`up`/`down`/`left`/`right`), configurable `delay`.
+  * `viewport={{ once: true, margin: "-100px" }}` — animations fire once per session.
+  * Applied to: Hero (text overlay), Story (image left, text right staggered), Menu (header + grid), Takeaway (text + image staggered), Locations (header, desktop grid, events block), Reviews (header, badges, cards).
+* [x] **4.5 Micro-Interactions & Hover Polish:**
+  * All buttons and links confirmed using `transition-all duration-300 ease-in-out`.
+  * Instagram hover colors applied: Footer legal links (`hover:text-highlight-orange`), Imprint email (`hover:text-highlight-sand`), Imprint webdesign link (`hover:text-highlight-green`), Privacy email (`hover:text-highlight-sand`), OpenBadge border (`hover:border-highlight-green`), Review Google badges (`hover:border-highlight-pink`).
+  * All pill-shaped buttons confirmed using `hover:scale-105`. Location tab toggles updated.
+* [x] **4.6 Geometry & "Warmth" UI Audit:**
+  * DOM-wide sweep: zero `rounded-none` found. Zero pure `#000000` or `text-black` usage.
+  * All images use `rounded-2xl` or `rounded-3xl` (or sit inside `overflow-hidden rounded-2xl` containers).
+  * All map iframes wrapped in `overflow-hidden rounded-2xl`. All cards use `rounded-2xl`.
+  * All buttons and badges use `rounded-full`. Text colors use warm dark grey `#1A1A1A` (`text-primary`) throughout.
+  * Only `bg-black/30` is the hero video overlay (30% opacity for text legibility) — correct and intentional.
 
 
   ## Phase 5: Technical SEO, Media & Launch Prep

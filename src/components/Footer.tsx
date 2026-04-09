@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Mail } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 
@@ -24,6 +24,7 @@ function InstagramIcon({ size = 22 }: { size?: number }) {
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
 
   return (
     <footer className="bg-background-secondary">
@@ -56,14 +57,14 @@ export default function Footer() {
           {/* Legal links */}
           <div className="flex items-center gap-6 text-sm text-text-secondary">
             <a
-              href="/imprint"
-              className="min-h-[44px] flex items-center transition-all duration-300 ease-in-out hover:text-text-primary"
+              href={`/${locale}/imprint`}
+              className="min-h-[44px] flex items-center transition-all duration-300 ease-in-out hover:text-highlight-orange"
             >
               {t("imprint")}
             </a>
             <a
-              href="/privacy"
-              className="min-h-[44px] flex items-center transition-all duration-300 ease-in-out hover:text-text-primary"
+              href={`/${locale}/privacy`}
+              className="min-h-[44px] flex items-center transition-all duration-300 ease-in-out hover:text-highlight-orange"
             >
               {t("privacy")}
             </a>

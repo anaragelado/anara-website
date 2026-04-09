@@ -71,7 +71,7 @@ function OpenBadge({ locationHours }: { locationHours: LocationHours[] }) {
   return (
     <a
       href="#locations"
-      className="inline-flex items-center gap-1.5 rounded-full border border-gray-100 px-2.5 py-1 text-xs font-medium transition-all duration-300 ease-in-out hover:border-gray-200"
+      className="inline-flex items-center gap-1.5 rounded-full border border-gray-100 px-2.5 py-1 text-xs font-medium transition-all duration-300 ease-in-out hover:border-highlight-green"
     >
       <span
         className={`h-2 w-2 flex-shrink-0 rounded-full transition-colors duration-300 ${isOpen ? "bg-brand-green animate-pulse" : "bg-red-400"}`}

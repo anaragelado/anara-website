@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import SectionWrapper from "@/components/SectionWrapper";
+import FadeIn from "@/components/FadeIn";
 
 export default function StorySection() {
   const t = useTranslations("story");
@@ -9,7 +10,7 @@ export default function StorySection() {
     <SectionWrapper id="story">
       <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
         {/* Image column */}
-        <div className="relative">
+        <FadeIn direction="left" className="relative">
           <Image
             src="/assets/images/ingredient-fresh-mangoes-crates-overhead.jpg"
             alt={t("imageAlt")}
@@ -25,10 +26,10 @@ export default function StorySection() {
             height={240}
             className="absolute -bottom-6 -right-4 hidden w-40 rounded-2xl shadow-xl shadow-black/5 md:block lg:w-48"
           />
-        </div>
+        </FadeIn>
 
         {/* Text column */}
-        <div>
+        <FadeIn delay={0.15}>
           <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             {t("title")}
           </h2>
@@ -41,7 +42,7 @@ export default function StorySection() {
           <p className="mt-4 text-base leading-relaxed text-text-secondary md:text-lg">
             {t("p2")}
           </p>
-        </div>
+        </FadeIn>
       </div>
     </SectionWrapper>
   );
