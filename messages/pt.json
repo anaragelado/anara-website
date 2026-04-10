@@ -22,7 +22,7 @@
   "story": {
     "title": "Os Melhores Ingredientes",
     "subtitle": "Nada artificial. Nunca.",
-    "p1": "Usamos Baunilha Bourbon de Madagáscar, fruta fresca com 50% a 75% de conteúdo puro, leite e nata reais — e absolutamente zero aditivos artificiais, corantes ou pós.",
+    "p1": "Usamos Baunilha Bourbon de Madagáscar, fruta fresca com 50% a 75% de conteúdo puro, leite e nata reais, e absolutamente zero aditivos artificiais, corantes ou pós.",
     "p2": "Cada sabor é feito à mão em pequenos lotes na nossa cozinha em Charneca de Caparica, onde qualidade significa tudo.",
     "imageAlt": "Ingredientes frescos para gelado artesanal"
   },
@@ -51,15 +51,15 @@
   "takeaway": {
     "title": "Sustentável por Natureza",
     "subtitle": "Para levar, com consciência.",
-    "p1": "As nossas embalagens de takeaway são totalmente recicláveis. Acreditamos que gelado delicioso e responsabilidade ambiental andam de mãos dadas.",
-    "p2": "Desde a escolha de ingredientes locais até embalagens ecológicas — cada decisão é pensada para o planeta.",
+    "p1": "As nossas embalagens de takeaway estão disponíveis em 0,5L e 1L, são totalmente recicláveis e mantêm o seu gelado fresco até casa.",
+    "p2": "Acreditamos que gelado delicioso e responsabilidade ambiental andam de mãos dadas. Desde a escolha de ingredientes locais até embalagens ecológicas, cada decisão é pensada para o planeta.",
     "imageAlt": "Embalagem reciclável de gelado artesanal Anara"
   },
   "locations": {
     "title": "Onde Estamos",
     "subtitle": "Venha visitar-nos.",
-    "hq": "Sede — Charneca",
-    "mobile": "Loja Móvel — Costa",
+    "hq": "Sede · Charneca",
+    "mobile": "Loja Móvel · Costa",
     "openNow": "Aberto agora",
     "closed": "Fechado",
     "hours": "Horário",

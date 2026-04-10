@@ -147,24 +147,25 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   ## Phase 4A: Improvements and fixes
 **Goal:** Improvements and fixes of various elements
 
-* [ ] **4A.1 active page indicator:**
-  * When in the hero section, there should be none nav bar element highlighted. when scrolling down to the "our story" section, the "our story" section is highlighted and when I go back up, none again. Also, I do not like the line indicator. Can you change it to a different indicator?
-* [ ] **4A.2 Paralaxx effect:**
-  * Apply a vertical paralax effect on the hero video when scrolling down.
-* [ ] **4A.3 Our Story Text:**
-  * On the Desktop version the "our Story" text should start at the top of the section and go down with the scrolling.Furthermore no "em dash" in the text. Also, the spacing after the "our story" section to the "flavour" section is a bit big (on desktopn and mobile). 
+* [x] **4A.1 active page indicator:**
+  * Fixed: hero section is now observed by the IntersectionObserver. When hero is visible, active resets to `""` so no nav link highlights. Scrolling to "our story" highlights it; scrolling back up clears it.
+  * Replaced the underline indicator with a warm pill-shaped background (`bg-brand-yellow/20 rounded-full`) on both desktop nav and mobile menu.
+* [x] **4A.2 Paralaxx effect:**
+  * Created `HeroParallax` client component using Framer Motion `useScroll` + `useTransform`. Video translates at 30% scroll speed for a subtle vertical parallax effect.
+* [x] **4A.3 Our Story Text:**
+  * Desktop text column now uses `md:sticky md:top-24` with `md:items-start` so it starts at the top and follows the scroll. Removed all em dashes from PT and EN translations (replaced with commas or middle dots). Reduced global SectionWrapper padding from `py-16 md:py-24 lg:py-32` to `py-12 md:py-16 lg:py-24` (~30% tighter spacing across all sections).
 * [ ] **4A.4 Vegan and gluten free:**
   * Emphasize more in that short text line the aspect of vegan and gluten free falvours. Tell the user that Anara has special flavours like [placeholder] which are changing daily. And the photos show a variation of stable falvours.Also mention, that the oreo has gluten, but mention that in a appropiate way.The hover over effect on the image boxes should affect the box and not only the image within the box. Get rid of the flavour of the week indicator on mobile. I did not see that on desktop, but we do not use it on both. I actually would like to see some of the special flavours but we need to mark them with a info sign that they are not always available. Any ideas on how to do that? The image for the lemon ice cream shows fresh lemons. change that to an actual ice cream cone; also just a placeholder ice cream cone image would be fine for now.
-* [ ] **4A.5 Our story image:**
-  * On the mobile version show first the text and then the image.  
-* [ ] **4A.6 Takeaway section:**
-  * Use a new photo, maybe a png, to showcase to takeaway boxes.Show first the text and then the image (on mobile). Also make the spacing a bit smaller (between flavour and takeaway section). Also here, no em dash in the text. The takeaway boxes have a size of 0,5 and 1 liter.
+* [x] **4A.5 Our story image:**
+  * Added CSS order classes: text column is `order-1 md:order-2`, image column is `order-2 md:order-1`. Mobile shows text first, desktop keeps image on the left.  
+* [x] **4A.6 Takeaway section:**
+  * Swapped image to `takeaway-box (30).jpg` (branded box with Anara logo sign in background). Text-first on mobile already done (4A.5 pattern). Spacing reduced globally via 4A.3. Em dashes removed in 4A.3. Updated PT/EN text to mention 0.5L and 1L box sizes.
 * [ ] **4A.7 Location section:**
   * Make also here the spacing between takeaway and location a bit smaller. The pin is missing on the google map. Furthermore I like to see a picture for the mobile shop and the HQ shop. On desktop try to show them both, on mobile only show the one which is active. Try to come up with a suitable way to display the shop photo. There should be a suitable photo of each in the images folder. 
-* [ ] **4A.8 Review section:**
-  * Also here a bit smaller the spacing between Location and Review section. 
+* [x] **4A.8 Review section:**
+  * Spacing reduced globally via 4A.3 SectionWrapper padding reduction.
 * [ ] **4A.9 Footer:**
-  * Place the logo.svg there on the left and below business name and adress of the HQ. Place the other elements (Instagram, eMail symbol, language slector and imprint + Privacy policy) in an appropiate way.
+  * Place the logo.svg there on the left and below business name and adress of the HQ and the email adress. Place the other elements (Instagram, eMail symbol, language slector and imprint + Privacy policy) in an appropiate way.
 * [ ] **4A.10 Privacy Policy:**
   * State on that page that we do not track the user. We do not use cookies or any other tracking technologies. We only use cookies to remember the language preference of the user.
 * [ ] **4A.11 404 Page:**

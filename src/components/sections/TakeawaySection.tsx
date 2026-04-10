@@ -33,7 +33,7 @@ export default function TakeawaySection() {
         {/* Image column */}
         <FadeIn direction="right" delay={0.15} className="order-1 md:order-2">
           <Image
-            src="/assets/images/food-cart-exterior-with-anara-branding-sign.jpg"
+            src="/assets/images/takeaway-box (30).jpg"
             alt={t("imageAlt")}
             width={640}
             height={480}

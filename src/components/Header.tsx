@@ -122,16 +122,13 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
             <a
               key={id}
               href={`#${id}`}
-              className={`relative text-sm font-medium transition-all duration-300 ease-in-out hover:text-brand-green ${
-                activeSection === id ? "text-brand-green" : "text-text-primary"
+              className={`transition-all duration-300 ease-in-out hover:text-brand-green ${
+                activeSection === id
+                  ? "text-base font-bold text-brand-green"
+                  : "text-sm font-medium text-text-primary"
               }`}
             >
               {t(key)}
-              <span
-                className={`absolute -bottom-1 left-0 h-0.5 rounded-full bg-brand-green transition-all duration-300 ${
-                  activeSection === id ? "w-full" : "w-0"
-                }`}
-              />
             </a>
           ))}
         </nav>

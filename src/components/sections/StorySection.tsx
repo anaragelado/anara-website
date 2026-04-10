@@ -8,9 +8,9 @@ export default function StorySection() {
 
   return (
     <SectionWrapper id="story">
-      <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+      <div className="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
         {/* Image column */}
-        <FadeIn direction="left" className="relative">
+        <FadeIn direction="left" className="relative order-2 md:order-1">
           <Image
             src="/assets/images/ingredient-fresh-mangoes-crates-overhead.jpg"
             alt={t("imageAlt")}
@@ -29,7 +29,7 @@ export default function StorySection() {
         </FadeIn>
 
         {/* Text column */}
-        <FadeIn delay={0.15}>
+        <FadeIn delay={0.15} className="order-1 md:sticky md:top-24 md:order-2">
           <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             {t("title")}
           </h2>

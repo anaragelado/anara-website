@@ -50,8 +50,10 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
                 key={id}
                 href={`#${id}`}
                 onClick={onClose}
-                className={`flex min-h-[44px] min-w-[44px] items-center justify-center px-6 py-3 text-xl font-medium transition-all duration-300 ease-in-out hover:text-brand-green ${
-                  activeSection === id ? "text-brand-green" : "text-text-primary"
+                className={`flex min-h-[44px] min-w-[44px] items-center justify-center px-6 py-3 transition-all duration-300 ease-in-out hover:text-brand-green ${
+                  activeSection === id
+                    ? "text-2xl font-bold text-brand-green"
+                    : "text-xl font-medium text-text-primary"
                 }`}
               >
                 {t(key)}

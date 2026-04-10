@@ -1,32 +1,36 @@
 import { useTranslations } from "next-intl";
 import FadeIn from "@/components/FadeIn";
+import HeroParallax from "@/components/HeroParallax";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
     <section id="hero" className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* Mobile video (9:16 vertical) */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover md:hidden"
-        src="/assets/videos/hero-video-smartphone.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      />
+      {/* Parallax video layer */}
+      <HeroParallax>
+        {/* Mobile video (9:16 vertical) */}
+        <video
+          className="h-full w-full object-cover md:hidden"
+          src="/assets/videos/hero-video-smartphone.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
 
-      {/* Desktop video (16:9 landscape) */}
-      <video
-        className="absolute inset-0 hidden h-full w-full object-cover md:block"
-        src="/assets/videos/hero-video-desktop.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-      />
+        {/* Desktop video (16:9 landscape) */}
+        <video
+          className="hidden h-full w-full object-cover md:block"
+          src="/assets/videos/hero-video-desktop.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+      </HeroParallax>
 
       {/* Dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/30" />
