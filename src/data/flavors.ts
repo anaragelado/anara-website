@@ -3,7 +3,7 @@ export interface Flavor {
   image: string;
   imageAlt: string;
   vegan: boolean;
-  flavorOfTheWeek?: boolean;
+  isSpecial?: boolean;
 }
 
 export const flavors: Flavor[] = [
@@ -30,6 +30,7 @@ export const flavors: Flavor[] = [
     image: "/assets/images/promo-card-mascarpone-mango-passionfruit-gelato.webp",
     imageAlt: "Gelado artesanal de manga",
     vegan: true,
+    isSpecial: true,
   },
   {
     id: "vanilla-bourbon",
@@ -42,11 +43,11 @@ export const flavors: Flavor[] = [
     image: "/assets/images/promo-card-pastel-de-nata-gelato-single-scoop.webp",
     imageAlt: "Gelado artesanal de pastel de nata",
     vegan: false,
-    flavorOfTheWeek: true,
+    isSpecial: true,
   },
   {
     id: "lemon",
-    image: "/assets/images/ingredient-lemons-sliced-fresh-closeup.jpg",
+    image: "/assets/images/ice-cream-cone-lemon-brown-background.jpeg",
     imageAlt: "Gelado artesanal de limão",
     vegan: true,
   },

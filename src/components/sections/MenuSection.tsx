@@ -20,21 +20,15 @@ export default function MenuSection() {
         </p>
       </FadeIn>
 
-      {/* Gluten-free note */}
-      <p className="mt-6 text-center text-sm text-text-secondary">
-        {t("glutenFreeNote")}
+      {/* Description */}
+      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-text-secondary md:text-base">
+        {t("description")}
       </p>
 
       {/* Flavor grid */}
       <FadeIn delay={0.1} className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6 lg:gap-8">
         {flavors.map((flavor) => (
-          <div key={flavor.id} className="group relative">
-            {/* Flavor of the week badge */}
-            {flavor.flavorOfTheWeek && (
-              <span className="absolute -top-2 left-1/2 z-10 -translate-x-1/2 rounded-full bg-brand-yellow px-4 py-1 text-xs font-semibold text-text-primary shadow-sm">
-                {t("flavorOfTheWeek")}
-              </span>
-            )}
+          <div key={flavor.id} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
 
             {/* Image */}
             <div className="relative aspect-square overflow-hidden rounded-2xl">
@@ -43,7 +37,7 @@ export default function MenuSection() {
                 alt={flavor.imageAlt}
                 fill
                 sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover"
               />
             </div>
 

@@ -35,10 +35,10 @@
   "menu": {
     "title": "Our Flavors",
     "subtitle": "Handcrafted. Always fresh.",
-    "flavorOfTheWeek": "Flavor of the Week",
+    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple ice cream flavors. Find daily specials like Pastel de Nata at our Costa da Caparica and Charneca da Caparica locations. All flavors are naturally gluten-free except for Cookies and Cream.",
     "vegan": "Vegan",
     "glutenFree": "Gluten-Free",
-    "glutenFreeNote": "All flavors are Gluten-Free except Oreo.",
+    "specialFlavor": "Special Daily Flavor",
     "flavors": {
       "belgian-chocolate": "Belgian Chocolate",
       "salted-pistachio": "Salted Pistachio",

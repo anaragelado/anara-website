@@ -154,7 +154,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Created `HeroParallax` client component using Framer Motion `useScroll` + `useTransform`. Video translates at 30% scroll speed for a subtle vertical parallax effect.
 * [x] **4A.3 Our Story Text:**
   * Desktop text column now uses `md:sticky md:top-24` with `md:items-start` so it starts at the top and follows the scroll. Removed all em dashes from PT and EN translations (replaced with commas or middle dots). Reduced global SectionWrapper padding from `py-16 md:py-24 lg:py-32` to `py-12 md:py-16 lg:py-24` (~30% tighter spacing across all sections).
-* [ ] **4A.4 Vegan and gluten free:**
+* [x] **4A.4 Vegan and gluten free:**
   * Emphasize more in that short text line the aspect of vegan and gluten free falvours. Tell the user that Anara has special flavours like [placeholder] which are changing daily. And the photos show a variation of stable falvours.Also mention, that the oreo has gluten, but mention that in a appropiate way.The hover over effect on the image boxes should affect the box and not only the image within the box. Get rid of the flavour of the week indicator on mobile. I did not see that on desktop, but we do not use it on both. I actually would like to see some of the special flavours but we need to mark them with a info sign that they are not always available. Any ideas on how to do that? The image for the lemon ice cream shows fresh lemons. change that to an actual ice cream cone; also just a placeholder ice cream cone image would be fine for now.
 * [x] **4A.5 Our story image:**
   * Added CSS order classes: text column is `order-1 md:order-2`, image column is `order-2 md:order-1`. Mobile shows text first, desktop keeps image on the left.  
