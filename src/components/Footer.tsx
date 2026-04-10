@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Mail } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
@@ -29,10 +30,46 @@ export default function Footer() {
   return (
     <footer className="bg-background-secondary">
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
-        {/* Top row: social links + legal links */}
-        <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
-          {/* Social / Contact */}
-          <div className="flex items-center gap-6">
+        {/* === Mobile layout (stacked, centered) === */}
+        <div className="flex flex-col items-center gap-8 text-center md:hidden">
+          <Image
+            src="/assets/logo.svg"
+            alt="Anara Gelado Artesanal"
+            width={240}
+            height={80}
+            className="h-20 w-auto"
+          />
+          <div>
+            <p className="text-sm font-bold text-text-primary">
+              Anara Gelado Artesanal
+            </p>
+            <p className="mt-1 text-sm text-text-secondary">
+              Estrada da Bela Vista 144
+              <br />
+              2820-166 Charneca de Caparica
+            </p>
+            <a
+              href="mailto:hello@anaragelado.pt"
+              className="mt-2 inline-block text-sm text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand"
+            >
+              hello@anaragelado.pt
+            </a>
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <a
+              href={`/${locale}/imprint`}
+              className="min-h-[44px] flex items-center text-sm text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-orange"
+            >
+              {t("imprint")}
+            </a>
+            <a
+              href={`/${locale}/privacy`}
+              className="min-h-[44px] flex items-center text-sm text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-orange"
+            >
+              {t("privacy")}
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
             <a
               href="https://www.instagram.com/anara.geladoartesanal"
               target="_blank"
@@ -50,24 +87,80 @@ export default function Footer() {
               <Mail size={22} strokeWidth={1.5} />
             </a>
           </div>
+          <LanguageToggle />
+        </div>
 
-          {/* Language Toggle (desktop only — mobile version is in hamburger menu) */}
-          <LanguageToggle className="hidden lg:flex" />
+        {/* === Desktop layout === */}
+        <div className="hidden md:block">
+          {/* Top row: centered logo */}
+          <div className="flex justify-center">
+            <Image
+              src="/assets/logo.svg"
+              alt="Anara Gelado Artesanal"
+              width={260}
+              height={88}
+              className="h-22 w-auto"
+            />
+          </div>
 
-          {/* Legal links */}
-          <div className="flex items-center gap-6 text-sm text-text-secondary">
-            <a
-              href={`/${locale}/imprint`}
-              className="min-h-[44px] flex items-center transition-all duration-300 ease-in-out hover:text-highlight-orange"
-            >
-              {t("imprint")}
-            </a>
-            <a
-              href={`/${locale}/privacy`}
-              className="min-h-[44px] flex items-center transition-all duration-300 ease-in-out hover:text-highlight-orange"
-            >
-              {t("privacy")}
-            </a>
+          {/* Middle row: three columns, all top-aligned */}
+          <div className="mt-10 grid grid-cols-3 gap-8 items-start text-sm">
+            {/* Col 1: Address + email */}
+            <div>
+              <p className="font-bold text-text-primary">
+                Anara Gelado Artesanal
+              </p>
+              <p className="mt-1 text-text-secondary leading-relaxed">
+                Estrada da Bela Vista 144
+                <br />
+                2820-166 Charneca de Caparica
+              </p>
+              <a
+                href="mailto:hello@anaragelado.pt"
+                className="mt-2 inline-block text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand"
+              >
+                hello@anaragelado.pt
+              </a>
+            </div>
+
+            {/* Col 2: Legal pages + language toggle */}
+            <div className="flex flex-col items-center">
+              <a
+                href={`/${locale}/imprint`}
+                className="text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-orange"
+              >
+                {t("imprint")}
+              </a>
+              <a
+                href={`/${locale}/privacy`}
+                className="mt-1 text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-orange"
+              >
+                {t("privacy")}
+              </a>
+              <div className="mt-4">
+                <LanguageToggle />
+              </div>
+            </div>
+
+            {/* Col 3: Social icons */}
+            <div className="flex items-start justify-end gap-3">
+              <a
+                href="https://www.instagram.com/anara.geladoartesanal"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={t("instagram")}
+                className="flex min-h-[44px] min-w-[44px] items-center justify-center text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-pink"
+              >
+                <InstagramIcon size={22} />
+              </a>
+              <a
+                href="mailto:hello@anaragelado.pt"
+                aria-label={t("email")}
+                className="flex min-h-[44px] min-w-[44px] items-center justify-center text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-sand"
+              >
+                <Mail size={22} strokeWidth={1.5} />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -78,14 +171,13 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-4 text-xs text-text-secondary md:flex-row md:justify-between">
           <p>&copy; {new Date().getFullYear()} Anara Gelado Artesanal</p>
 
-          {/* Webmaster Backlink (2.6) — bottom-center mobile, bottom-right desktop */}
           <p className="text-center md:text-right">
             {t("webdesign")}{" "}
             <a
               href="https://www.videometrixs.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-brand-green"
+              className="font-medium text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-green"
             >
               VideoMetrixs
             </a>

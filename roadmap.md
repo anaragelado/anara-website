@@ -164,8 +164,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Make also here the spacing between takeaway and location a bit smaller. The pin is missing on the google map. Furthermore I like to see a picture for the mobile shop and the HQ shop. On desktop try to show them both, on mobile only show the one which is active. Try to come up with a suitable way to display the shop photo. There should be a suitable photo of each in the images folder. 
 * [x] **4A.8 Review section:**
   * Spacing reduced globally via 4A.3 SectionWrapper padding reduction.
-* [ ] **4A.9 Footer:**
-  * Place the logo.svg there on the left and below business name and adress of the HQ and the email adress. Place the other elements (Instagram, eMail symbol, language slector and imprint + Privacy policy) in an appropiate way.
+* [x] **4A.9 Footer:**
+  * Redesigned two-column layout. Left: logo, "Anara Gelado Artesanal", HQ address (two lines), email link. Right: social icons (Instagram + Mail), legal links (Imprint + Privacy), language toggle (now visible on all screen sizes). Bottom: copyright + VideoMetrixs backlink. Mobile stacks vertically (left-aligned).
 * [x] **4A.10 Privacy Policy:**
   * Sharpened language in PT/EN: intro now opens with "We do not track you." Collection section leads with "We do not track you in any way." Cookies section explicitly states the only cookie is for language preference (Portuguese or English), no tracking cookies.
 * [x] **4A.11 404 Page:**

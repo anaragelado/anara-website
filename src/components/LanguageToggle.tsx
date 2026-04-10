@@ -35,7 +35,7 @@ export default function LanguageToggle({ className = "" }: LanguageToggleProps) 
           <button
             type="button"
             onClick={() => switchLocale(loc)}
-            className={`min-h-[44px] min-w-[44px] flex items-center justify-center transition-all duration-300 ease-in-out ${
+            className={`min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer transition-all duration-300 ease-in-out ${
               locale === loc
                 ? "text-text-primary font-semibold"
                 : "text-text-secondary hover:text-brand-green"
