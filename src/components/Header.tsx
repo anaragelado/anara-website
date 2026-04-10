@@ -138,7 +138,7 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-background-secondary transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 bg-background-secondary transition-shadow duration-300 ${
         scrolled ? "shadow-xl shadow-black/5" : ""
       }`}
     >

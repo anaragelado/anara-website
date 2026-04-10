@@ -25,9 +25,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="pt"
-      className={`${workSans.variable} ${playfairDisplay.variable} ${amaticSC.variable} h-full antialiased`}
+      className={`${workSans.variable} ${playfairDisplay.variable} ${amaticSC.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background-primary text-text-primary font-body">
+      <body className="min-h-dvh flex flex-col overscroll-y-none bg-background-primary text-text-primary font-body">
         {children}
       </body>
     </html>

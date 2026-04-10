@@ -72,6 +72,8 @@ export default function PageShell({ children, locationHours }: PageShellProps) {
         locationHours={locationHours}
         activeSection={activeSection}
       />
+      {/* Spacer for fixed header — hero bleeds behind it via negative margin */}
+      <div className="h-16" aria-hidden="true" />
       <MobileMenu
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}

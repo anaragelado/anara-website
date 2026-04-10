@@ -14,7 +14,7 @@ export default function SectionWrapper({
   as: Element = "section",
 }: SectionWrapperProps) {
   return (
-    <Element id={id} className={`py-12 md:py-16 lg:py-24 ${className}`}>
+    <Element id={id} className={`scroll-mt-16 py-12 md:py-16 lg:py-24 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 md:px-8">{children}</div>
     </Element>
   );
