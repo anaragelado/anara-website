@@ -12,6 +12,12 @@
     "openAll": "Aberto",
     "openHq": "Charneca Aberto",
     "openMobile": "Costa Aberto",
+    "closingSoonAll": "Fecha em breve",
+    "closingSoonHq": "Charneca Fecha em breve",
+    "closingSoonMobile": "Costa Fecha em breve",
+    "openSoonAll": "Abre em breve",
+    "openSoonHq": "Charneca Abre em breve",
+    "openSoonMobile": "Costa Abre em breve",
     "closedNow": "Fechado"
   },
   "hero": {
@@ -61,6 +67,8 @@
     "hq": "Sede · Charneca",
     "mobile": "Loja Móvel · Costa",
     "openNow": "Aberto agora",
+    "closingSoon": "Fecha em breve",
+    "openSoon": "Abre em breve",
     "closed": "Fechado",
     "hours": "Horário",
     "getDirections": "Como chegar",

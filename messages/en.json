@@ -12,6 +12,12 @@
     "openAll": "Open",
     "openHq": "Charneca Open",
     "openMobile": "Costa Open",
+    "closingSoonAll": "Closing soon",
+    "closingSoonHq": "Charneca Closing soon",
+    "closingSoonMobile": "Costa Closing soon",
+    "openSoonAll": "Open soon",
+    "openSoonHq": "Charneca Open soon",
+    "openSoonMobile": "Costa Open soon",
     "closedNow": "Closed"
   },
   "hero": {
@@ -61,6 +67,8 @@
     "hq": "Headquarters · Charneca",
     "mobile": "Mobile Shop · Costa",
     "openNow": "Open now",
+    "closingSoon": "Closing soon",
+    "openSoon": "Open soon",
     "closed": "Closed",
     "hours": "Hours",
     "getDirections": "Get directions",

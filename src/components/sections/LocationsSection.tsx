@@ -5,18 +5,30 @@ import { useTranslations } from "next-intl";
 import { MapPin, Mail } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
-import { isOpenNow, type Location, type DayHours } from "@/data/locations";
+import { getLocationStatus, type Location, type DayHours } from "@/data/locations";
 
 function OpenIndicator({ hours }: { hours: DayHours[] }) {
   const t = useTranslations("locations");
-  const open = isOpenNow(hours);
+  const status = getLocationStatus(hours);
+
+  const dotClass = {
+    open: "bg-brand-green",
+    closingSoon: "bg-brand-yellow animate-pulse",
+    openSoon: "bg-brand-yellow",
+    closed: "bg-red-400",
+  }[status];
+
+  const labelKey = {
+    open: "openNow",
+    closingSoon: "closingSoon",
+    openSoon: "openSoon",
+    closed: "closed",
+  }[status];
 
   return (
     <span className="inline-flex items-center gap-1.5 text-sm font-medium">
-      <span
-        className={`h-2 w-2 rounded-full ${open ? "bg-brand-green" : "bg-red-400"}`}
-      />
-      {open ? t("openNow") : t("closed")}
+      <span className={`h-2 w-2 rounded-full ${dotClass}`} />
+      {t(labelKey)}
     </span>
   );
 }

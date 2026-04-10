@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -20,6 +21,22 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ open, onClose, activeSection }: MobileMenuProps) {
   const t = useTranslations("nav");
+
+  /** Close the menu first, then scroll to the target after the exit animation finishes. */
+  const navigateTo = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+      e.preventDefault();
+      onClose();
+      // Wait for the exit animation (300ms) to complete before scrolling
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 350);
+    },
+    [onClose],
+  );
 
   return (
     <AnimatePresence>
@@ -49,7 +66,7 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
               <a
                 key={id}
                 href={`#${id}`}
-                onClick={onClose}
+                onClick={(e) => navigateTo(e, id)}
                 className={`flex min-h-[44px] min-w-[44px] items-center justify-center px-6 py-3 transition-all duration-300 ease-in-out hover:text-brand-green ${
                   activeSection === id
                     ? "text-2xl font-bold text-brand-green"
@@ -62,7 +79,7 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
 
             <a
               href="#locations"
-              onClick={onClose}
+              onClick={(e) => navigateTo(e, "locations")}
               className="mt-4 rounded-full bg-brand-yellow px-8 py-3 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
             >
               {t("visitUs")}

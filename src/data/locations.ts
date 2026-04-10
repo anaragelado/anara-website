@@ -55,25 +55,55 @@ export const locations: Location[] = [
   },
 ];
 
+export type LocationStatus = "open" | "closingSoon" | "openSoon" | "closed";
+
+/** Get the current time in Lisbon as total minutes and today's hours entry. */
+function getLisbonContext(hours: DayHours[]) {
+  const now = new Date(
+    new Date().toLocaleString("en-US", { timeZone: "Europe/Lisbon" })
+  );
+  const dayMap = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const today = hours.find((h) => h.day === dayMap[now.getDay()]);
+  const currentMinutes = now.getHours() * 60 + now.getMinutes();
+  return { today, currentMinutes };
+}
+
 /**
  * Check if a location is currently open based on its hours and the current
  * time in the Lisbon timezone (Europe/Lisbon).
  */
 export function isOpenNow(hours: DayHours[]): boolean {
-  const now = new Date(
-    new Date().toLocaleString("en-US", { timeZone: "Europe/Lisbon" })
-  );
-  const dayIndex = now.getDay(); // 0=Sun
-  const dayMap = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const today = hours.find((h) => h.day === dayMap[dayIndex]);
+  return getLocationStatus(hours) === "open" || getLocationStatus(hours) === "closingSoon";
+}
 
-  if (!today || today.open === "Closed") return false;
+/**
+ * Returns a granular status for a location:
+ * - "open": currently open, more than 30 min until close
+ * - "closingSoon": currently open, 30 min or less until close
+ * - "openSoon": currently closed, opens within 1 hour
+ * - "closed": closed and not opening within 1 hour
+ */
+export function getLocationStatus(hours: DayHours[]): LocationStatus {
+  const { today, currentMinutes } = getLisbonContext(hours);
+
+  if (!today || today.open === "Closed") return "closed";
 
   const [openH, openM] = today.open.split(":").map(Number);
   const [closeH, closeM] = today.close.split(":").map(Number);
-  const currentMinutes = now.getHours() * 60 + now.getMinutes();
   const openMinutes = openH * 60 + openM;
   const closeMinutes = closeH * 60 + closeM;
 
-  return currentMinutes >= openMinutes && currentMinutes < closeMinutes;
+  if (currentMinutes >= openMinutes && currentMinutes < closeMinutes) {
+    // Currently open
+    const minutesUntilClose = closeMinutes - currentMinutes;
+    return minutesUntilClose <= 30 ? "closingSoon" : "open";
+  }
+
+  // Currently closed — check if opening soon
+  if (currentMinutes < openMinutes) {
+    const minutesUntilOpen = openMinutes - currentMinutes;
+    return minutesUntilOpen <= 60 ? "openSoon" : "closed";
+  }
+
+  return "closed";
 }
