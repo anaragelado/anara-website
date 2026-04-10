@@ -1,7 +1,26 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
+import StorySlider from "@/components/StorySlider";
+
+const storyImages = [
+  {
+    src: "/assets/images/ingredient-lemon-tree-with-ripe-fruits-01.jpg",
+    alt: "Lemon tree with ripe fruits",
+  },
+  {
+    src: "/assets/images/ingredient-fresh-mangoes-crates-overhead.jpg",
+    alt: "Fresh mangoes in wooden crates",
+  },
+  {
+    src: "/assets/images/ingredient-fresh-lemons-crate-overhead-01.jpg",
+    alt: "Fresh lemons in a crate",
+  },
+  {
+    src: "/assets/images/product-double-scoop-strawberry-vanilla-cone.jpg",
+    alt: "Artisanal ice cream cone with strawberry and vanilla",
+  },
+];
 
 export default function StorySection() {
   const t = useTranslations("story");
@@ -9,23 +28,9 @@ export default function StorySection() {
   return (
     <SectionWrapper id="story">
       <div className="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
-        {/* Image column */}
-        <FadeIn direction="left" className="relative order-2 md:order-1">
-          <Image
-            src="/assets/images/ingredient-fresh-mangoes-crates-overhead.jpg"
-            alt={t("imageAlt")}
-            width={640}
-            height={480}
-            className="w-full rounded-3xl object-cover"
-          />
-          {/* Small accent image overlapping */}
-          <Image
-            src="/assets/images/product-double-scoop-chocolate-strawberry-cone.jpg"
-            alt="Gelado artesanal de chocolate e morango"
-            width={240}
-            height={240}
-            className="absolute -bottom-6 -right-4 hidden w-40 rounded-2xl shadow-xl shadow-black/5 md:block lg:w-48"
-          />
+        {/* Image slider column */}
+        <FadeIn direction="left" className="order-2 md:order-1">
+          <StorySlider images={storyImages} interval={5000} />
         </FadeIn>
 
         {/* Text column */}

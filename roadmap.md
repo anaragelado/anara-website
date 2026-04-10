@@ -170,7 +170,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Sharpened language in PT/EN: intro now opens with "We do not track you." Collection section leads with "We do not track you in any way." Cookies section explicitly states the only cookie is for language preference (Portuguese or English), no tracking cookies.
 * [x] **4A.11 404 Page:**
   * Redesigned with animated melting ice cream cone SVG (pink scoop with dripping animation, waffle cone, puddle). Playful copy: "This scoop hit the floor!" / "We searched the entire farm..." / "Don't cry over dropped gelato." CTA: "Back to the cone." Full PT/EN translations.
-* [ ] **4A.12 Our Story part two:**
+* [x] **4A.12 Our Story part two:**
   * Improve the text. Emphasize the farm to cone aspect more. Fresh fruits and ingredients. No artificial additives. So, the thing that bothers me with the current text is the beginning with the bourbon vanilla. The rest is not too bad and also the lenght is pretty good. So maybe we do only need a fine tuning. For the image I would like to see another approach. Maybe a slider that changes to iamges? showing a tree with the fruits, fresh fruites in a crate, an extraciton and then a finished cone. Or are there any other ways to show this off a bit nicer? I would like to see that solution on desktop and mobile.
 
   ## Phase 5: Technical SEO, Media & Launch Prep
