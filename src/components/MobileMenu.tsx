@@ -27,13 +27,17 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
     (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
       e.preventDefault();
       onClose();
-      // Wait for the exit animation (300ms) to complete before scrolling
+      // Wait for the exit animation (300ms) to complete before scrolling.
+      // Use window.scrollTo instead of scrollIntoView to avoid scrolling
+      // intermediate containers, which can displace the sticky header.
       setTimeout(() => {
         const el = document.getElementById(targetId);
         if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
+          const headerOffset = 64;
+          const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+          window.scrollTo({ top, behavior: "smooth" });
         }
-      }, 350);
+      }, 400);
     },
     [onClose],
   );
