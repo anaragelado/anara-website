@@ -110,11 +110,11 @@
     "title": "Política de Privacidade",
     "lastUpdated": "Última atualização: Abril 2026",
     "introTitle": "Introdução",
-    "introText": "A Anara Gelado Artesanal (\"nós\") respeita a sua privacidade. Esta política explica como tratamos os dados quando visita o nosso website.",
+    "introText": "A Anara Gelado Artesanal (\"nós\") respeita a sua privacidade. Não o rastreamos. Esta política explica como tratamos os dados quando visita o nosso website.",
     "collectionTitle": "Dados que Recolhemos",
-    "collectionText": "Este website não utiliza cookies de rastreamento, scripts de análise (Google Analytics, Meta Pixel, etc.), nem quaisquer ferramentas de rastreamento de terceiros. Não recolhemos, armazenamos nem processamos quaisquer dados pessoais através deste website.",
+    "collectionText": "Não o rastreamos de forma alguma. Este website não utiliza scripts de análise (Google Analytics, Meta Pixel, etc.), cookies de rastreamento, nem quaisquer outras tecnologias de rastreamento. Não recolhemos, armazenamos nem processamos quaisquer dados pessoais através deste website.",
     "cookiesTitle": "Cookies",
-    "cookiesText": "Este website utiliza apenas cookies técnicos essenciais necessários para o funcionamento básico (como preferência de idioma). Estes cookies não requerem consentimento ao abrigo do RGPD, pois são estritamente necessários para prestar o serviço que solicitou.",
+    "cookiesText": "Este website não utiliza cookies de rastreamento. O único cookie que utilizamos serve para memorizar a sua preferência de idioma (Português ou Inglês). Trata-se de um cookie estritamente necessário que não requer consentimento ao abrigo do RGPD.",
     "thirdPartyTitle": "Serviços de Terceiros",
     "thirdPartyText": "Este website incorpora Google Maps nas secções de localização. Ao visualizar estas secções, o seu navegador pode estabelecer uma ligação direta com os servidores da Google. Para mais informações, consulte a Política de Privacidade da Google.",
     "contactTitle": "Contacto",
@@ -125,9 +125,10 @@
     "backHome": "Voltar à página inicial"
   },
   "notFound": {
-    "title": "Parece que este sabor derreteu",
-    "subtitle": "A página que procura não existe.",
-    "cta": "Voltar ao início"
+    "title": "Esta bola caiu no chão!",
+    "subtitle": "Procurámos por toda a quinta, mas esta página não foi encontrada. Talvez tenha derretido ao sol.",
+    "hint": "Não chore por gelado derramado.",
+    "cta": "Voltar ao cone"
   },
   "footer": {
     "imprint": "Impressum",

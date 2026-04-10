@@ -159,17 +159,17 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **4A.5 Our story image:**
   * Added CSS order classes: text column is `order-1 md:order-2`, image column is `order-2 md:order-1`. Mobile shows text first, desktop keeps image on the left.  
 * [x] **4A.6 Takeaway section:**
-  * Swapped image to `takeaway-box (30).jpg` (branded box with Anara logo sign in background). Text-first on mobile already done (4A.5 pattern). Spacing reduced globally via 4A.3. Em dashes removed in 4A.3. Updated PT/EN text to mention 0.5L and 1L box sizes.
+  * Swapped image to `takeaway-box (30).jpg` (branded box with Anara logo sign in background). Text-first on mobile already done (4A.5 pattern). Spacing reduced globally via 4A.3. Em dashes removed in 4A.3. Updated PT/EN text to mention 0.5L and 1L box sizes. Added `md:sticky md:top-24` to text column for same sticky scroll behavior as Story section.
 * [ ] **4A.7 Location section:**
   * Make also here the spacing between takeaway and location a bit smaller. The pin is missing on the google map. Furthermore I like to see a picture for the mobile shop and the HQ shop. On desktop try to show them both, on mobile only show the one which is active. Try to come up with a suitable way to display the shop photo. There should be a suitable photo of each in the images folder. 
 * [x] **4A.8 Review section:**
   * Spacing reduced globally via 4A.3 SectionWrapper padding reduction.
 * [ ] **4A.9 Footer:**
   * Place the logo.svg there on the left and below business name and adress of the HQ and the email adress. Place the other elements (Instagram, eMail symbol, language slector and imprint + Privacy policy) in an appropiate way.
-* [ ] **4A.10 Privacy Policy:**
-  * State on that page that we do not track the user. We do not use cookies or any other tracking technologies. We only use cookies to remember the language preference of the user.
-* [ ] **4A.11 404 Page:**
-  * Make a funny 404 page that fits the ice cream and farm to cone theme.
+* [x] **4A.10 Privacy Policy:**
+  * Sharpened language in PT/EN: intro now opens with "We do not track you." Collection section leads with "We do not track you in any way." Cookies section explicitly states the only cookie is for language preference (Portuguese or English), no tracking cookies.
+* [x] **4A.11 404 Page:**
+  * Redesigned with animated melting ice cream cone SVG (pink scoop with dripping animation, waffle cone, puddle). Playful copy: "This scoop hit the floor!" / "We searched the entire farm..." / "Don't cry over dropped gelato." CTA: "Back to the cone." Full PT/EN translations.
 * [ ] **4A.12 Our Story part two:**
   * Improve the text. Emphasize the farm to cone aspect more. Fresh fruits and ingredients. No artificial additives. So, the thing that bothers me with the current text is the beginning with the bourbon vanilla. The rest is not too bad and also the lenght is pretty good. So maybe we do only need a fine tuning. For the image I would like to see another approach. Maybe a slider that changes to iamges? showing a tree with the fruits, fresh fruites in a crate, an extraciton and then a finished cone. Or are there any other ways to show this off a bit nicer? I would like to see that solution on desktop and mobile.
 

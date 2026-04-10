@@ -9,9 +9,9 @@ export default function TakeawaySection() {
 
   return (
     <SectionWrapper id="takeaway" className="bg-background-primary">
-      <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+      <div className="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
         {/* Text column */}
-        <FadeIn className="order-2 md:order-1">
+        <FadeIn className="order-2 md:sticky md:top-24 md:order-1">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-green/10 px-4 py-1.5 text-sm font-medium text-brand-green">
             <Recycle size={16} strokeWidth={1.5} />
             100% Recyclable

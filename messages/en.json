@@ -110,11 +110,11 @@
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: April 2026",
     "introTitle": "Introduction",
-    "introText": "Anara Gelado Artesanal (\"we\") respects your privacy. This policy explains how we handle data when you visit our website.",
+    "introText": "Anara Gelado Artesanal (\"we\") respects your privacy. We do not track you. This policy explains how we handle data when you visit our website.",
     "collectionTitle": "Data We Collect",
-    "collectionText": "This website does not use tracking cookies, analytics scripts (Google Analytics, Meta Pixel, etc.), or any third-party tracking tools. We do not collect, store, or process any personal data through this website.",
+    "collectionText": "We do not track you in any way. This website does not use analytics scripts (Google Analytics, Meta Pixel, etc.), tracking cookies, or any other tracking technologies. We do not collect, store, or process any personal data through this website.",
     "cookiesTitle": "Cookies",
-    "cookiesText": "This website only uses essential technical cookies required for basic functionality (such as language preference). These cookies do not require consent under GDPR as they are strictly necessary to provide the service you requested.",
+    "cookiesText": "This website does not use tracking cookies. The only cookie we use is to remember your language preference (Portuguese or English). This is a strictly necessary cookie that does not require consent under GDPR.",
     "thirdPartyTitle": "Third-Party Services",
     "thirdPartyText": "This website embeds Google Maps in the locations sections. When viewing these sections, your browser may establish a direct connection to Google's servers. For more information, please refer to Google's Privacy Policy.",
     "contactTitle": "Contact",
@@ -125,9 +125,10 @@
     "backHome": "Back to homepage"
   },
   "notFound": {
-    "title": "Looks like this flavor melted",
-    "subtitle": "The page you're looking for doesn't exist.",
-    "cta": "Back to homepage"
+    "title": "This scoop hit the floor!",
+    "subtitle": "We searched the entire farm, but this page was nowhere to be found. Maybe it melted in the sun.",
+    "hint": "Don't cry over dropped gelato.",
+    "cta": "Back to the cone"
   },
   "footer": {
     "imprint": "Imprint",
