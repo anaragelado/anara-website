@@ -142,8 +142,13 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
         scrolled ? "shadow-xl shadow-black/5" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 md:px-8">
-        {/* Logo + Open badge */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between relative px-4 py-3 md:px-8">
+        {/* Mobile Centered Open badge */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
+          <OpenBadge locationHours={locationHours} />
+        </div>
+
+        {/* Logo + Desktop Open badge */}
         <div className="flex items-center gap-3">
           <a href="#hero" className="flex-shrink-0">
             <Image
@@ -155,7 +160,9 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
               className="h-10 w-auto"
             />
           </a>
-          <OpenBadge locationHours={locationHours} />
+          <div className="hidden md:block">
+            <OpenBadge locationHours={locationHours} />
+          </div>
         </div>
 
         {/* Desktop Anchor Links */}

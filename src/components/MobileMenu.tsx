@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -52,8 +53,15 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
           transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
           className="fixed inset-0 z-[60] flex flex-col bg-background-secondary"
         >
-          {/* Close button */}
-          <div className="flex justify-end px-4 py-3">
+          {/* Menu Header (Logo & Close Button) */}
+          <div className="flex items-center justify-between px-4 py-3">
+            <Image
+              src="/assets/logo.svg"
+              alt="Anara Gelado Artesanal"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
             <button
               type="button"
               onClick={onClose}

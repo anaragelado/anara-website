@@ -20,15 +20,6 @@
   /* ── Typography ── */
   --font-body: var(--font-work-sans);
   --font-heading: var(--font-playfair-display);
-  --font-accent: var(--font-amatic-sc);
-}
-
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-  position: relative;
-}
-
 body {
   background-color: var(--color-background-primary);
   color: var(--color-text-primary);

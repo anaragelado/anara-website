@@ -18,7 +18,7 @@ export default async function HomePage({
   const locations = await fetchLocationsWithHours();
 
   return (
-    <main className="w-full overflow-hidden">
+    <main className="w-full overflow-x-hidden">
       <HeroSection />
       <StorySection />
       <MenuSection />
