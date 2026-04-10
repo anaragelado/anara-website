@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { MapPin, Mail } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -55,27 +56,24 @@ function HoursTable({ hours }: { hours: DayHours[] }) {
 function LocationCard({ location }: { location: Location }) {
   const t = useTranslations("locations");
 
-  // Build a Google Maps embed URL from coordinates
-  const embedSrc = `https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3000!2d${location.lng}!3d${location.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2spt!4v1`;
+  // Build a Google Maps embed URL with a marker pin
+  const embedSrc = `https://maps.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed`;
 
   return (
-    <div className="rounded-2xl border border-gray-100 bg-background-secondary p-5 shadow-sm md:p-6">
-      {/* Map */}
-      <div className="overflow-hidden rounded-2xl">
-        <iframe
-          src={embedSrc}
-          width="100%"
-          height="220"
-          style={{ border: 0 }}
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title={location.name}
+    <div className="flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-background-secondary shadow-sm">
+      {/* Photo */}
+      <div className="relative aspect-[16/9] w-full overflow-hidden">
+        <Image
+          src={location.image}
+          alt={location.name}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 
-      {/* Info */}
-      <div className="mt-5">
+      <div className="flex flex-col flex-grow p-5 md:p-6">
+        {/* Info */}
         <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="font-heading text-lg font-semibold">{location.name}</h3>
@@ -86,6 +84,20 @@ function LocationCard({ location }: { location: Location }) {
 
         <h4 className="mt-5 text-sm font-semibold">{t("hours")}</h4>
         <HoursTable hours={location.hours} />
+
+        {/* Map */}
+        <div className="mt-6 overflow-hidden rounded-xl border border-gray-100">
+          <iframe
+            src={embedSrc}
+            width="100%"
+            height="180"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title={location.name}
+          />
+        </div>
 
         <a
           href={location.mapsUrl}
@@ -110,7 +122,7 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
   const [activeTab, setActiveTab] = useState<"hq" | "mobile">("hq");
 
   return (
-    <SectionWrapper id="locations">
+    <SectionWrapper id="locations" className="pt-8 md:pt-12 lg:pt-16">
       {/* Section header */}
       <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
