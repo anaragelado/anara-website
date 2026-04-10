@@ -20,6 +20,9 @@
   /* ── Typography ── */
   --font-body: var(--font-work-sans);
   --font-heading: var(--font-playfair-display);
+  --font-accent: var(--font-amatic-sc);
+}
+
 body {
   background-color: var(--color-background-primary);
   color: var(--color-text-primary);
