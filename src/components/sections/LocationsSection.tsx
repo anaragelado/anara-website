@@ -27,7 +27,7 @@ function OpenIndicator({ hours }: { hours: DayHours[] }) {
   }[status];
 
   return (
-    <span className="inline-flex items-center gap-1.5 text-sm font-medium">
+    <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-medium whitespace-nowrap">
       <span className={`h-2 w-2 rounded-full ${dotClass}`} />
       {t(labelKey)}
     </span>
@@ -79,7 +79,7 @@ function LocationCard({ location }: { location: Location }) {
       <div className="flex flex-col flex-grow p-5 md:p-6">
         {/* Info */}
         <div className="flex items-start justify-between gap-4">
-          <div>
+          <div className="min-w-0">
             <h3 className="font-heading text-lg font-semibold">{location.name}</h3>
             <p className="mt-1 text-sm text-text-secondary">{location.address}</p>
           </div>

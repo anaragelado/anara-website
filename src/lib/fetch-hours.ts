@@ -25,14 +25,46 @@ interface CsvRow {
 }
 
 /**
+ * Split one CSV line into fields, correctly handling double-quoted values
+ * that may contain commas (e.g. `"After lunch, until dinner"`).
+ * Also handles escaped double-quotes inside quoted fields (`""` → `"`).
+ */
+function parseCsvLine(line: string): string[] {
+  const fields: string[] = [];
+  let current = "";
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const ch = line[i];
+    if (ch === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        // Escaped double-quote inside a quoted field.
+        current += '"';
+        i++;
+      } else {
+        inQuotes = !inQuotes;
+      }
+    } else if (ch === "," && !inQuotes) {
+      fields.push(current.trim());
+      current = "";
+    } else {
+      current += ch;
+    }
+  }
+  fields.push(current.trim()); // flush the final field
+  return fields;
+}
+
+/**
  * Parse raw CSV text into typed rows.
  * Handles the headers: location_id, location_name, day, status, open_time, close_time
+ * Optional 7th column: custom_display_text (quoted strings with commas supported).
  */
 function parseCsv(raw: string): CsvRow[] {
   const lines = raw.trim().split("\n");
   if (lines.length < 2) return [];
 
-  const headers = lines[0].split(",").map((h) => h.trim().toLowerCase());
+  const headers = parseCsvLine(lines[0]).map((h) => h.toLowerCase());
   const idIdx = headers.indexOf("location_id");
   const dayIdx = headers.indexOf("day");
   const statusIdx = headers.indexOf("status");
@@ -46,7 +78,7 @@ function parseCsv(raw: string): CsvRow[] {
   }
 
   return lines.slice(1).map((line) => {
-    const cols = line.split(",").map((c) => c.trim());
+    const cols = parseCsvLine(line);
     return {
       location_id: cols[idIdx],
       day: cols[dayIdx],
@@ -104,7 +136,7 @@ export async function fetchLocationsWithHours(): Promise<Location[]> {
 
   try {
     const res = await fetch(csvUrl, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 }, // DEV: short TTL for rapid iteration; raise to 3600 before final launch
     });
 
     if (!res.ok) {
