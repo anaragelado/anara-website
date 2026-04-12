@@ -132,12 +132,9 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
  * DIAGNOSTIC MODE: cache bypassed, verbose logging enabled for Vercel inspection.
  */
 export async function fetchLocationsWithHours(): Promise<Location[]> {
-  // Diagnostic: log both possible env var names so we can spot a naming mismatch
-  // in the Vercel dashboard immediately.
-  console.log("[CSV] HOURS_CSV_URL defined:", !!process.env.HOURS_CSV_URL);
-  console.log("[CSV] NEXT_PUBLIC_HOURS_CSV_URL defined:", !!process.env.NEXT_PUBLIC_HOURS_CSV_URL);
-
-  const csvUrl = process.env.HOURS_CSV_URL;
+  // Check both names in case the Vercel env var was saved under either prefix.
+  const csvUrl = process.env.HOURS_CSV_URL || process.env.NEXT_PUBLIC_HOURS_CSV_URL;
+  console.log("[CSV] Attempting to fetch URL:", csvUrl ? "URL FOUND" : "NO URL FOUND");
 
   if (!csvUrl) {
     console.error("[CSV] No CSV URL found in environment — returning static fallback.");
