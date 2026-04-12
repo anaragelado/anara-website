@@ -129,35 +129,43 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
  * Returns the full Location[] array with hours overridden from the sheet.
  * Falls back silently to hardcoded data on any failure.
  *
- * Uses Next.js `fetch` with `next.revalidate` for 1-hour ISR caching.
+ * DIAGNOSTIC MODE: cache bypassed, verbose logging enabled for Vercel inspection.
  */
 export async function fetchLocationsWithHours(): Promise<Location[]> {
+  // Diagnostic: log both possible env var names so we can spot a naming mismatch
+  // in the Vercel dashboard immediately.
+  console.log("[CSV] HOURS_CSV_URL defined:", !!process.env.HOURS_CSV_URL);
+  console.log("[CSV] NEXT_PUBLIC_HOURS_CSV_URL defined:", !!process.env.NEXT_PUBLIC_HOURS_CSV_URL);
+
   const csvUrl = process.env.HOURS_CSV_URL;
 
   if (!csvUrl) {
+    console.error("[CSV] No CSV URL found in environment — returning static fallback.");
     return fallbackLocations;
   }
 
   try {
-    const res = await fetch(csvUrl, {
-      next: { revalidate: 60 }, // DEV: short TTL for rapid iteration; raise to 3600 before final launch
-    });
+    console.log("[CSV] Fetching CSV from Google...");
+    const res = await fetch(csvUrl, { cache: "no-store" });
+    console.log("[CSV] Fetch status:", res.status);
 
     if (!res.ok) {
-      throw new Error(`CSV fetch failed: ${res.status}`);
+      throw new Error(`HTTP ${res.status}`);
     }
 
     const raw = await res.text();
     const rows = parseCsv(raw);
     const hoursMap = rowsToHoursMap(rows);
+    console.log("[CSV] Parsed OK — location IDs found:", Object.keys(hoursMap).join(", ") || "none");
 
     // Merge dynamic hours into the static location data
     return fallbackLocations.map((loc) => ({
       ...loc,
       hours: hoursMap[loc.id] ?? loc.hours,
     }));
-  } catch {
-    // Silent fallback — no visible error to the user
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("[CSV] Fetch failed. Falling back to static data. Error:", message);
     return fallbackLocations;
   }
 }

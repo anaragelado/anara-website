@@ -10,9 +10,10 @@ import PageShell from "@/components/PageShell";
 import Footer from "@/components/Footer";
 import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 
-// Vercel edge cache: regenerate this route segment every 60 seconds.
-// Works in tandem with the fetch-level revalidate in fetchLocationsWithHours.
-export const revalidate = 60;
+// DIAGNOSTIC: disable all static generation and caching so we can confirm
+// Vercel can reach the Google Sheet at runtime. Remove before final launch.
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

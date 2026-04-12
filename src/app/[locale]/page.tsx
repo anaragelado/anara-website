@@ -1,8 +1,4 @@
 import { setRequestLocale } from "next-intl/server";
-
-// Vercel edge cache: regenerate the homepage every 60 seconds so updated
-// Google Sheet hours appear within ~1–5 minutes (Google's own publish delay).
-export const revalidate = 60;
 import HeroSection from "@/components/sections/HeroSection";
 import StorySection from "@/components/sections/StorySection";
 import MenuSection from "@/components/sections/MenuSection";
@@ -11,6 +7,11 @@ import TakeawaySection from "@/components/sections/TakeawaySection";
 import LocationsSection from "@/components/sections/LocationsSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import { fetchLocationsWithHours } from "@/lib/fetch-hours";
+
+// DIAGNOSTIC: disable all static generation and caching so we can confirm
+// Vercel can reach the Google Sheet at runtime. Remove before final launch.
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export default async function HomePage({
   params,
