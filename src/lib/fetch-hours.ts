@@ -20,6 +20,8 @@ interface CsvRow {
   status: string;
   open_time: string;
   close_time: string;
+  /** Optional vague UI text. Column may be absent in older sheet versions. */
+  custom_display_text?: string;
 }
 
 /**
@@ -36,6 +38,8 @@ function parseCsv(raw: string): CsvRow[] {
   const statusIdx = headers.indexOf("status");
   const openIdx = headers.indexOf("open_time");
   const closeIdx = headers.indexOf("close_time");
+  // Optional 7th column — present only when the client adds vague display text.
+  const displayIdx = headers.indexOf("custom_display_text");
 
   if ([idIdx, dayIdx, statusIdx, openIdx, closeIdx].includes(-1)) {
     throw new Error("CSV missing required columns");
@@ -49,6 +53,9 @@ function parseCsv(raw: string): CsvRow[] {
       status: cols[statusIdx],
       open_time: cols[openIdx],
       close_time: cols[closeIdx],
+      // Only populate when the column exists and the cell is non-empty.
+      custom_display_text:
+        displayIdx !== -1 && cols[displayIdx] ? cols[displayIdx] : undefined,
     };
   });
 }
@@ -72,6 +79,9 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
       day: abbrev,
       open: isClosed ? "Closed" : row.open_time,
       close: isClosed ? "" : row.close_time,
+      // displayText is only set when the cell exists and is non-empty.
+      // isOpenNow() ignores this field entirely — it only reads open/close.
+      ...(row.custom_display_text ? { displayText: row.custom_display_text } : {}),
     });
   }
 

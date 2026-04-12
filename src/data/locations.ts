@@ -1,7 +1,15 @@
 export interface DayHours {
   day: string;
+  /** Strict HH:MM time used exclusively for open/closed math. Never vague text. */
   open: string;
+  /** Strict HH:MM time used exclusively for open/closed math. Never vague text. */
   close: string;
+  /**
+   * Optional vague display string shown in the UI instead of the raw times
+   * (e.g. "After lunch until after dinner"). The open/close fields still hold
+   * the real times so isOpenNow() keeps working correctly.
+   */
+  displayText?: string;
 }
 
 export interface Location {
@@ -93,6 +101,10 @@ export function getLocationStatus(hours: DayHours[]): LocationStatus {
 
   const [openH, openM] = today.open.split(":").map(Number);
   const [closeH, closeM] = today.close.split(":").map(Number);
+
+  // Guard: if either time is missing or non-numeric, treat as closed rather than crashing.
+  if ([openH, openM, closeH, closeM].some(isNaN)) return "closed";
+
   const openMinutes = openH * 60 + openM;
   const closeMinutes = closeH * 60 + closeM;
 
