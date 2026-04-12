@@ -1,8 +1,8 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Star } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
-import { reviews } from "@/data/reviews";
+import { reviewsEn, reviewsPt } from "@/data/reviews";
 
 const RATINGS = [
   {
@@ -54,6 +54,8 @@ function GoogleIcon() {
 
 export default function ReviewsSection() {
   const t = useTranslations("reviews");
+  const locale = useLocale();
+  const reviews = locale === "pt" ? reviewsPt : reviewsEn;
 
   return (
     <SectionWrapper id="reviews" mobileTopBorderColor="#FF7802">

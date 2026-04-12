@@ -65,3 +65,22 @@ This document contains the curated, 5-star Google Maps reviews for Anara Gelado 
 **Review 14**
 *   **Name:** Ricardo Monteiro
 *   **Text:** "This is the best Icecream in all Lisbon area, maybe the best in Portugal"
+
+## Portuguese reviews
+
+**Review 15**
+*   **Name:** Rita Moreira
+*   **Text:** "Espectacular! Dos melhores gelados que já comemos! Super cremosos, saborosos! Adorei. Atendimento 5⭐️"
+
+**Review 16**
+*   **Name:** Sandra Branco
+*   **Text:** "Espetacular , os gelados são os melhores, ótimo atendimento e uma variedade de sabores enorme ❤️"
+
+**Review 17**
+*   **Name:** Lucas Carneiro
+*   **Text:** "A gelateria é pequena e bem modesta internamente, começaram a pouco tempo. Mas o gelado é davvero italiano. Vivi na Itália no tempo de universidade e posso dizer que este gelado é melhor que muitos que já provei por lá."
+
+**Review 18**
+*   **Name:** Aida Silva
+*   **Text:** "Melhor gelado da margem sul e arredores. Gelado artesanal com produtos de qualidade e sabores inconfundíveis. Não é preciso ir a Itália para se deliciar com o melhor gelado italiano. Maravilhoso!!!😋"
+
