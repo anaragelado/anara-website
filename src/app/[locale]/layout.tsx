@@ -10,10 +10,9 @@ import PageShell from "@/components/PageShell";
 import Footer from "@/components/Footer";
 import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 
-// DIAGNOSTIC: disable all static generation and caching so we can confirm
-// Vercel can reach the Google Sheet at runtime. Remove before final launch.
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+// Regenerate this route segment every 60 seconds so updated hours appear
+// within ~1–5 minutes (accounting for Google's own CSV publish delay).
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

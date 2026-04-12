@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { MapPin, Mail } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
@@ -36,22 +36,26 @@ function OpenIndicator({ hours }: { hours: DayHours[] }) {
 
 function HoursTable({ hours }: { hours: DayHours[] }) {
   const t = useTranslations("locations");
+  const locale = useLocale();
 
   return (
     <table className="mt-4 w-full text-sm">
       <tbody>
-        {hours.map((h) => (
-          <tr key={h.day} className="border-b border-gray-100 last:border-0">
-            <td className="py-1.5 font-medium">{t(`days.${h.day}`)}</td>
-            <td className="py-1.5 text-right text-text-secondary">
-              {h.open === "Closed"
-                ? t("dayClosed")
-                : h.displayText
-                  ? h.displayText
-                  : `${h.open} – ${h.close}`}
-            </td>
-          </tr>
-        ))}
+        {hours.map((h) => {
+          const displayText = locale === "pt" ? h.displayTextPt : h.displayTextEn;
+          return (
+            <tr key={h.day} className="border-b border-gray-100 last:border-0">
+              <td className="py-1.5 font-medium">{t(`days.${h.day}`)}</td>
+              <td className="py-1.5 text-right text-text-secondary">
+                {h.open === "Closed"
+                  ? t("dayClosed")
+                  : displayText
+                    ? displayText
+                    : `${h.open} – ${h.close}`}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

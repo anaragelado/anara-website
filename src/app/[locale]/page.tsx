@@ -8,10 +8,8 @@ import LocationsSection from "@/components/sections/LocationsSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 
-// DIAGNOSTIC: disable all static generation and caching so we can confirm
-// Vercel can reach the Google Sheet at runtime. Remove before final launch.
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+// Regenerate every 60 seconds so updated hours appear within ~1–5 minutes.
+export const revalidate = 60;
 
 export default async function HomePage({
   params,

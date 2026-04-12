@@ -20,8 +20,9 @@ interface CsvRow {
   status: string;
   open_time: string;
   close_time: string;
-  /** Optional vague UI text. Column may be absent in older sheet versions. */
-  custom_display_text?: string;
+  /** Optional bilingual vague display text — absent in older sheet versions. */
+  custom_display_text_pt?: string;
+  custom_display_text_en?: string;
 }
 
 /**
@@ -57,21 +58,22 @@ function parseCsvLine(line: string): string[] {
 
 /**
  * Parse raw CSV text into typed rows.
- * Handles the headers: location_id, location_name, day, status, open_time, close_time
- * Optional 7th column: custom_display_text (quoted strings with commas supported).
+ * Required columns: location_id, location_name, day, status, open_time, close_time
+ * Optional columns: custom_display_text_pt, custom_display_text_en
  */
 function parseCsv(raw: string): CsvRow[] {
   const lines = raw.trim().split("\n");
   if (lines.length < 2) return [];
 
   const headers = parseCsvLine(lines[0]).map((h) => h.toLowerCase());
-  const idIdx = headers.indexOf("location_id");
-  const dayIdx = headers.indexOf("day");
-  const statusIdx = headers.indexOf("status");
-  const openIdx = headers.indexOf("open_time");
-  const closeIdx = headers.indexOf("close_time");
-  // Optional 7th column — present only when the client adds vague display text.
-  const displayIdx = headers.indexOf("custom_display_text");
+  const idIdx      = headers.indexOf("location_id");
+  const dayIdx     = headers.indexOf("day");
+  const statusIdx  = headers.indexOf("status");
+  const openIdx    = headers.indexOf("open_time");
+  const closeIdx   = headers.indexOf("close_time");
+  // Optional bilingual display columns — absent on older sheet versions.
+  const displayPtIdx = headers.indexOf("custom_display_text_pt");
+  const displayEnIdx = headers.indexOf("custom_display_text_en");
 
   if ([idIdx, dayIdx, statusIdx, openIdx, closeIdx].includes(-1)) {
     throw new Error("CSV missing required columns");
@@ -81,13 +83,14 @@ function parseCsv(raw: string): CsvRow[] {
     const cols = parseCsvLine(line);
     return {
       location_id: cols[idIdx],
-      day: cols[dayIdx],
-      status: cols[statusIdx],
-      open_time: cols[openIdx],
-      close_time: cols[closeIdx],
-      // Only populate when the column exists and the cell is non-empty.
-      custom_display_text:
-        displayIdx !== -1 && cols[displayIdx] ? cols[displayIdx] : undefined,
+      day:         cols[dayIdx],
+      status:      cols[statusIdx],
+      open_time:   cols[openIdx],
+      close_time:  cols[closeIdx],
+      custom_display_text_pt:
+        displayPtIdx !== -1 && cols[displayPtIdx] ? cols[displayPtIdx] : undefined,
+      custom_display_text_en:
+        displayEnIdx !== -1 && cols[displayEnIdx] ? cols[displayEnIdx] : undefined,
     };
   });
 }
@@ -107,17 +110,18 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
 
     const isClosed = row.status.toLowerCase() === "closed";
 
-    // When closed, explicitly zero-out every time/display field regardless of
-    // what the client left in the sheet, so ghost times can never leak through.
+    // When closed, zero-out all time/display fields regardless of what the
+    // client left in the sheet — ghost times can never leak through.
     map[id].push({
-      day: abbrev,
-      open: isClosed ? "Closed" : row.open_time,
-      close: isClosed ? "" : row.close_time,
-      // Suppress displayText for closed rows AND when the cell is empty.
-      // isOpenNow() ignores this field entirely — it only reads open/close.
-      ...(!isClosed && row.custom_display_text
-        ? { displayText: row.custom_display_text }
-        : {}),
+      day:   abbrev,
+      open:  isClosed ? "Closed" : row.open_time,
+      close: isClosed ? ""       : row.close_time,
+      // Bilingual display text — suppressed entirely for closed rows.
+      // isOpenNow() ignores these fields; it only reads open/close.
+      ...(!isClosed && row.custom_display_text_pt
+        ? { displayTextPt: row.custom_display_text_pt } : {}),
+      ...(!isClosed && row.custom_display_text_en
+        ? { displayTextEn: row.custom_display_text_en } : {}),
     });
   }
 
@@ -128,23 +132,18 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
  * Fetch dynamic hours from the published Google Sheet CSV.
  * Returns the full Location[] array with hours overridden from the sheet.
  * Falls back silently to hardcoded data on any failure.
- *
- * DIAGNOSTIC MODE: cache bypassed, verbose logging enabled for Vercel inspection.
  */
 export async function fetchLocationsWithHours(): Promise<Location[]> {
-  // Check both names in case the Vercel env var was saved under either prefix.
+  // Accept either env var name in case the Vercel variable was saved under
+  // the NEXT_PUBLIC_ prefix.
   const csvUrl = process.env.HOURS_CSV_URL || process.env.NEXT_PUBLIC_HOURS_CSV_URL;
-  console.log("[CSV] Attempting to fetch URL:", csvUrl ? "URL FOUND" : "NO URL FOUND");
 
   if (!csvUrl) {
-    console.error("[CSV] No CSV URL found in environment — returning static fallback.");
     return fallbackLocations;
   }
 
   try {
-    console.log("[CSV] Fetching CSV from Google...");
-    const res = await fetch(csvUrl, { cache: "no-store" });
-    console.log("[CSV] Fetch status:", res.status);
+    const res = await fetch(csvUrl, { next: { revalidate: 60 } });
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}`);
@@ -153,16 +152,14 @@ export async function fetchLocationsWithHours(): Promise<Location[]> {
     const raw = await res.text();
     const rows = parseCsv(raw);
     const hoursMap = rowsToHoursMap(rows);
-    console.log("[CSV] Parsed OK — location IDs found:", Object.keys(hoursMap).join(", ") || "none");
 
-    // Merge dynamic hours into the static location data
+    // Merge dynamic hours into the static location data.
     return fallbackLocations.map((loc) => ({
       ...loc,
       hours: hoursMap[loc.id] ?? loc.hours,
     }));
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error("[CSV] Fetch failed. Falling back to static data. Error:", message);
+  } catch {
+    // Silent fallback — no visible error to the user.
     return fallbackLocations;
   }
 }

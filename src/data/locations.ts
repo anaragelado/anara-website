@@ -5,11 +5,12 @@ export interface DayHours {
   /** Strict HH:MM time used exclusively for open/closed math. Never vague text. */
   close: string;
   /**
-   * Optional vague display string shown in the UI instead of the raw times
-   * (e.g. "After lunch until after dinner"). The open/close fields still hold
-   * the real times so isOpenNow() keeps working correctly.
+   * Optional bilingual vague display strings shown in the UI instead of raw
+   * times (e.g. "Depois do almoço até ao jantar"). The open/close fields still
+   * hold the real HH:MM times so isOpenNow() keeps working correctly.
    */
-  displayText?: string;
+  displayTextPt?: string;
+  displayTextEn?: string;
 }
 
 export interface Location {
