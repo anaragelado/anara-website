@@ -122,13 +122,13 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
   const [activeTab, setActiveTab] = useState<"hq" | "mobile">("hq");
 
   return (
-    <SectionWrapper id="locations" className="pt-8 md:pt-12 lg:pt-16" mobileTopBorderColor="#DEA361">
+    <SectionWrapper id="locations" className="pt-8 md:pt-12 lg:pt-16" mobileTopBorderColor="#EA567A">
       {/* Section header */}
       <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
           <span
             className="mr-2.5 hidden md:inline-block h-2.5 w-2.5 rounded-full align-middle"
-            style={{ backgroundColor: "#DEA361" }}
+            style={{ backgroundColor: "#EA567A" }}
             aria-hidden="true"
           />
           {t("title")}

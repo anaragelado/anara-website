@@ -138,6 +138,15 @@
     "hint": "Don't cry over dropped gelato.",
     "cta": "Back to the cone"
   },
+  "creations": {
+    "title": "Our Creations",
+    "subtitle": "Fresh. Seasonal. Unexpected.",
+    "intro1": "We create at least one or two special flavours each week,",
+    "introIgLink": "shared on Instagram",
+    "intro2": "Our creations are born from unexpected inspirations, where classic gelato craftsmanship meets flavours from diverse culinary traditions and global influences.",
+    "igSliderLabel": "Placeholder Photo",
+    "coneLabel": "Placeholder Photo"
+  },
   "footer": {
     "imprint": "Imprint",
     "privacy": "Privacy Policy",

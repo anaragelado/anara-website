@@ -191,7 +191,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Increase the auto-scroll speed slightly.
   * Replace the generic cone photo with the "Morango Flavour" placeholder image (until the final photos arrive).
 
-* [ ] **4B.4 New Section: Creations (`#creations`):**
+* [x] **4B.4 New Section: Creations (`#creations`):**
   * Create a new semantic `<section>` placed immediately after the staple Menu section.
   * Add the introductory text: "We create at least one or two special flavours each week. Our creations are born from unexpected inspirations, where classic gelato craftsmanship meets flavours from diverse culinary traditions and global influences."
   * Build a drag-enabled horizontal slider for 10 square images (Instagram posts).
@@ -200,7 +200,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **4B.5 Mobile Hero Video Repositioning:**
   * Adjust the CSS `object-position` or positioning logic of the vertical Pastel de Nata video in the mobile Hero section. Shift the focal point down (e.g., `object-[center_top]` or `object-position: 50% 20%`) so the top part of the video (cinnamon falling on the cone) is not cropped by the viewport edge.
 
-  * [ ] **4B.6 Creations Section Text Update & IG Link:**
+  * [x] **4B.6 Creations Section Text Update & IG Link:**
   * Update the first sentence in the Creations section to: "We create at least one or two special flavours each week, shared on Instagram."
   * Make the phrase "shared on Instagram" a clickable hyperlink pointing to her Instagram account (`https://www.instagram.com/anara.geladoartesanal`).
   * Style the hyperlink text using the optimized brand green color (e.g., `text-[#68B34A]` or the respective Tailwind config variable) to make it stand out elegantly.

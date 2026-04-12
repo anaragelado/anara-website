@@ -138,6 +138,15 @@
     "hint": "Não chore por gelado derramado.",
     "cta": "Voltar ao cone"
   },
+  "creations": {
+    "title": "As Nossas Criações",
+    "subtitle": "Frescas. Sazonais. Inesperadas.",
+    "intro1": "Criamos pelo menos um ou dois sabores especiais por semana,",
+    "introIgLink": "partilhados no Instagram",
+    "intro2": "As nossas criações nascem de inspirações inesperadas, onde o artesanato clássico do gelado encontra sabores de diversas tradições culinárias e influências globais.",
+    "igSliderLabel": "Foto de Substituição",
+    "coneLabel": "Foto de Substituição"
+  },
   "footer": {
     "imprint": "Impressum",
     "privacy": "Política de Privacidade",

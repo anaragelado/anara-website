@@ -23,7 +23,7 @@ export default function SectionWrapper({
   return (
     <Element
       id={id}
-      className={`scroll-mt-16 py-12 md:py-16 lg:py-24 ${mobileTopBorderColor ? "border-t-2 md:border-t-0" : ""} ${className}`}
+      className={`scroll-mt-16 py-12 md:py-16 lg:py-24 ${mobileTopBorderColor ? "border-t-[10px] md:border-t-0" : ""} ${className}`}
       style={borderStyle}
     >
       <div className="mx-auto max-w-7xl px-4 md:px-8">{children}</div>

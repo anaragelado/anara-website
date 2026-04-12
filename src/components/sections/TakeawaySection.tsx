@@ -8,7 +8,7 @@ export default function TakeawaySection() {
   const t = useTranslations("takeaway");
 
   return (
-    <SectionWrapper id="takeaway" className="bg-background-primary" mobileTopBorderColor="#68B34A">
+    <SectionWrapper id="takeaway" className="bg-background-primary" mobileTopBorderColor="#DEA361">
       <div className="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
         {/* Text column */}
         <FadeIn className="order-1 md:sticky md:top-24">
@@ -19,7 +19,7 @@ export default function TakeawaySection() {
           <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
             <span
               className="mr-2.5 hidden md:inline-block h-2.5 w-2.5 rounded-full align-middle"
-              style={{ backgroundColor: "#68B34A" }}
+              style={{ backgroundColor: "#DEA361" }}
               aria-hidden="true"
             />
             {t("title")}
