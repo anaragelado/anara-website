@@ -56,9 +56,14 @@ export default function ReviewsSection() {
   const t = useTranslations("reviews");
 
   return (
-    <SectionWrapper id="reviews">
+    <SectionWrapper id="reviews" mobileTopBorderColor="#EA567A">
       <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+          <span
+            className="mr-2.5 hidden md:inline-block h-2.5 w-2.5 rounded-full align-middle"
+            style={{ backgroundColor: "#EA567A" }}
+            aria-hidden="true"
+          />
           {t("title")}
         </h2>
         <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">

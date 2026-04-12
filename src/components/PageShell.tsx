@@ -72,7 +72,7 @@ export default function PageShell({ children, locationHours }: PageShellProps) {
         locationHours={locationHours}
         activeSection={activeSection}
       />
-      {/* Spacer for fixed header — hero bleeds behind it via negative margin */}
+      {/* Spacer so page content starts below the sticky header */}
       <div className="h-16" aria-hidden="true" />
       <MobileMenu
         open={mobileMenuOpen}

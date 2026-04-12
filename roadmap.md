@@ -173,6 +173,43 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **4A.12 Our Story part two:**
   * Improve the text. Emphasize the farm to cone aspect more. Fresh fruits and ingredients. No artificial additives. So, the thing that bothers me with the current text is the beginning with the bourbon vanilla. The rest is not too bad and also the lenght is pretty good. So maybe we do only need a fine tuning. For the image I would like to see another approach. Maybe a slider that changes to iamges? showing a tree with the fruits, fresh fruites in a crate, an extraciton and then a finished cone. Or are there any other ways to show this off a bit nicer? I would like to see that solution on desktop and mobile.
 
+  ## Phase 4B: Client Feedback Implementation (V0)
+**Goal:** Implement client design choices, add the new "Creations" section, refine slider UX, and adjust media positioning.
+
+* [x] **4B.1 Finalize Typography & Color Sequence:**
+  * **Typography:** Permanently set the Hero fonts to Option 1 (`Playfair Display` for H1, `Amatic SC` for H2). Remove the font-test route.
+  * **Color Sequence (Responsive):** 
+    * *Mobile:* Implement Option 1 but with half the thickness (e.g., a very thin 1px or 2px top border on sections).
+    * *Desktop:* Implement Option 2 (Typographic Accent Dots next to `<h2>` headers).
+    * Ensure only the single, optimized brand green is used.
+
+* [x] **4B.2 Language & Localization (EN-UK):**
+  * Audit the `en.json` file to ensure strictly British English spelling (e.g., "flavour" instead of "flavor", "craftsmanship", "colour").
+
+* [x] **4B.3 Image Slider UX & Content Fixes:**
+  * Adjust the existing sliding photos component (mangos/lemons) to allow manual dragging/swiping on touch devices.
+  * Increase the auto-scroll speed slightly.
+  * Replace the generic cone photo with the "Morango Flavour" placeholder image (until the final photos arrive).
+
+* [ ] **4B.4 New Section: Creations (`#creations`):**
+  * Create a new semantic `<section>` placed immediately after the staple Menu section.
+  * Add the introductory text: "We create at least one or two special flavours each week. Our creations are born from unexpected inspirations, where classic gelato craftsmanship meets flavours from diverse culinary traditions and global influences."
+  * Build a drag-enabled horizontal slider for 10 square images (Instagram posts).
+  * Build a secondary, smaller visual grid underneath for 4 specific "Creation Cone" photos.
+
+* [x] **4B.5 Mobile Hero Video Repositioning:**
+  * Adjust the CSS `object-position` or positioning logic of the vertical Pastel de Nata video in the mobile Hero section. Shift the focal point down (e.g., `object-[center_top]` or `object-position: 50% 20%`) so the top part of the video (cinnamon falling on the cone) is not cropped by the viewport edge.
+
+  * [ ] **4B.6 Creations Section Text Update & IG Link:**
+  * Update the first sentence in the Creations section to: "We create at least one or two special flavours each week, shared on Instagram."
+  * Make the phrase "shared on Instagram" a clickable hyperlink pointing to her Instagram account (`https://www.instagram.com/anara.geladoartesanal`).
+  * Style the hyperlink text using the optimized brand green color (e.g., `text-[#68B34A]` or the respective Tailwind config variable) to make it stand out elegantly.
+  * Ensure the link opens in a new tab (`target="_blank" rel="noopener noreferrer"`).
+
+  * [x] **4B.7 Mobile menu Logo position:**
+  * Move the logo witihn the mobile menu from the top left to the center above the menu items
+
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 

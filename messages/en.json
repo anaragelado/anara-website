@@ -5,7 +5,7 @@
   },
   "nav": {
     "story": "Our Story",
-    "menu": "Flavors",
+    "menu": "Flavours",
     "takeaway": "Takeaway",
     "locations": "Locations",
     "visitUs": "Visit Us",
@@ -28,17 +28,17 @@
   "story": {
     "title": "From the Farm to the Cone",
     "subtitle": "Nothing artificial. Ever.",
-    "p1": "It all starts with fresh, seasonal fruit, real milk and cream from the region, and hand-picked ingredients like Bourbon Vanilla from Madagascar. No artificial additives, no colorings, no powders. Just pure flavor with 50% to 75% real fruit in every scoop.",
+    "p1": "It all starts with fresh, seasonal fruit, real milk and cream from the region, and hand-picked ingredients like Bourbon Vanilla from Madagascar. No artificial additives, no colourings, no powders. Just pure flavour with 50% to 75% real fruit in every scoop.",
     "p2": "Every flavor is handcrafted in small batches at our kitchen in Charneca de Caparica, from fresh fruit to finished cone, because we believe the finest ingredients speak for themselves.",
     "imageAlt": "Fresh ingredients for artisanal gelato"
   },
   "menu": {
-    "title": "Our Flavors",
+    "title": "Our Flavours",
     "subtitle": "Handcrafted. Always fresh.",
-    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple ice cream flavors. Find daily specials like Pastel de Nata at our Costa da Caparica and Charneca da Caparica locations. All flavors are naturally gluten-free except for Cookies and Cream.",
+    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple ice cream flavours. Find daily specials like Pastel de Nata at our Costa da Caparica and Charneca da Caparica locations. All flavours are naturally gluten-free except for Cookies and Cream.",
     "vegan": "Vegan",
     "glutenFree": "Gluten-Free",
-    "specialFlavor": "Special Daily Flavor",
+    "specialFlavor": "Special Daily Flavour",
     "flavors": {
       "belgian-chocolate": "Belgian Chocolate",
       "salted-pistachio": "Salted Pistachio",

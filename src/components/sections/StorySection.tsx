@@ -17,8 +17,8 @@ const storyImages = [
     alt: "Fresh lemons in a crate",
   },
   {
-    src: "/assets/images/product-double-scoop-strawberry-vanilla-cone.jpg",
-    alt: "Artisanal ice cream cone with strawberry and vanilla",
+    src: "/assets/images/product-single-scoop-strawberry-gelato-hero.jpg",
+    alt: "Morango artisanal gelato — Anara Gelado",
   },
 ];
 
@@ -26,16 +26,21 @@ export default function StorySection() {
   const t = useTranslations("story");
 
   return (
-    <SectionWrapper id="story">
+    <SectionWrapper id="story" mobileTopBorderColor="#FF7802">
       <div className="grid gap-12 md:grid-cols-2 md:items-start md:gap-16">
         {/* Image slider column */}
         <FadeIn direction="left" className="order-2 md:order-1">
-          <StorySlider images={storyImages} interval={5000} />
+          <StorySlider images={storyImages} />
         </FadeIn>
 
         {/* Text column */}
         <FadeIn delay={0.15} className="order-1 md:sticky md:top-24 md:order-2">
           <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+            <span
+              className="mr-2.5 hidden md:inline-block h-2.5 w-2.5 rounded-full align-middle"
+              style={{ backgroundColor: "#FF7802" }}
+              aria-hidden="true"
+            />
             {t("title")}
           </h2>
           <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">

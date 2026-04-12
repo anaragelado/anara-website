@@ -53,15 +53,8 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
           transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
           className="fixed inset-0 z-[60] flex flex-col bg-background-secondary"
         >
-          {/* Menu Header (Logo & Close Button) */}
-          <div className="flex items-center justify-between px-4 py-3">
-            <Image
-              src="/assets/logo.svg"
-              alt="Anara Gelado Artesanal"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
-            />
+          {/* Close button — top right */}
+          <div className="flex justify-end px-4 py-3">
             <button
               type="button"
               onClick={onClose}
@@ -72,8 +65,15 @@ export default function MobileMenu({ open, onClose, activeSection }: MobileMenuP
             </button>
           </div>
 
-          {/* Navigation links */}
+          {/* Navigation links with logo centred above */}
           <nav className="flex flex-1 flex-col items-center justify-center gap-2">
+            <Image
+              src="/assets/logo.svg"
+              alt="Anara Gelado Artesanal"
+              width={234}
+              height={78}
+              className="mb-8 h-[78px] w-auto"
+            />
             {NAV_LINKS.map(({ id, key }) => (
               <a
                 key={id}

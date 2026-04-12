@@ -6,7 +6,7 @@ export default function HeroSection() {
   const t = useTranslations("hero");
 
   return (
-    <section id="hero" className="relative -mt-16 flex min-h-[100svh] items-center overflow-hidden">
+    <section id="hero" className="relative flex min-h-[calc(100svh-4rem)] items-center overflow-hidden">
       {/* Parallax video layer */}
       <HeroParallax>
         {/* Mobile video (9:16 vertical) */}
