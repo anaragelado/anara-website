@@ -10,6 +10,10 @@ import PageShell from "@/components/PageShell";
 import Footer from "@/components/Footer";
 import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 
+// Vercel edge cache: regenerate this route segment every 60 seconds.
+// Works in tandem with the fetch-level revalidate in fetchLocationsWithHours.
+export const revalidate = 60;
+
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }

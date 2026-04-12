@@ -107,13 +107,17 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
 
     const isClosed = row.status.toLowerCase() === "closed";
 
+    // When closed, explicitly zero-out every time/display field regardless of
+    // what the client left in the sheet, so ghost times can never leak through.
     map[id].push({
       day: abbrev,
       open: isClosed ? "Closed" : row.open_time,
       close: isClosed ? "" : row.close_time,
-      // displayText is only set when the cell exists and is non-empty.
+      // Suppress displayText for closed rows AND when the cell is empty.
       // isOpenNow() ignores this field entirely — it only reads open/close.
-      ...(row.custom_display_text ? { displayText: row.custom_display_text } : {}),
+      ...(!isClosed && row.custom_display_text
+        ? { displayText: row.custom_display_text }
+        : {}),
     });
   }
 

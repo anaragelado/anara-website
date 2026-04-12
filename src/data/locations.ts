@@ -97,12 +97,13 @@ export function isOpenNow(hours: DayHours[]): boolean {
 export function getLocationStatus(hours: DayHours[]): LocationStatus {
   const { today, currentMinutes } = getLisbonContext(hours);
 
-  if (!today || today.open === "Closed") return "closed";
+  // Guard 1: no entry for today, explicitly closed, or missing time strings.
+  if (!today || !today.open || today.open === "Closed" || !today.close) return "closed";
 
   const [openH, openM] = today.open.split(":").map(Number);
   const [closeH, closeM] = today.close.split(":").map(Number);
 
-  // Guard: if either time is missing or non-numeric, treat as closed rather than crashing.
+  // Guard 2: malformed time strings (e.g. non-numeric after split) → treat as closed.
   if ([openH, openM, closeH, closeM].some(isNaN)) return "closed";
 
   const openMinutes = openH * 60 + openM;
