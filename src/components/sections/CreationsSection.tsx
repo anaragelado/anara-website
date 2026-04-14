@@ -1,42 +1,42 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  useMotionValue,
-  useAnimationFrame,
-} from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 import { useTranslations } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
-import Image from "next/image";
 
-/** Pixels per second the strip auto-scrolls. */
-const SCROLL_SPEED = 40;
+const creationsList = [
+  "Baunilha com calda de Abrunho",
+  "Bolo de Cenoura",
+  "Café c/ Laranja Cardamomo e Brownie",
+  "Cereja do Fundão",
+  "Chocolate Masala com Laranja do Alg.",
+  "Chocolate ped. chocolate Framboesa",
+  "Doce de Leite Argentino c/ Amendoas",
+  "Figo Pingo de Mel",
+  "Kombucha de Maracujá",
+  "Laranja do Alg. c/ clementina e hortela",
+  "Limao com Pepino e Hortela",
+  "Manga com Coentros",
+  "Mascarpone Manjericão",
+  "Melancia Especial",
+  "Morango Natas com calda Morango",
+  "Morango com pedaços Chocolate",
+  "Natas com Toffee e Pinhoes",
+  "Pastel de Nata",
+  "Requeijao c/ Figos caramelizados",
+  "Salame de Chocolate",
+  "Tarte de Maçã",
+  "Tiramisu de Caramelo Salgado"
+];
 
-const INSTAGRAM_IMAGES = [
-  "/assets/images/Instagram-Baunilha com calda de Abrunho.webp",
-  "/assets/images/Instagram-Bolo de Cenoura.webp",
-  "/assets/images/Instagram-Café c- Laranja Cardamomo e Brownie.webp",
-  "/assets/images/Instagram-Cereja do Fundão.jpg",
-  "/assets/images/Instagram-Chocolate Masala com Laranja do Alg..jpg",
-  "/assets/images/Instagram-Chocolate ped. chocolate Framboesa.webp",
-  "/assets/images/Instagram-Doce de Leite Argentino c -Amendoas.jpg",
-  "/assets/images/Instagram-Figo Pingo de Mel.webp",
-  "/assets/images/Instagram-Kombucha de Maracijá.webp",
-  "/assets/images/Instagram-Laranja do Alg. c- clementina e hortela.jpg",
-  "/assets/images/Instagram-Limao com Pepino e Hortela.jpg",
-  "/assets/images/Instagram-Manga com Coentros.webp",
-  "/assets/images/Instagram-Mascarpone Manjericão.jpg",
-  "/assets/images/Instagram-Melancia Especial.webp",
-  "/assets/images/Instagram-Morango Natas com calda Morango.webp",
-  "/assets/images/Instagram-Morango com pedaços Chocolate.webp",
-  "/assets/images/Instagram-Natas com Toffee e Pinhoes.webp",
-  "/assets/images/Instagram-Pastel de Nata.jpg",
-  "/assets/images/Instagram-Requeijao c- Figos caramelizados.jpg",
-  "/assets/images/Instagram-Salame de Chocolate.webp",
-  "/assets/images/Instagram-Tarte de Maçã.webp",
-  "/assets/images/Instagram-Tiramisu de Caramelo Sagado.webp",
+const COLOR_THEMES = [
+  "bg-orange-500/10 text-orange-950 border-orange-500/20",
+  "bg-yellow-500/15 text-yellow-950 border-yellow-500/30",
+  "bg-green-600/10 text-green-950 border-green-600/20",
+  "bg-amber-600/10 text-amber-950 border-amber-600/20",
+  "bg-pink-500/10 text-pink-950 border-pink-500/20"
 ];
 
 const CONE_COUNT = 4;
@@ -54,30 +54,37 @@ function Placeholder({ label }: { label: string }) {
 export default function CreationsSection() {
   const t = useTranslations("creations");
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const stripRef = useRef<HTMLDivElement>(null);
-  const [leftConstraint, setLeftConstraint] = useState(0);
-  const isDragging = useRef(false);
+  const halfRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
+  const isDragging = useRef(false);
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Compute max drag distance whenever the layout changes.
+  // Jump logic for infinite loop across seamless boundaries
   useEffect(() => {
-    const compute = () => {
-      if (!containerRef.current || !stripRef.current) return;
-      const overflow =
-        stripRef.current.scrollWidth - containerRef.current.offsetWidth;
-      setLeftConstraint(-Math.max(overflow, 0));
-    };
-    compute();
-    window.addEventListener("resize", compute);
-    return () => window.removeEventListener("resize", compute);
-  }, []);
+    return x.on("change", (currentX) => {
+      if (!halfRef.current) return;
+      const wrapWidth = halfRef.current.offsetWidth;
+      
+      // If we've scrolled/dragged past the first half to the left
+      if (currentX <= -wrapWidth) {
+        x.set(currentX + wrapWidth);
+      } 
+      // If we drag in reverse past exactly 0 to the right
+      else if (currentX > 0) {
+        x.set(currentX - wrapWidth);
+      }
+    });
+  }, [x]);
 
-  // Auto-scroll: advance x leftward each frame; loop back to 0 at the end.
+  // Frame loop
   useAnimationFrame((_, delta) => {
-    if (isDragging.current || leftConstraint === 0) return;
-    const next = x.get() - (SCROLL_SPEED * delta) / 1000;
-    x.set(next <= leftConstraint ? 0 : next);
+    if (isDragging.current || isHovered) return;
+    
+    // Smooth responsive speeds according to specs (40% slower on mobile -> 24px)
+    const speed = window.innerWidth < 768 ? 24 : 40;
+    
+    // Step leftwards actively
+    x.set(x.get() - (speed * delta) / 1000);
   });
 
   return (
@@ -113,33 +120,55 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* ─── Horizontal auto-scrolling drag strip — Instagram Creations ─── */}
-      <FadeIn delay={0.15} className="mt-10">
-        <div ref={containerRef} className="overflow-hidden">
-          <motion.div
-            ref={stripRef}
-            style={{ x, touchAction: "pan-y" }}
-            drag="x"
-            dragConstraints={{ left: leftConstraint, right: 0 }}
-            dragElastic={0.05}
-            dragMomentum={false}
-            onDragStart={() => { isDragging.current = true; }}
-            onDragEnd={() => { isDragging.current = false; }}
-            className="flex gap-3 cursor-grab active:cursor-grabbing select-none"
-          >
-            {INSTAGRAM_IMAGES.map((src, i) => (
-              <div key={i} className="relative w-44 flex-shrink-0 aspect-square md:w-52 overflow-hidden rounded-2xl shadow-sm border border-black/5">
-                <Image
-                  src={src}
-                  alt={`${t("igSliderLabel")} ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 176px, 208px"
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </motion.div>
-        </div>
+      {/* ─── Infinite Auto-Scroll Drag Marquee ─── */}
+      <FadeIn delay={0.15} className="mt-10 overflow-hidden -mx-4 md:-mx-8">
+        <motion.div
+          style={{ x }}
+          drag="x"
+          dragElastic={0}
+          dragMomentum={true}
+          onDragStart={() => (isDragging.current = true)}
+          onDragEnd={() => (isDragging.current = false)}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          onTouchStart={() => setIsHovered(true)}
+          onTouchEnd={() => setIsHovered(false)}
+          className="flex w-max cursor-grab active:cursor-grabbing select-none"
+        >
+          {/* Loop Iteration 1 */}
+          <div ref={halfRef} className="flex gap-4 shrink-0 min-w-max pr-4">
+            {creationsList.map((flavor, index) => {
+              const theme = COLOR_THEMES[index % COLOR_THEMES.length];
+              return (
+                <div
+                  key={`h1-${index}`}
+                  className={`flex h-36 w-64 flex-shrink-0 items-center justify-center rounded-2xl border px-6 text-center transition-transform hover:scale-[1.02] ${theme}`}
+                >
+                  <span className="text-lg font-medium tracking-wide">
+                    {flavor}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Loop Iteration 2 (For seamless wrap) */}
+          <div className="flex gap-4 shrink-0 min-w-max pr-4">
+            {creationsList.map((flavor, index) => {
+              const theme = COLOR_THEMES[index % COLOR_THEMES.length];
+              return (
+                <div
+                  key={`h2-${index}`}
+                  className={`flex h-36 w-64 flex-shrink-0 items-center justify-center rounded-2xl border px-6 text-center transition-transform hover:scale-[1.02] ${theme}`}
+                >
+                  <span className="text-lg font-medium tracking-wide">
+                    {flavor}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </motion.div>
       </FadeIn>
 
       {/* ─── Secondary grid — 4 Creation Cone photo placeholders ─── */}
