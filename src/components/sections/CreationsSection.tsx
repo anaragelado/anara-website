@@ -9,11 +9,36 @@ import {
 import { useTranslations } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
+import Image from "next/image";
 
 /** Pixels per second the strip auto-scrolls. */
 const SCROLL_SPEED = 40;
 
-const IG_COUNT = 10;
+const INSTAGRAM_IMAGES = [
+  "/assets/images/Instagram-Baunilha com calda de Abrunho.webp",
+  "/assets/images/Instagram-Bolo de Cenoura.webp",
+  "/assets/images/Instagram-Café c- Laranja Cardamomo e Brownie.webp",
+  "/assets/images/Instagram-Cereja do Fundão.jpg",
+  "/assets/images/Instagram-Chocolate Masala com Laranja do Alg..jpg",
+  "/assets/images/Instagram-Chocolate ped. chocolate Framboesa.webp",
+  "/assets/images/Instagram-Doce de Leite Argentino c -Amendoas.jpg",
+  "/assets/images/Instagram-Figo Pingo de Mel.webp",
+  "/assets/images/Instagram-Kombucha de Maracijá.webp",
+  "/assets/images/Instagram-Laranja do Alg. c- clementina e hortela.jpg",
+  "/assets/images/Instagram-Limao com Pepino e Hortela.jpg",
+  "/assets/images/Instagram-Manga com Coentros.webp",
+  "/assets/images/Instagram-Mascarpone Manjericão.jpg",
+  "/assets/images/Instagram-Melancia Especial.webp",
+  "/assets/images/Instagram-Morango Natas com calda Morango.webp",
+  "/assets/images/Instagram-Morango com pedaços Chocolate.webp",
+  "/assets/images/Instagram-Natas com Toffee e Pinhoes.webp",
+  "/assets/images/Instagram-Pastel de Nata.jpg",
+  "/assets/images/Instagram-Requeijao c- Figos caramelizados.jpg",
+  "/assets/images/Instagram-Salame de Chocolate.webp",
+  "/assets/images/Instagram-Tarte de Maçã.webp",
+  "/assets/images/Instagram-Tiramisu de Caramelo Sagado.webp",
+];
+
 const CONE_COUNT = 4;
 
 function Placeholder({ label }: { label: string }) {
@@ -88,7 +113,7 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* ─── Horizontal auto-scrolling drag strip — 10 IG placeholders ─── */}
+      {/* ─── Horizontal auto-scrolling drag strip — Instagram Creations ─── */}
       <FadeIn delay={0.15} className="mt-10">
         <div ref={containerRef} className="overflow-hidden">
           <motion.div
@@ -102,9 +127,15 @@ export default function CreationsSection() {
             onDragEnd={() => { isDragging.current = false; }}
             className="flex gap-3 cursor-grab active:cursor-grabbing select-none"
           >
-            {Array.from({ length: IG_COUNT }, (_, i) => (
-              <div key={i} className="w-44 flex-shrink-0 aspect-square md:w-52">
-                <Placeholder label={`${t("igSliderLabel")} ${i + 1}`} />
+            {INSTAGRAM_IMAGES.map((src, i) => (
+              <div key={i} className="relative w-44 flex-shrink-0 aspect-square md:w-52 overflow-hidden rounded-2xl shadow-sm border border-black/5">
+                <Image
+                  src={src}
+                  alt={`${t("igSliderLabel")} ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 176px, 208px"
+                  className="object-cover"
+                />
               </div>
             ))}
           </motion.div>
