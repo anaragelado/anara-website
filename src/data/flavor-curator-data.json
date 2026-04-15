@@ -1,0 +1,102 @@
+{
+  "groupedFlavors": [
+    {
+      "slug": "doce-de-leite-argentino",
+      "name": "Doce De Leite Argentino",
+      "images": [
+        "cone-doce-de-leite-argentino-v1.webp"
+      ]
+    },
+    {
+      "slug": "hazelnut-piemont",
+      "name": "Hazelnut Piemont",
+      "images": [
+        "cone-hazelnut-piemont-v1.webp",
+        "cone-hazelnut-piemont-v2.webp"
+      ]
+    },
+    {
+      "slug": "mango",
+      "name": "Mango",
+      "images": [
+        "cone-mango-v1.webp",
+        "cone-mango-v2.webp"
+      ]
+    },
+    {
+      "slug": "morango-natas-com-calda-de-morango",
+      "name": "Morango Natas Com Calda De Morango",
+      "images": [
+        "cone-morango-natas-com-calda-de-morango-v1.webp"
+      ]
+    },
+    {
+      "slug": "natas",
+      "name": "Natas",
+      "images": [
+        "cone-natas-v1.webp",
+        "cone-natas-v2.webp",
+        "cone-natas-v3.webp"
+      ]
+    },
+    {
+      "slug": "oreo",
+      "name": "Oreo",
+      "images": [
+        "cone-oreo-v1.webp",
+        "cone-oreo-v2.webp"
+      ]
+    },
+    {
+      "slug": "peanut-with-chocolate-chunks",
+      "name": "Peanut With Chocolate Chunks",
+      "images": [
+        "cone-peanut-with-chocolate-chunks-v1.webp"
+      ]
+    },
+    {
+      "slug": "pineapple",
+      "name": "Pineapple",
+      "images": [
+        "cone-pineapple-v1.webp",
+        "cone-pineapple-v2.webp",
+        "cone-pineapple-v3.webp"
+      ]
+    },
+    {
+      "slug": "raspberry",
+      "name": "Raspberry",
+      "images": [
+        "cone-raspberry-v1.webp"
+      ]
+    },
+    {
+      "slug": "salted-pistachio",
+      "name": "Salted Pistachio",
+      "images": [
+        "cone-salted-pistachio-v1.webp"
+      ]
+    },
+    {
+      "slug": "strawberry",
+      "name": "Strawberry",
+      "images": [
+        "cone-strawberry-v1.webp",
+        "cone-strawberry-v2.webp",
+        "cone-strawberry-v3.webp"
+      ]
+    },
+    {
+      "slug": "watermelon",
+      "name": "Watermelon",
+      "images": [
+        "cone-watermelon-v1.webp"
+      ]
+    }
+  ],
+  "problematicFiles": [
+    "cone-didnt-i-sent-you-one-without-text-v1.webp",
+    "cone-didnt-i-sent-you-one-without-text-v2.webp",
+    "cone-didnt-i-sent-you-one-without-texttext-v1.webp"
+  ]
+}
