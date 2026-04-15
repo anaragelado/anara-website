@@ -17,7 +17,7 @@ const storyImages = [
     alt: "Fresh lemons in a crate",
   },
   {
-    src: "/assets/images/product-single-scoop-strawberry-gelato-hero.jpg",
+    src: "/assets/images/cone-morango-natas-com-calda-de-morango-v1.jpg",
     alt: "Morango artisanal gelato — Anara Gelado",
   },
 ];

@@ -34,7 +34,7 @@ const DUMMY_TEXT = [
 
 const SECTION_IMAGES = [
   "/assets/images/ingredient-fresh-mangoes-crates-overhead.jpg",
-  "/assets/images/product-single-scoop-strawberry-gelato-hero.jpg",
+  "/assets/images/cone-morango-natas-com-calda-de-morango-v1.jpg",
   "/assets/images/food-cart-exterior-with-anara-branding-sign.jpg",
   "/assets/images/ambiance-sunset-customer-enjoying-gelato-cup.jpg",
   "/assets/images/food-cart-exterior-yellow-trailer-front-view.jpg",
