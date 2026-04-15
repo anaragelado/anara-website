@@ -17,6 +17,8 @@ interface CuratorClientProps {
 export default function CuratorClient({ groupedFlavors, problematicFiles }: CuratorClientProps) {
   const [selections, setSelections] = useState<Record<string, string>>({});
 
+  const displayFlavors = groupedFlavors.filter(f => f.images.length > 1);
+
   const toggleSelection = (slug: string, filename: string) => {
     setSelections(prev => ({
       ...prev,
@@ -25,16 +27,20 @@ export default function CuratorClient({ groupedFlavors, problematicFiles }: Cura
   };
 
   const handleSend = () => {
-    if (Object.keys(selections).length === 0) {
+    if (displayFlavors.length > 0 && Object.keys(selections).length === 0) {
       alert("Please select at least one photo.");
       return;
     }
 
     let message = "";
     groupedFlavors.forEach(flavor => {
-      const selectedFile = selections[flavor.slug];
-      if (selectedFile) {
-        message += `${flavor.name} -> SELECTED: ${selectedFile}\n`;
+      if (flavor.images.length === 1) {
+        message += `${flavor.name} -> AUTO-SELECTED: ${flavor.images[0]}\n`;
+      } else {
+        const selectedFile = selections[flavor.slug];
+        if (selectedFile) {
+          message += `${flavor.name} -> SELECTED: ${selectedFile}\n`;
+        }
       }
     });
 
@@ -52,7 +58,7 @@ export default function CuratorClient({ groupedFlavors, problematicFiles }: Cura
       </header>
 
       <div className="space-y-12">
-        {groupedFlavors.map((flavor) => (
+        {displayFlavors.map((flavor) => (
           <div key={flavor.slug} className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
             <h2 className="text-2xl font-bold font-[family-name:var(--font-heading)] mb-6 text-gray-800 capitalize border-b pb-4">
               {flavor.name}
@@ -91,13 +97,27 @@ export default function CuratorClient({ groupedFlavors, problematicFiles }: Cura
             </div>
           </div>
         ))}
-        {groupedFlavors.length === 0 && (
+        {displayFlavors.length === 0 && (
           <p className="text-center text-gray-500">No flavors found to curate.</p>
         )}
       </div>
 
+      <div className="mt-16 bg-blue-50/50 border border-blue-100 rounded-2xl p-6 md:p-8 shadow-sm">
+        <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+          <span className="text-blue-500">ℹ️</span> Information: Excluded Photos
+        </h2>
+        <div className="text-gray-700 bg-white p-4 md:p-6 rounded-xl shadow-sm text-base border-l-4 border-blue-400 space-y-3">
+          <p>
+            During the previous step, 30 images were marked as &apos;no&apos;. Most of these were excluded because they contained text overlays or showed two scoops, which cannot be used for the website&apos;s clean layout.
+          </p>
+          <p>
+            However, 6 of these excluded images are clean single scoops and might have been skipped by mistake. Patrick has saved these 6 images, and we will quickly review them together in person during our next meeting.
+          </p>
+        </div>
+      </div>
+
       {problematicFiles.length > 0 && (
-        <div className="mt-16 bg-gray-50 border border-gray-200 p-6 md:p-8 rounded-3xl">
+        <div className="mt-8 bg-gray-50 border border-gray-200 p-6 md:p-8 rounded-3xl">
           <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
             <span className="text-orange-500">⚠️</span> Action Required: Missing Clean Photos
           </h2>
@@ -120,10 +140,10 @@ export default function CuratorClient({ groupedFlavors, problematicFiles }: Cura
         </div>
       )}
 
-      <div className="mt-16 flex justify-center fixed bottom-8 left-0 right-0 z-50 px-4 pointer-events-none">
+      <div className="mt-16 mb-16 flex justify-center">
         <button 
           onClick={handleSend}
-          className="pointer-events-auto bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-8 md:py-5 md:px-10 rounded-full shadow-2xl transition-transform hover:scale-105 active:scale-95 text-lg md:text-xl w-full md:w-auto flex items-center justify-center gap-3 border-4 border-white"
+          className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-8 md:py-5 md:px-10 rounded-full shadow-xl transition-transform hover:scale-105 active:scale-95 text-lg md:text-xl w-full md:w-auto flex items-center justify-center gap-3"
         >
            Send Selections to Patrick
         </button>
