@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 export type FlavorItem = {
   filename: string;
+  src: string;
   suggestion: string;
   status: 'pending' | 'confirmed' | 'manual';
   finalName: string;
@@ -52,11 +53,23 @@ export default function TaggerClient({ initialFlavors }: TaggerClientProps) {
 
   const handleSend = () => {
     let message = "";
+    const slugCounts: Record<string, number> = {};
+
     flavors.forEach(f => {
       // Only include if confirmed or manual and finalName is not empty
       if ((f.status === 'confirmed' || f.status === 'manual') && f.finalName.trim() !== "") {
         const slug = slugify(f.finalName);
-        message += `${f.filename} -> ${f.finalName}\n(Save as: cone-${slug}.jpg)\n\n`;
+        
+        // Track slug counts
+        if (!slugCounts[slug]) {
+          slugCounts[slug] = 1;
+        } else {
+          slugCounts[slug]++;
+        }
+        
+        const version = slugCounts[slug];
+        
+        message += `${f.filename} -> ${f.finalName} (Save as: cone-${slug}-v${version}.jpg)\n`;
       }
     });
 
@@ -82,10 +95,9 @@ export default function TaggerClient({ initialFlavors }: TaggerClientProps) {
         {flavors.map((f) => (
           <div key={f.filename} className={`flex flex-col md:flex-row items-center gap-6 bg-[var(--color-background-secondary)] p-6 rounded-3xl shadow-sm border ${f.status === 'confirmed' ? 'border-green-400 ring-2 ring-green-100' : 'border-gray-100'}`}>
             <div className="relative w-full md:w-64 shrink-0">
-              {/* Added aspect-[3/4] on mobile/default */}
               <div className="relative w-full h-auto aspect-[3/4] md:aspect-auto md:h-64">
                 <Image 
-                  src={`/assets/temp-cones/${f.filename}`}
+                  src={f.src}
                   alt={f.filename}
                   fill
                   className="object-cover rounded-2xl shadow-sm"
