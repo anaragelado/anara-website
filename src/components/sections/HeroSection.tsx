@@ -13,6 +13,7 @@ export default function HeroSection() {
         <video
           className="h-full w-full object-cover md:hidden"
           src="/assets/videos/hero-video-smartphone.mp4"
+          poster="/assets/videos/mobile-hero-poster.webp"
           autoPlay
           muted
           loop
@@ -24,6 +25,7 @@ export default function HeroSection() {
         <video
           className="hidden h-full w-full object-cover md:block"
           src="/assets/videos/hero-video-desktop.mp4"
+          poster="/assets/videos/desktop-hero-poster.webp"
           autoPlay
           muted
           loop
