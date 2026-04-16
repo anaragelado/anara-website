@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
 import Image from "next/image";
+import { Leaf } from "lucide-react";
 
 const creationsList = [
   "Baunilha com calda de Abrunho",
@@ -177,13 +178,14 @@ export default function CreationsSection() {
                 className="object-cover"
               />
             </div>
-            <div className="mt-4 text-center pb-2">
-              <p className="text-sm font-bold md:text-base font-heading">{coneName}</p>
-              <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
-                <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 px-2.5 py-0.5 text-[10px] font-semibold text-brand-green uppercase tracking-wide">
+            <div className="mt-3 text-center">
+              <p className="text-sm font-medium md:text-base">{coneName}</p>
+              <div className="mt-1 flex items-center justify-center gap-2">
+                <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 px-3 py-0.5 text-xs font-medium text-brand-green">
+                  <Leaf size={12} strokeWidth={1.5} />
                   {tMenu("vegan")}
                 </span>
-                <span className="inline-flex items-center rounded-full bg-brand-yellow/10 px-2.5 py-0.5 text-[10px] font-semibold text-text-secondary uppercase tracking-wide">
+                <span className="inline-flex items-center rounded-full bg-brand-yellow/10 px-3 py-0.5 text-xs font-medium text-text-secondary">
                   {tMenu("glutenFree")}
                 </span>
               </div>
@@ -204,11 +206,12 @@ export default function CreationsSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
             <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-center justify-end text-center">
               <p className="text-white text-base md:text-lg font-bold font-heading drop-shadow-md mb-3">{coneName}</p>
-              <div className="flex flex-wrap items-center justify-center gap-1.5">
-                <span className="inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md border border-white/10 px-2.5 py-1 text-[10px] font-semibold text-white uppercase tracking-wide shadow-sm">
+              <div className="flex items-center justify-center gap-2">
+                <span className="inline-flex items-center gap-1 rounded-full bg-brand-green px-3 py-0.5 text-xs font-medium text-white shadow-sm">
+                  <Leaf size={12} strokeWidth={1.5} />
                   {tMenu("vegan")}
                 </span>
-                <span className="inline-flex items-center rounded-full bg-white/20 backdrop-blur-md border border-white/10 px-2.5 py-1 text-[10px] font-semibold text-white uppercase tracking-wide shadow-sm">
+                <span className="inline-flex items-center rounded-full bg-brand-yellow px-3 py-0.5 text-xs font-medium text-text-primary shadow-sm">
                   {tMenu("glutenFree")}
                 </span>
               </div>
