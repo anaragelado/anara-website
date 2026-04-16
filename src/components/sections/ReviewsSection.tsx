@@ -58,14 +58,9 @@ export default function ReviewsSection() {
   const reviews = locale === "pt" ? reviewsPt : reviewsEn;
 
   return (
-    <SectionWrapper id="reviews" mobileTopBorderColor="#FF7802">
+    <SectionWrapper id="reviews">
       <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          <span
-            className="mr-2.5 hidden md:inline-block h-2.5 w-2.5 rounded-full align-middle"
-            style={{ backgroundColor: "#FF7802" }}
-            aria-hidden="true"
-          />
           {t("title")}
         </h2>
         <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">

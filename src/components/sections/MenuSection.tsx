@@ -9,15 +9,10 @@ export default function MenuSection() {
   const t = useTranslations("menu");
 
   return (
-    <SectionWrapper id="menu" mobileTopBorderColor="#FDDB00">
+    <SectionWrapper id="menu">
       {/* Section header */}
       <FadeIn className="text-center">
         <h2 className="font-heading text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
-          <span
-            className="mr-2.5 hidden md:inline-block h-2.5 w-2.5 rounded-full align-middle"
-            style={{ backgroundColor: "#FDDB00" }}
-            aria-hidden="true"
-          />
           {t("title")}
         </h2>
         <p className="mt-2 font-accent text-2xl text-text-secondary md:text-3xl">
@@ -26,7 +21,7 @@ export default function MenuSection() {
       </FadeIn>
 
       {/* Description */}
-      <p className="mx-auto mt-6 max-w-3xl text-center text-sm leading-relaxed text-text-secondary md:text-base">
+      <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
         {t("description")}
       </p>
 

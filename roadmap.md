@@ -212,8 +212,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 ## Phase 4C: UI Overhaul, Sticky Layouts & Logic Fixes
 **Goal:** Implement the V1 design feedback, refine mobile alignment, split the status pills, build the Creations prototypes, and update routing logic.
 
-* [ ] **4C.1 Global Styling & Typography Refinement:**
-  * **Remove Accents:** Remove all Instagram color sequence implementations (no colored dots, no colored divider lines) across both mobile and desktop. 
+* [x] **4C.1 Global Styling & Typography Refinement:**
+  * **Remove Accents:** Remove the Instagram color sequence implementations, this means no colored dots, no colored divider lines across both mobile and desktop. 
   * **Mobile Alignment:** Apply `text-center md:text-left` to all `h1`, `h2`, and body text elements across the entire SPA.
   * **Takeaway Pill:** Ensure the green call-to-action/info pill in the Takeaway section is horizontally centered on mobile (`mx-auto md:mx-0`).
   * **Text Standardization:** Audit the `<p>` tags in the `#menu` (Our Flavours) and `#story` (Our Story) sections. Ensure they use the exact same Tailwind text size and line-height classes (e.g., `text-base` or `text-lg`).
