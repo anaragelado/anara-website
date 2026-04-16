@@ -32,13 +32,15 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-16">
         {/* === Mobile layout (stacked, centered) === */}
         <div className="flex flex-col items-center gap-8 text-center md:hidden">
-          <Image
-            src="/assets/logo.svg"
-            alt="Anara Gelado Artesanal"
-            width={240}
-            height={80}
-            className="h-20 w-auto"
-          />
+          <a href="#hero">
+            <Image
+              src="/assets/logo.svg"
+              alt="Anara Gelado Artesanal"
+              width={240}
+              height={80}
+              className="h-20 w-auto"
+            />
+          </a>
           <div>
             <p className="text-sm font-bold text-text-primary">
               Anara Gelado Artesanal
@@ -94,13 +96,15 @@ export default function Footer() {
         <div className="hidden md:block">
           {/* Top row: centered logo */}
           <div className="flex justify-center">
-            <Image
-              src="/assets/logo.svg"
-              alt="Anara Gelado Artesanal"
-              width={260}
-              height={88}
-              className="h-22 w-auto"
-            />
+            <a href="#hero">
+              <Image
+                src="/assets/logo.svg"
+                alt="Anara Gelado Artesanal"
+                width={260}
+                height={88}
+                className="h-22 w-auto"
+              />
+            </a>
           </div>
 
           {/* Middle row: three columns, all top-aligned */}
