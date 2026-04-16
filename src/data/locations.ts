@@ -90,8 +90,8 @@ export function isOpenNow(hours: DayHours[]): boolean {
 
 /**
  * Returns a granular status for a location:
- * - "open": currently open, more than 30 min until close
- * - "closingSoon": currently open, 30 min or less until close
+ * - "open": currently open, more than 15 min until close
+ * - "closingSoon": currently open, 15 min or less until close
  * - "openSoon": currently closed, opens within 1 hour
  * - "closed": closed and not opening within 1 hour
  */
@@ -113,7 +113,7 @@ export function getLocationStatus(hours: DayHours[]): LocationStatus {
   if (currentMinutes >= openMinutes && currentMinutes < closeMinutes) {
     // Currently open
     const minutesUntilClose = closeMinutes - currentMinutes;
-    return minutesUntilClose <= 30 ? "closingSoon" : "open";
+    return minutesUntilClose <= 15 ? "closingSoon" : "open";
   }
 
   // Currently closed — check if opening soon

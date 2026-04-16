@@ -27,44 +27,11 @@ interface HeaderProps {
   activeSection: string;
 }
 
-/**
- * Badge state — derived from per-location statuses.
- * Priority: closingSoon > open > openSoon > closed
- */
-type BadgeState =
-  | "both" | "hq" | "mobile"
-  | "closingBoth" | "closingHq" | "closingMobile"
-  | "openingSoonBoth" | "openingSoonHq" | "openingSoonMobile"
-  | "closed";
-
-function deriveBadgeState(hq: LocationStatus, mobile: LocationStatus): BadgeState {
-  const hqClosing = hq === "closingSoon";
-  const mobileClosing = mobile === "closingSoon";
-  const hqOpen = hq === "open" || hq === "closingSoon";
-  const mobileOpen = mobile === "open" || mobile === "closingSoon";
-  const hqSoon = hq === "openSoon";
-  const mobileSoon = mobile === "openSoon";
-
-  // Priority 1: closing soon (most urgent)
-  if (hqClosing && mobileClosing) return "closingBoth";
-  if (hqClosing) return "closingHq";
-  if (mobileClosing) return "closingMobile";
-
-  // Priority 2: open
-  if (hqOpen && mobileOpen) return "both";
-  if (hqOpen) return "hq";
-  if (mobileOpen) return "mobile";
-
-  // Priority 3: opening soon
-  if (hqSoon && mobileSoon) return "openingSoonBoth";
-  if (hqSoon) return "openingSoonHq";
-  if (mobileSoon) return "openingSoonMobile";
-
-  return "closed";
-}
-
-function useBadgeState(locationHours: LocationHours[]): { state: BadgeState; mounted: boolean } {
-  const [state, setState] = useState<BadgeState>("closed");
+function useLocationsStatus(locationHours: LocationHours[]) {
+  const [statuses, setStatuses] = useState<{ hq: LocationStatus; mobile: LocationStatus }>({
+    hq: "closed",
+    mobile: "closed",
+  });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -72,54 +39,50 @@ function useBadgeState(locationHours: LocationHours[]): { state: BadgeState; mou
     const check = () => {
       const hqData = locationHours.find((l) => l.id === "hq");
       const mobileData = locationHours.find((l) => l.id === "mobile");
-      const hq: LocationStatus = hqData ? getLocationStatus(hqData.hours) : "closed";
-      const mobile: LocationStatus = mobileData ? getLocationStatus(mobileData.hours) : "closed";
-      setState(deriveBadgeState(hq, mobile));
+      setStatuses({
+        hq: hqData ? getLocationStatus(hqData.hours) : "closed",
+        mobile: mobileData ? getLocationStatus(mobileData.hours) : "closed",
+      });
     };
     check();
     const interval = setInterval(check, 60_000);
     return () => clearInterval(interval);
   }, [locationHours]);
 
-  return { state, mounted };
+  return { statuses, mounted };
 }
 
-const badgeLabelKey: Record<BadgeState, string> = {
-  both: "openAll",
-  hq: "openHq",
-  mobile: "openMobile",
-  closingBoth: "closingSoonAll",
-  closingHq: "closingSoonHq",
-  closingMobile: "closingSoonMobile",
-  openingSoonBoth: "openSoonAll",
-  openingSoonHq: "openSoonHq",
-  openingSoonMobile: "openSoonMobile",
-  closed: "closedNow",
-};
+function LocationBadge({ type, status }: { type: "hq" | "mobile"; status: LocationStatus }) {
+  const tLoc = useTranslations("locations");
 
-function badgeDotClass(state: BadgeState): string {
-  if (state.startsWith("closing")) return "bg-brand-yellow animate-pulse";
-  if (state === "both" || state === "hq" || state === "mobile") return "bg-brand-green animate-pulse";
-  if (state.startsWith("opening")) return "bg-brand-yellow";
-  return "bg-red-400";
-}
+  // Determine styles based on status.
+  const isClosed = status === "closed";
+  const labelKey = status === "open" ? "openNow" : status;
 
-function OpenBadge({ locationHours }: { locationHours: LocationHours[] }) {
-  const t = useTranslations("nav");
-  const { state, mounted } = useBadgeState(locationHours);
+  // Utilize compact spacing when closed
+  const paddingClass = isClosed ? "px-2 py-0.5" : "px-3 py-1";
+  const textSize = isClosed ? "text-[10px]" : "text-xs";
 
-  if (!mounted) return null;
+  const dotClass = {
+    open: "bg-brand-green",
+    closingSoon: "bg-brand-yellow animate-pulse",
+    openSoon: "bg-brand-yellow",
+    closed: "bg-red-400",
+  }[status];
+
+  const prefix = type === "hq" ? "Charneca" : "Costa";
 
   return (
     <a
       href="#locations"
-      className="inline-flex items-center gap-1.5 rounded-full border border-gray-100 px-2.5 py-1 text-xs font-medium transition-all duration-300 ease-in-out hover:border-highlight-green"
+      className={`inline-flex items-center gap-1.5 rounded-full border border-gray-100 bg-background-secondary ${paddingClass} ${textSize} font-medium shadow-sm transition-all duration-300 ease-in-out hover:border-highlight-green`}
     >
       <span
-        className={`h-2 w-2 flex-shrink-0 rounded-full transition-colors duration-300 ${badgeDotClass(state)}`}
+        className={`h-2 w-2 flex-shrink-0 rounded-full transition-colors duration-300 ${dotClass}`}
       />
       <span className="whitespace-nowrap transition-all duration-300">
-        {t(badgeLabelKey[state])}
+        <span className="font-bold mr-1">{prefix}</span>
+        <span className="font-normal text-text-secondary">{tLoc(labelKey)}</span>
       </span>
     </a>
   );
@@ -128,6 +91,7 @@ function OpenBadge({ locationHours }: { locationHours: LocationHours[] }) {
 export default function Header({ onMobileMenuOpen, locationHours, activeSection }: HeaderProps) {
   const t = useTranslations("nav");
   const [scrolled, setScrolled] = useState(false);
+  const { statuses, mounted } = useLocationsStatus(locationHours);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -145,7 +109,12 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
       <div className="mx-auto flex max-w-7xl items-center justify-between relative px-4 py-3 md:px-8">
         {/* Mobile Centered Open badge */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
-          <OpenBadge locationHours={locationHours} />
+          {mounted && (
+            <div className="flex flex-col gap-0.5 items-center justify-center">
+              <LocationBadge type="hq" status={statuses.hq} />
+              <LocationBadge type="mobile" status={statuses.mobile} />
+            </div>
+          )}
         </div>
 
         {/* Logo + Desktop Open badge */}
@@ -160,9 +129,12 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
               className="h-10 w-auto"
             />
           </a>
-          <div className="hidden md:block">
-            <OpenBadge locationHours={locationHours} />
-          </div>
+          {mounted && (
+            <div className="hidden md:flex items-center gap-2">
+              <LocationBadge type="hq" status={statuses.hq} />
+              <LocationBadge type="mobile" status={statuses.mobile} />
+            </div>
+          )}
         </div>
 
         {/* Desktop Anchor Links */}

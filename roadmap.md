@@ -218,7 +218,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Takeaway Pill:** Ensure the green call-to-action/info pill in the Takeaway section is horizontally centered on mobile (`mx-auto md:mx-0`).
   * **Text Standardization:** Audit the `<p>` tags in the `#menu` (Our Flavours) and `#story` (Our Story) sections. Ensure they use the exact same Tailwind text size and line-height classes (e.g., `text-base` or `text-lg`).
 
-* [ ] **4C.2 Status Pills & Header Layout:**
+* [x] **4C.2 Status Pills & Header Layout:**
   * **Split Badges:** Refactor the `OpenBadge` component into two distinct status pills (HQ and Mobile Shop). 
   * **Pill Layout:** 
     * Desktop: Render side-by-side (HQ primary on the left, Mobile secondary on the right). 
