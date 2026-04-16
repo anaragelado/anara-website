@@ -236,16 +236,19 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Story Update:** Add a localized sentence to the end of the story text stating that the owner was "trained in Italy".
   * **File Cleanup:** Delete the files `cone-no-V1` through `cone-no-V30` from the public images directory to keep the repo clean.
 
-* [ ] **4C.5 Creations Section Prototypes (A/B Test):**
+* [x] **4C.5 Creations Section Prototypes (A/B Test):**
   * Build two distinct code prototypes for the "Special Cones" grid within the `#creations` section so the client can evaluate them. To be clear it is the 4 image grid below the scrolling flavour section. Make the first two like described in prototype 1 and the last two like described in prototype 2. use this image for all 4 images: "cone-carrot-cake-v1.webp":
     * **Prototype 1:** Standard layout matching the existing staple flavors cards.
     * **Prototype 2:** Overlay layout, where the Vegan / Gluten-Free / flavour name badges hover as absolute overlays directly on top of the cone images.
 
-* [ ] **4C.6 Imprint details:**
+* [x] **4C.6 Imprint details:**
   * for business name display "Anara Gelado Artesanal" and delete the VAT number entry. Everything else can stay the same. 
 
   * [ ] **4C.7 Flavour curator results**
   * Ask for the list that defines the selected image for all flavours with more than one image. I`ll provide that list and you have to mark the corrisponding file with a suffix like "_selected".
+
+  * [ ] **4C.8 Nav bar logo**
+  * The nav bar logo should link back to the top of the page (home section).
 
 
   ## Phase 5: Technical SEO, Media & Launch Prep

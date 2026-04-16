@@ -46,10 +46,6 @@ function ImprintContent() {
                 </a>
               </dd>
             </div>
-            <div>
-              <dt className="text-sm font-medium text-text-primary">{t("vat")}</dt>
-              <dd>{t("vatValue")}</dd>
-            </div>
           </dl>
         </section>
 
