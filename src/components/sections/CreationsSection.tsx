@@ -40,17 +40,12 @@ const COLOR_THEMES = [
   "bg-pink-500/10 text-pink-950 border-pink-500/20"
 ];
 
-const CONE_COUNT = 4;
-
-function Placeholder({ label }: { label: string }) {
-  return (
-    <div className="flex h-full w-full items-center justify-center rounded-2xl border border-brand-green/30 bg-brand-green/10 p-3 text-center">
-      <p className="text-xs font-semibold uppercase tracking-wide text-brand-green md:text-sm">
-        {label}
-      </p>
-    </div>
-  );
-}
+const CREATION_CONES = [
+  { src: "/assets/images/cone-raspberry-v1.webp",                     alt: "Gelado artesanal de framboesa" },
+  { src: "/assets/images/cone-pineapple-v1.webp",                     alt: "Gelado artesanal de ananás" },
+  { src: "/assets/images/cone-doce-de-leite-argentino-v1.webp",       alt: "Gelado artesanal de doce de leite argentino" },
+  { src: "/assets/images/cone-peanut-with-chocolate-chunks-v1.webp",  alt: "Gelado artesanal de amendoim com chocolate" },
+];
 
 export default function CreationsSection() {
   const t = useTranslations("creations");
@@ -169,22 +164,19 @@ export default function CreationsSection() {
 
       {/* ─── Secondary grid — 4 Creation Cone photo placeholders (A/B Test Prototypes) ─── */}
       <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
-        {/* Prototype 1: Standard layout (Items 1 & 2) */}
-        {[1, 2].map((i) => (
+        {/* Prototype 1: Standard layout (Items 0 & 1) */}
+        {CREATION_CONES.slice(0, 2).map((cone, i) => (
           <div key={`p1-${i}`} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
               <Image
-                src="/assets/images/cone-carrot-cake-v1.webp"
-                alt="Carrot Cake Cone"
+                src={cone.src}
+                alt={cone.alt}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
             <div className="mt-4 text-center pb-2">
-              <p className="text-sm font-bold md:text-base font-heading">
-                Bolo de Cenoura
-              </p>
               <div className="mt-2 flex flex-wrap items-center justify-center gap-1.5">
                 <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 px-2.5 py-0.5 text-[10px] font-semibold text-brand-green uppercase tracking-wide">
                   Vegan
@@ -197,23 +189,19 @@ export default function CreationsSection() {
           </div>
         ))}
 
-        {/* Prototype 2: Overlay layout (Items 3 & 4) */}
-        {[3, 4].map((i) => (
+        {/* Prototype 2: Overlay layout (Items 2 & 3) */}
+        {CREATION_CONES.slice(2, 4).map((cone, i) => (
           <div key={`p2-${i}`} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 overflow-hidden rounded-2xl aspect-[3/4] hover:shadow-lg">
             <Image
-              src="/assets/images/cone-carrot-cake-v1.webp"
-              alt="Carrot Cake Cone"
+              src={cone.src}
+              alt={cone.alt}
               fill
               sizes="(max-width: 768px) 50vw, 25vw"
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             {/* Gradient Overlay for Text Readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
-            
             <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-center justify-end text-center">
-              <p className="text-white text-base md:text-lg font-bold font-heading drop-shadow-md mb-3">
-                Bolo de Cenoura
-              </p>
               <div className="flex flex-wrap items-center justify-center gap-1.5">
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-md border border-white/10 px-2.5 py-1 text-[10px] font-semibold text-white uppercase tracking-wide shadow-sm">
                   Vegan
