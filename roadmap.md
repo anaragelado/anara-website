@@ -244,11 +244,16 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **4C.6 Imprint details:**
   * for business name display "Anara Gelado Artesanal" and delete the VAT number entry. Everything else can stay the same. 
 
-  * [ ] **4C.7 Flavour curator results**
-  * Ask for the list that defines the selected image for all flavours with more than one image. I`ll provide that list and you have to mark the corrisponding file with a suffix like "_selected".
+  * [ ] **4C.7 Flavour Curator Results & File Cleanup:**
+  * I will provide the final selection list from the WhatsApp payload (e.g., `Chocolate Belga -> SELECTED: cone-chocolate-belga-v2.jpg`).
+  * Update the UI data arrays (in the Menu and Creations sections) to strictly reference these winning filenames.
+  * Delete all unselected/unused `-vX.jpg` variations from `public/assets/images/` to clean up the repository. Do not rename the winning files; just move the losers to a new folder witihn the project, which I will than cut and archive somewhere else, in case we need it again.
 
   * [ ] **4C.8 Nav bar logo**
   * The nav bar logo should link back to the top of the page (home section).
+
+  * [ ] **4C.9 Text behaviour in the takeaway section on the desktop version**
+  * The text in the takeaway section should follow the scrolling position until it is reaching the end of that section. Since the image next to it is vertical, we have a lot of white space under the text column on the left.
 
 
   ## Phase 5: Technical SEO, Media & Launch Prep
