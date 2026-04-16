@@ -231,10 +231,10 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **i18n Middleware Logic:** Update `next-intl` configuration. Set strict browser header detection: Default to Portuguese (`pt`) **only** if the user's browser language corresponds to a Portuguese-speaking locale (e.g., `pt`, `pt-PT`, `pt-BR`). For **all** other languages globally, force the default to English (`en`).
   * **Email Update:** Update all `mailto:` links across the site to `info@anaragelado.pt`.
 
-* [ ] **4C.4 Section Layouts & Content Injections:**
+* [x] **4C.4 Section Layouts & Content Injections:**
   * **Sticky Scrolling:** In the `#story` and `#takeaway` sections, wrap the text columns in a `sticky top-24` (or similar offset) container so the text follows the user down the screen while they scroll past the image column.
-  * **Story Updates:** Update the slider to include the specific Strawberry cone photo. Add a localized sentence to the end of the story text stating that the owner was "trained in Italy".
-  * **File Cleanup:** Delete the files `cone-no-V1` through `cone-no-V6` from the public images directory to keep the repo clean.
+  * **Story Update:** Add a localized sentence to the end of the story text stating that the owner was "trained in Italy".
+  * **File Cleanup:** Delete the files `cone-no-V1` through `cone-no-V30` from the public images directory to keep the repo clean.
 
 * [ ] **4C.5 Creations Section Prototypes (A/B Test):**
   * Build two distinct code prototypes for the "Special Cones" grid within the `#creations` section so the client can evaluate them:
