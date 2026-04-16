@@ -237,13 +237,15 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **File Cleanup:** Delete the files `cone-no-V1` through `cone-no-V30` from the public images directory to keep the repo clean.
 
 * [ ] **4C.5 Creations Section Prototypes (A/B Test):**
-  * Build two distinct code prototypes for the "Special Cones" grid within the `#creations` section so the client can evaluate them:
+  * Build two distinct code prototypes for the "Special Cones" grid within the `#creations` section so the client can evaluate them. To be clear it is the 4 image grid below the scrolling flavour section. Make the first two like described in prototype 1 and the last two like described in prototype 2. use this image for all 4 images: "cone-carrot-cake-v1.webp":
     * **Prototype 1:** Standard layout matching the existing staple flavors cards.
-    * **Prototype 2:** Overlay layout, where the Vegan / Gluten-Free badges hover as absolute overlays directly on top of the cone images.
+    * **Prototype 2:** Overlay layout, where the Vegan / Gluten-Free / flavour name badges hover as absolute overlays directly on top of the cone images.
 
-* [ ] **4C.6 Footer Imprint Restructure (Portuguese Style):**
-  * Delete the dedicated `/imprint` page and route.
-  * Move the required Portuguese legal information (Official Business Name, Address, VAT/NIF, and the Consumer Dispute Resolution text) directly into a minimalist, small-text block at the very bottom of the global `<Footer>`.
+* [ ] **4C.6 Imprint details:**
+  * for business name display "Anara Gelado Artesanal" and delete the VAT number entry. Everything else can stay the same. 
+
+  * [ ] **4C.7 Flavour curator results**
+  * Ask for the list that defines the selected image for all flavours with more than one image. I`ll provide that list and you have to mark the corrisponding file with a suffix like "_selected".
 
 
   ## Phase 5: Technical SEO, Media & Launch Prep
