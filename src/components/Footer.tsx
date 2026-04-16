@@ -49,10 +49,10 @@ export default function Footer() {
               2820-166 Charneca de Caparica
             </p>
             <a
-              href="mailto:hello@anaragelado.pt"
+              href="mailto:info@anaragelado.pt"
               className="mt-2 inline-block text-sm text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand"
             >
-              hello@anaragelado.pt
+              info@anaragelado.pt
             </a>
           </div>
           <div className="flex flex-col items-center gap-1">
@@ -80,7 +80,7 @@ export default function Footer() {
               <InstagramIcon size={22} />
             </a>
             <a
-              href="mailto:hello@anaragelado.pt"
+              href="mailto:info@anaragelado.pt"
               aria-label={t("email")}
               className="flex min-h-[44px] min-w-[44px] items-center justify-center text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-sand"
             >
@@ -116,10 +116,10 @@ export default function Footer() {
                 2820-166 Charneca de Caparica
               </p>
               <a
-                href="mailto:hello@anaragelado.pt"
+                href="mailto:info@anaragelado.pt"
                 className="mt-2 inline-block text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand"
               >
-                hello@anaragelado.pt
+                info@anaragelado.pt
               </a>
             </div>
 
@@ -154,7 +154,7 @@ export default function Footer() {
                 <InstagramIcon size={22} />
               </a>
               <a
-                href="mailto:hello@anaragelado.pt"
+                href="mailto:info@anaragelado.pt"
                 aria-label={t("email")}
                 className="flex min-h-[44px] min-w-[44px] items-center justify-center text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-sand"
               >

@@ -54,7 +54,7 @@ function PrivacyContent() {
             <h2 className="text-xl font-semibold">{t("contactTitle")}</h2>
             <p className="mt-3 leading-relaxed text-text-secondary">{t("contactText")}</p>
             <a
-              href="mailto:hello@anaragelado.pt"
+              href="mailto:info@anaragelado.pt"
               className="mt-1 inline-block text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline"
             >
               {t("contactEmail")}

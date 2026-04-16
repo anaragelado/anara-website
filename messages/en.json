@@ -6,8 +6,10 @@
   "nav": {
     "story": "Our Story",
     "menu": "Flavours",
+    "creations": "Creations",
     "takeaway": "Takeaway",
     "locations": "Locations",
+    "reviews": "Your reviews",
     "visitUs": "Visit Us",
     "openAll": "Open",
     "openHq": "Charneca Open",
@@ -100,7 +102,7 @@
     "address": "Address",
     "addressValue": "Estrada da Bela Vista 144, 2820-166 Charneca de Caparica, Portugal",
     "email": "Email",
-    "emailValue": "hello@anaragelado.pt",
+    "emailValue": "info@anaragelado.pt",
     "vat": "VAT Number (NIF / NIPC)",
     "vatValue": "[Insert VAT Number]",
     "disputeTitle": "Alternative Dispute Resolution",
@@ -127,7 +129,7 @@
     "thirdPartyText": "This website embeds Google Maps in the locations sections. When viewing these sections, your browser may establish a direct connection to Google's servers. For more information, please refer to Google's Privacy Policy.",
     "contactTitle": "Contact",
     "contactText": "If you have questions about this privacy policy, contact us at:",
-    "contactEmail": "hello@anaragelado.pt",
+    "contactEmail": "info@anaragelado.pt",
     "rightsTitle": "Your Rights",
     "rightsText": "Under the General Data Protection Regulation (GDPR), you have the right to access, rectify, or erase any personal data we may hold. Since we do not collect personal data through this website, these rights apply only to direct communications (e.g., emails you send us).",
     "backHome": "Back to homepage"

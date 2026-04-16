@@ -192,7 +192,7 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
           {t("eventsText")}
         </p>
         <a
-          href="mailto:hello@anaragelado.pt"
+          href="mailto:info@anaragelado.pt"
           className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-yellow px-6 py-2.5 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
         >
           <Mail size={16} strokeWidth={1.5} />

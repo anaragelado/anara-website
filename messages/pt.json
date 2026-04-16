@@ -6,8 +6,10 @@
   "nav": {
     "story": "A Nossa História",
     "menu": "Sabores",
+    "creations": "Criações",
     "takeaway": "Takeaway",
     "locations": "Localizações",
+    "reviews": "As suas opiniões",
     "visitUs": "Visite-nos",
     "openAll": "Aberto",
     "openHq": "Charneca Aberto",
@@ -100,7 +102,7 @@
     "address": "Morada",
     "addressValue": "Estrada da Bela Vista 144, 2820-166 Charneca de Caparica, Portugal",
     "email": "Email",
-    "emailValue": "hello@anaragelado.pt",
+    "emailValue": "info@anaragelado.pt",
     "vat": "Número de Contribuinte (NIF / NIPC)",
     "vatValue": "[Inserir Número de Contribuinte]",
     "disputeTitle": "Resolução Alternativa de Litígios",
@@ -127,7 +129,7 @@
     "thirdPartyText": "Este website incorpora Google Maps nas secções de localização. Ao visualizar estas secções, o seu navegador pode estabelecer uma ligação direta com os servidores da Google. Para mais informações, consulte a Política de Privacidade da Google.",
     "contactTitle": "Contacto",
     "contactText": "Se tiver questões sobre esta política de privacidade, contacte-nos em:",
-    "contactEmail": "hello@anaragelado.pt",
+    "contactEmail": "info@anaragelado.pt",
     "rightsTitle": "Os Seus Direitos",
     "rightsText": "Ao abrigo do Regulamento Geral sobre a Proteção de Dados (RGPD), tem o direito de aceder, retificar ou apagar quaisquer dados pessoais que possamos deter. Como não recolhemos dados pessoais através deste website, estes direitos aplicam-se apenas a comunicações diretas (ex.: emails que nos envie).",
     "backHome": "Voltar à página inicial"

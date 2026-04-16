@@ -10,8 +10,10 @@ import LanguageToggle from "./LanguageToggle";
 const NAV_LINKS = [
   { id: "story", key: "story" },
   { id: "menu", key: "menu" },
+  { id: "creations", key: "creations" },
   { id: "takeaway", key: "takeaway" },
   { id: "locations", key: "locations" },
+  { id: "reviews", key: "reviews" },
 ] as const;
 
 interface MobileMenuProps {

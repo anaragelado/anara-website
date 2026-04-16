@@ -39,7 +39,7 @@ function ImprintContent() {
               <dt className="text-sm font-medium text-text-primary">{t("email")}</dt>
               <dd>
                 <a
-                  href="mailto:hello@anaragelado.pt"
+                  href="mailto:info@anaragelado.pt"
                   className="text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline"
                 >
                   {t("emailValue")}

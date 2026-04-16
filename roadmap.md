@@ -226,8 +226,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Closed State Optimization:** When a shop is "Closed" / "Fechado", apply smaller padding and text-size classes to that specific pill to save vertical space on mobile.
   * **Time Logic:** Change the `isClosingSoon` mathematical trigger from 30 minutes to 15 minutes.
 
-* [ ] **4C.3 Navigation & Routing Updates:**
-  * **Nav Links:** Add `#creations` ("Creations") and `#reviews` ("Your reviews" in EN / "Your opinions" in PT) to both the desktop and mobile navigation menus.
+* [x] **4C.3 Navigation & Routing Updates:**
+  * **Nav Links:** Add `#creations` ("Creations") and `#reviews` ("Your reviews" in EN / "Your opinions" in PT) to both the desktop and mobile navigation menus. "Creations" after "Flavours" and "Reviews" after "Locations".
   * **i18n Middleware Logic:** Update `next-intl` configuration. Set strict browser header detection: Default to Portuguese (`pt`) **only** if the user's browser language corresponds to a Portuguese-speaking locale (e.g., `pt`, `pt-PT`, `pt-BR`). For **all** other languages globally, force the default to English (`en`).
   * **Email Update:** Update all `mailto:` links across the site to `info@anaragelado.pt`.
 

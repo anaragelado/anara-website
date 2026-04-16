@@ -9,8 +9,10 @@ import { getLocationStatus, type DayHours, type LocationStatus } from "@/data/lo
 const NAV_LINKS = [
   { id: "story", key: "story" },
   { id: "menu", key: "menu" },
+  { id: "creations", key: "creations" },
   { id: "takeaway", key: "takeaway" },
   { id: "locations", key: "locations" },
+  { id: "reviews", key: "reviews" },
 ] as const;
 
 /** Section IDs tracked by the active-section observer */
