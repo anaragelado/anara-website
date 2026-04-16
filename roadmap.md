@@ -209,6 +209,42 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * [x] **4B.7 Mobile menu Logo position:**
   * Move the logo witihn the mobile menu from the top left to the center above the menu items
 
+## Phase 4C: UI Overhaul, Sticky Layouts & Logic Fixes
+**Goal:** Implement the V1 design feedback, refine mobile alignment, split the status pills, build the Creations prototypes, and update routing logic.
+
+* [ ] **4C.1 Global Styling & Typography Refinement:**
+  * **Remove Accents:** Remove all Instagram color sequence implementations (no colored dots, no colored divider lines) across both mobile and desktop. 
+  * **Mobile Alignment:** Apply `text-center md:text-left` to all `h1`, `h2`, and body text elements across the entire SPA.
+  * **Takeaway Pill:** Ensure the green call-to-action/info pill in the Takeaway section is horizontally centered on mobile (`mx-auto md:mx-0`).
+  * **Text Standardization:** Audit the `<p>` tags in the `#menu` (Our Flavours) and `#story` (Our Story) sections. Ensure they use the exact same Tailwind text size and line-height classes (e.g., `text-base` or `text-lg`).
+
+* [ ] **4C.2 Status Pills & Header Layout:**
+  * **Split Badges:** Refactor the `OpenBadge` component into two distinct status pills (HQ and Mobile Shop). 
+  * **Pill Layout:** 
+    * Desktop: Render side-by-side (HQ primary on the left, Mobile secondary on the right). 
+    * Mobile: Render stacked vertically (HQ on top, Mobile on bottom).
+  * **Closed State Optimization:** When a shop is "Closed" / "Fechado", apply smaller padding and text-size classes to that specific pill to save vertical space on mobile.
+  * **Time Logic:** Change the `isClosingSoon` mathematical trigger from 30 minutes to 15 minutes.
+
+* [ ] **4C.3 Navigation & Routing Updates:**
+  * **Nav Links:** Add `#creations` ("Creations") and `#reviews` ("Your reviews" in EN / "Your opinions" in PT) to both the desktop and mobile navigation menus.
+  * **i18n Middleware Logic:** Update `next-intl` configuration. Set strict browser header detection: Default to Portuguese (`pt`) **only** if the user's browser language corresponds to a Portuguese-speaking locale (e.g., `pt`, `pt-PT`, `pt-BR`). For **all** other languages globally, force the default to English (`en`).
+  * **Email Update:** Update all `mailto:` links across the site to `info@anaragelado.pt`.
+
+* [ ] **4C.4 Section Layouts & Content Injections:**
+  * **Sticky Scrolling:** In the `#story` and `#takeaway` sections, wrap the text columns in a `sticky top-24` (or similar offset) container so the text follows the user down the screen while they scroll past the image column.
+  * **Story Updates:** Update the slider to include the specific Strawberry cone photo. Add a localized sentence to the end of the story text stating that the owner was "trained in Italy".
+  * **File Cleanup:** Delete the files `cone-no-V1` through `cone-no-V6` from the public images directory to keep the repo clean.
+
+* [ ] **4C.5 Creations Section Prototypes (A/B Test):**
+  * Build two distinct code prototypes for the "Special Cones" grid within the `#creations` section so the client can evaluate them:
+    * **Prototype 1:** Standard layout matching the existing staple flavors cards.
+    * **Prototype 2:** Overlay layout, where the Vegan / Gluten-Free badges hover as absolute overlays directly on top of the cone images.
+
+* [ ] **4C.6 Footer Imprint Restructure (Portuguese Style):**
+  * Delete the dedicated `/imprint` page and route.
+  * Move the required Portuguese legal information (Official Business Name, Address, VAT/NIF, and the Consumer Dispute Resolution text) directly into a minimalist, small-text block at the very bottom of the global `<Footer>`.
+
 
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
