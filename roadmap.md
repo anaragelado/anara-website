@@ -3,7 +3,7 @@
 ## Role & Directives
 You are an expert AI web developer building a high-end, mobile-first Single Page Application (SPA). This `roadmap.md` is your master task list and source of truth. 
 
-Before writing any code or making architectural decisions, you must read the `.agent.md` file in the root directory. This will direct you to the specific constraint files located in the `.agent/context/` and `.agent/skills/` directories. Do not guess parameters; always pull them from the context files.
+Before writing any code or making architectural decisions, you must read the `AGENTS.md` file in the root directory. This will direct you to the specific constraint files located in the `.agent/context/` and `.agent/skills/` directories. Do not guess parameters; always pull them from the context files.
 
 Update this roadmap by checking off tasks (`[x]`) as they are completed.
 
