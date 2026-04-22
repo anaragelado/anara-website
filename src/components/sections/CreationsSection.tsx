@@ -1,45 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
+import { useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
 import Image from "next/image";
-import { Leaf } from "lucide-react";
-
-const creationsList = [
-  "Baunilha com calda de Abrunho",
-  "Bolo de Cenoura",
-  "Café c/ Laranja Cardamomo e Brownie",
-  "Cereja do Fundão",
-  "Chocolate Masala com Laranja do Alg.",
-  "Chocolate ped. chocolate Framboesa",
-  "Doce de Leite Argentino c/ Amendoas",
-  "Figo Pingo de Mel",
-  "Kombucha de Maracujá",
-  "Laranja do Alg. c/ clementina e hortela",
-  "Limao com Pepino e Hortela",
-  "Manga com Coentros",
-  "Mascarpone Manjericão",
-  "Melancia Especial",
-  "Morango Natas com calda Morango",
-  "Morango com pedaços Chocolate",
-  "Natas com Toffee e Pinhoes",
-  "Pastel de Nata",
-  "Requeijao c/ Figos caramelizados",
-  "Salame de Chocolate",
-  "Tarte de Maçã",
-  "Tiramisu de Caramelo Salgado"
-];
-
-const COLOR_THEMES = [
-  "bg-orange-500/10 text-orange-950 border-orange-500/20",
-  "bg-yellow-500/15 text-yellow-950 border-yellow-500/30",
-  "bg-green-600/10 text-green-950 border-green-600/20",
-  "bg-amber-600/10 text-amber-950 border-amber-600/20",
-  "bg-pink-500/10 text-pink-950 border-pink-500/20"
-];
+import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
+import { instagramPosts } from "@/data/instagramPosts";
 
 const PROTOTYPE_CONE = {
   src: "/assets/images/cone-carrot-cake-v1.webp",
@@ -52,38 +19,17 @@ export default function CreationsSection() {
   const locale = useLocale();
   const coneName = locale === "pt" ? "Bolo de Cenoura" : "Carrot Cake";
 
-  const halfRef = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const isDragging = useRef(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
 
-  // Jump logic for infinite loop across seamless boundaries
-  useEffect(() => {
-    return x.on("change", (currentX) => {
-      if (!halfRef.current) return;
-      const wrapWidth = halfRef.current.offsetWidth;
-      
-      // If we've scrolled/dragged past the first half to the left
-      if (currentX <= -wrapWidth) {
-        x.set(currentX + wrapWidth);
-      } 
-      // If we drag in reverse past exactly 0 to the right
-      else if (currentX > 0) {
-        x.set(currentX - wrapWidth);
-      }
-    });
-  }, [x]);
-
-  // Frame loop
-  useAnimationFrame((_, delta) => {
-    if (isDragging.current || isHovered) return;
-    
-    // Smooth responsive speeds according to specs (40% slower on mobile -> 24px)
-    const speed = window.innerWidth < 768 ? 24 : 40;
-    
-    // Step leftwards actively
-    x.set(x.get() - (speed * delta) / 1000);
-  });
+  const scrollBy = (direction: "left" | "right") => {
+    const container = sliderRef.current;
+    if (!container) return;
+    const firstCard = container.querySelector<HTMLAnchorElement>(":scope > a");
+    const cardWidth = firstCard?.offsetWidth ?? 320;
+    const gap = 24; // matches md:gap-6
+    const amount = cardWidth + gap;
+    container.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
+  };
 
   return (
     <SectionWrapper id="creations">
@@ -113,55 +59,50 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* ─── Infinite Auto-Scroll Drag Marquee ─── */}
-      <FadeIn delay={0.15} className="mt-10 overflow-hidden -mx-4 md:-mx-8">
-        <motion.div
-          style={{ x }}
-          drag="x"
-          dragElastic={0}
-          dragMomentum={true}
-          onDragStart={() => (isDragging.current = true)}
-          onDragEnd={() => (isDragging.current = false)}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          onTouchStart={() => setIsHovered(true)}
-          onTouchEnd={() => setIsHovered(false)}
-          className="flex w-max cursor-grab active:cursor-grabbing select-none"
-        >
-          {/* Loop Iteration 1 */}
-          <div ref={halfRef} className="flex gap-4 shrink-0 min-w-max pr-4">
-            {creationsList.map((flavor, index) => {
-              const theme = COLOR_THEMES[index % COLOR_THEMES.length];
-              return (
-                <div
-                  key={`h1-${index}`}
-                  className={`flex h-36 w-64 flex-shrink-0 items-center justify-center rounded-2xl border px-6 text-center transition-transform hover:scale-[1.02] ${theme}`}
-                >
-                  <span className="text-lg font-medium tracking-wide">
-                    {flavor}
-                  </span>
-                </div>
-              );
-            })}
+      {/* ─── Instagram Feed Slider (3:4 snap-scroll) ─── */}
+      <FadeIn delay={0.15} className="mt-10 -mx-4 md:-mx-8">
+        <div className="relative">
+          <div
+            ref={sliderRef}
+            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-4 md:gap-6 md:px-8"
+          >
+            {instagramPosts.map((post, index) => (
+              <a
+                key={index}
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block aspect-[3/4] w-[45vw] flex-shrink-0 snap-center overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:w-[35vw] md:w-[22vw] lg:w-[18vw]"
+              >
+                <Image
+                  src={post.imagePath}
+                  alt={post.alt}
+                  fill
+                  sizes="(max-width: 640px) 45vw, (max-width: 768px) 35vw, (max-width: 1024px) 22vw, 18vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              </a>
+            ))}
           </div>
 
-          {/* Loop Iteration 2 (For seamless wrap) */}
-          <div className="flex gap-4 shrink-0 min-w-max pr-4">
-            {creationsList.map((flavor, index) => {
-              const theme = COLOR_THEMES[index % COLOR_THEMES.length];
-              return (
-                <div
-                  key={`h2-${index}`}
-                  className={`flex h-36 w-64 flex-shrink-0 items-center justify-center rounded-2xl border px-6 text-center transition-transform hover:scale-[1.02] ${theme}`}
-                >
-                  <span className="text-lg font-medium tracking-wide">
-                    {flavor}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
+          {/* Desktop navigation arrows */}
+          <button
+            type="button"
+            onClick={() => scrollBy("left")}
+            aria-label="Scroll left"
+            className="absolute left-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:flex md:left-4"
+          >
+            <ChevronLeft size={20} strokeWidth={1.75} />
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollBy("right")}
+            aria-label="Scroll right"
+            className="absolute right-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:flex md:right-4"
+          >
+            <ChevronRight size={20} strokeWidth={1.75} />
+          </button>
+        </div>
       </FadeIn>
 
       {/* ─── Secondary grid — A/B Test Prototypes ─── */}
