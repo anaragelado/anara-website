@@ -264,7 +264,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * *Photo Editing:* Use Nano Banana 2 to alter one of the Strawberry cone photos into a Raspberry cone (darker red, slightly different shape). Wait for her reference photo before starting.
   * *Email Communication:* Draft an email clarifying the Instagram Slider options (1, 2, and 3) in simpler terms, as she seems confused about how the automated code vs. manual image options work.
 
-* [ ] **4D.2 Header & Navigation Logic Updates:**
+* [x] **4D.2 Header & Navigation Logic Updates:**
   * **Nav Bar Text:** Change the navigation link "Creations" to "Our Creations".
   * **Portuguese CTA:** Change the top-right button text on the PT version from "Visite-nos" to "Visita-nos".
   * **Smart Indicator Pills Consolidation:** Update the logic in the Header. 

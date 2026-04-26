@@ -57,11 +57,8 @@ function useLocationsStatus(locationHours: LocationHours[]) {
 function LocationBadge({ type, status }: { type: "hq" | "mobile"; status: LocationStatus }) {
   const tLoc = useTranslations("locations");
 
-  // Determine styles based on status.
   const isClosed = status === "closed";
   const labelKey = status === "open" ? "openNow" : status;
-
-  // Utilize compact spacing when closed
   const paddingClass = isClosed ? "px-2 py-0.5" : "px-3 py-1";
   const textSize = isClosed ? "text-[10px]" : "text-xs";
 
@@ -79,13 +76,43 @@ function LocationBadge({ type, status }: { type: "hq" | "mobile"; status: Locati
       href="#locations"
       className={`inline-flex items-center gap-1.5 rounded-full border border-gray-100 bg-background-secondary ${paddingClass} ${textSize} font-medium shadow-sm transition-all duration-300 ease-in-out hover:border-highlight-green`}
     >
-      <span
-        className={`h-2 w-2 flex-shrink-0 rounded-full transition-colors duration-300 ${dotClass}`}
-      />
+      <span className={`h-2 w-2 flex-shrink-0 rounded-full transition-colors duration-300 ${dotClass}`} />
       <span className="whitespace-nowrap transition-all duration-300">
         <span className="font-bold mr-1">{prefix}</span>
         <span className="font-normal text-text-secondary">{tLoc(labelKey)}</span>
       </span>
+    </a>
+  );
+}
+
+function CombinedBadge({ status }: { status: LocationStatus }) {
+  const tNav = useTranslations("nav");
+
+  const labelKey = {
+    open: "openAll",
+    closingSoon: "closingSoonAll",
+    openSoon: "openSoonAll",
+    closed: "closedNow",
+  }[status] as "openAll" | "closingSoonAll" | "openSoonAll" | "closedNow";
+
+  const dotClass = {
+    open: "bg-brand-green",
+    closingSoon: "bg-brand-yellow animate-pulse",
+    openSoon: "bg-brand-yellow",
+    closed: "bg-red-400",
+  }[status];
+
+  const isClosed = status === "closed";
+  const paddingClass = isClosed ? "px-2 py-0.5" : "px-3 py-1";
+  const textSize = isClosed ? "text-[10px]" : "text-xs";
+
+  return (
+    <a
+      href="#locations"
+      className={`inline-flex items-center gap-1.5 rounded-full border border-gray-100 bg-background-secondary ${paddingClass} ${textSize} font-medium shadow-sm transition-all duration-300 ease-in-out hover:border-highlight-green`}
+    >
+      <span className={`h-2 w-2 flex-shrink-0 rounded-full transition-colors duration-300 ${dotClass}`} />
+      <span className="whitespace-nowrap font-medium">{tNav(labelKey)}</span>
     </a>
   );
 }
@@ -112,10 +139,14 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
         {/* Mobile Centered Open badge */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
           {mounted && (
-            <div className="flex flex-col gap-0.5 items-center justify-center">
-              <LocationBadge type="hq" status={statuses.hq} />
-              <LocationBadge type="mobile" status={statuses.mobile} />
-            </div>
+            statuses.hq === statuses.mobile ? (
+              <CombinedBadge status={statuses.hq} />
+            ) : (
+              <div className="flex flex-col gap-0.5 items-center justify-center">
+                <LocationBadge type="hq" status={statuses.hq} />
+                <LocationBadge type="mobile" status={statuses.mobile} />
+              </div>
+            )
           )}
         </div>
 
@@ -133,8 +164,14 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
           </a>
           {mounted && (
             <div className="hidden md:flex items-center gap-2">
-              <LocationBadge type="hq" status={statuses.hq} />
-              <LocationBadge type="mobile" status={statuses.mobile} />
+              {statuses.hq === statuses.mobile ? (
+                <CombinedBadge status={statuses.hq} />
+              ) : (
+                <>
+                  <LocationBadge type="hq" status={statuses.hq} />
+                  <LocationBadge type="mobile" status={statuses.mobile} />
+                </>
+              )}
             </div>
           )}
         </div>
