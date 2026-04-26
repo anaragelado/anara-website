@@ -4,50 +4,51 @@ export interface Review {
   location: "costa" | "hq";
 }
 
-/** Four hand-picked English reviews shown when locale = 'en'. */
+/** Four reviews (IDs 19-22) shown when locale = 'en'. */
 export const reviewsEn: Review[] = [
   {
-    name: "René Pfitzner",
-    text: "I'd go so far to say that this is the best gelado in all of Greater Lisbon area. A must go for locals on that side of the bridge, and even worth a trip from the city. What makes this to rank at the very top of creameries is the purity, almost old-school-ness, of the product: no extra coloring, no weird flavors, not too sweet or heavy — just the best ingredients and true craftsmanship, creating a perfect balance.",
+    name: "João Augusto",
+    text: "As a true gelato connoisseur, I can say that Anara's gelatos are 5 stars — 100% artisanal, perfect consistency, and wonderful flavours. I've visited the shop several times and have always been pleasantly surprised. This time I tried the Tiramisù al Limone… and I can only say it is INCREDIBLE! I highly recommend everyone visit this place — you won't regret it.",
     location: "hq",
   },
   {
-    name: "Carolina Mello",
-    text: "If you are in Caparica or Charneca, you MUST try this ice cream. This is real food! Fresh and tasty ingredients, for sure the best quality in Portugal!",
+    name: "Bénédicte Huré",
+    text: "Incredible artisanal ice cream. The flavours are just amazing, ice cream are made with fresh product. Now in the top of my favorite place.",
     location: "costa",
   },
   {
-    name: "Rita Moreira",
-    text: "Spectacular! One of the best ice creams we've ever had! Super creamy and delicious! I loved it. 5-star service!",
-    location: "hq",
+    name: "Josien Nation - Galama",
+    text: "This is not your standard gelado place! Incredibly good flavours and even sugar-free ice cream available. I would give more stars if I could :)",
+    location: "costa",
   },
   {
-    name: "Kristine Joy Martin",
-    text: "Simply the best Gelado in Caparica! Highly recommend pistachio and Belgian chocolate.",
+    name: "Iris KdR",
+    text: "Best icecream in the region! Very good texture and flavours made only from natural ingredients! Must go after a nice walk in Costa de Caparica! The salted pistachio ice cream is just the best! We also love the fruity flavours! We really like that the icecream is not too sweet.",
     location: "costa",
   },
 ];
 
-/** Four hand-picked Portuguese reviews shown when locale = 'pt'. */
+/** Four reviews (IDs 19-22) shown when locale = 'pt'. */
 export const reviewsPt: Review[] = [
   {
-    name: "Rita Moreira",
-    text: "Espectacular! Dos melhores gelados que já comemos! Super cremosos, saborosos! Adorei. Atendimento 5⭐️",
+    name: "João Augusto",
+    text: "Como um verdadeiro apreciador de gelados, tenho a dizer que os gelados da Anara são 5 estrelas, 100% artesanais, consistência perfeita, e sabores maravilhosos. Já vim à loja várias vezes e fiquei sempre surpreendido pela positiva. Desta vez provei o sabor de Tiramisù al Limone… e apenas tenho a dizer que é INCRÍVEL! Recomendo todos a frequentarem este local — não se vão arrepender.",
     location: "hq",
   },
   {
-    name: "Sandra Branco",
-    text: "Espetacular , os gelados são os melhores, ótimo atendimento e uma variedade de sabores enorme ❤️",
-    location: "hq",
+    name: "Bénédicte Huré",
+    text: "Incredible artisanal ice cream. The flavours are just amazing, ice cream are made with fresh product. Now in the top of my favorite place.",
+    location: "costa",
   },
   {
-    name: "Lucas Carneiro",
-    text: "A gelateria é pequena e bem modesta internamente, começaram a pouco tempo. Mas o gelado é davvero italiano. Vivi na Itália no tempo de universidade e posso dizer que este gelado é melhor que muitos que já provei por lá.",
-    location: "hq",
+    name: "Josien Nation - Galama",
+    text: "This is not your standard gelado place! Incredibly good flavours and even sugar-free ice cream available. I would give more stars if I could :)",
+    location: "costa",
   },
   {
-    name: "Aida Silva",
-    text: "Melhor gelado da margem sul e arredores. Gelado artesanal com produtos de qualidade e sabores inconfundíveis. Não é preciso ir a Itália para se deliciar com o melhor gelado italiano. Maravilhoso!!!😋",
+    name: "Iris KdR",
+    text: "Best icecream in the region! Very good texture and flavours made only from natural ingredients! Must go after a nice walk in Costa de Caparica! The salted pistachio ice cream is just the best! We also love the fruity flavours! We really like that the icecream is not too sweet.",
     location: "costa",
   },
 ];
+

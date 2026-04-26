@@ -29,16 +29,16 @@
   },
   "story": {
     "title": "From the Farm to the Cone",
-    "subtitle": "Nothing artificial. Ever.",
-    "p1": "It all starts with fresh, seasonal fruit, real milk and cream from the region, and hand-picked ingredients like Bourbon Vanilla from Madagascar. No artificial additives, no colourings, no powders. Just pure flavour with 50% to 75% real fruit in every scoop.",
-    "p2": "Every flavor is handcrafted in small batches at our kitchen in Charneca de Caparica, from fresh fruit to finished cone, because we believe the finest ingredients speak for themselves.",
-    "p3": "This commitment to quality is rooted in authentic techniques, perfected through professional gelato-making training in Italy.",
+    "subtitle": "No artificial colours, no added flavours or preservatives.",
+    "p1": "It all starts with seasonal and 100% fresh fruit, most of which is seasonal and some of which is organic, real milk and cream, and hand-picked ingredients like Bourbon Vanilla from Madagascar or Argentinian Dulce de Leche. No artificial additives, no colourings, no preservatives — just pure flavour with up to 75% fruit in each scoop.",
+    "p2": "Every flavour is handcrafted in small batches at our lab in Charneca de Caparica, from fresh fruit to finished cone, because we believe the finest ingredients speak for themselves.",
+    "p3": "This focus on quality comes from authentic techniques, learned and refined through professional gelato training with Italian expertise.",
     "imageAlt": "Fresh ingredients for artisanal gelato"
   },
   "menu": {
     "title": "Our Flavours",
     "subtitle": "Handcrafted. Always fresh.",
-    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple ice cream flavours. Find daily specials at our Costa da Caparica and Charneca da Caparica locations. All flavours are naturally gluten-free except for Oreo.",
+    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple ice cream flavours. All our flavours are naturally gluten-free, apart from Oreo and a few of our Creations that contain cookies. Find weekly specials at our Charneca da Caparica and Costa da Caparica locations.",
     "vegan": "Vegan",
     "glutenFree": "Gluten-Free",
     "specialFlavor": "Special Daily Flavour",
@@ -60,7 +60,7 @@
   "takeaway": {
     "title": "Sustainable by Nature",
     "subtitle": "Take away, with care.",
-    "p1": "Our takeaway boxes come in 0.5L and 1L sizes, are fully recyclable, and keep your gelato fresh all the way home.",
+    "p1": "Our takeaway boxes come in 0.5L and 1L sizes, are fully recyclable, and keep your gelato fresh all the way home. Your gelato maintains its perfect texture and consistency for up to 30 minutes on the way to your freezer at home, where you can enjoy it with your homemade crêpes, waffles or brownies.",
     "p2": "We believe delicious gelato and environmental responsibility go hand in hand. From sourcing local ingredients to eco-friendly packaging, every decision is made with the planet in mind.",
     "imageAlt": "Recyclable artisanal gelato packaging by Anara"
   },
@@ -86,7 +86,7 @@
     },
     "dayClosed": "Closed",
     "eventsTitle": "Private Events & Catering",
-    "eventsText": "Our mobile shop is available for weddings, private parties, and corporate events.",
+    "eventsText": "Our gelatos and sorbets are available for weddings, private parties, and corporate events.",
     "eventsCta": "Get in touch"
   },
   "reviews": {
@@ -144,7 +144,7 @@
     "subtitle": "Fresh. Seasonal. Unexpected.",
     "intro1": "We create at least one or two special flavours each week,",
     "introIgLink": "shared on Instagram",
-    "intro2": "Our creations are born from unexpected inspirations, where classic gelato craftsmanship meets flavours from diverse culinary traditions and global influences.",
+    "intro2": "Our creations are born from unexpected inspirations, where classic gelato craftsmanship meets flavours from diverse culinary traditions and global influences. Find weekly specials at our Charneca da Caparica and Costa da Caparica locations.",
     "igSliderLabel": "Placeholder Photo",
     "coneLabel": "Placeholder Photo"
   },

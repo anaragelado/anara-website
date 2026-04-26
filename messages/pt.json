@@ -29,16 +29,16 @@
   },
   "story": {
     "title": "Da Quinta Para o Cone",
-    "subtitle": "Nada artificial. Nunca.",
-    "p1": "Tudo começa com fruta fresca colhida na época, leite e nata reais da região, e ingredientes selecionados como Baunilha Bourbon de Madagáscar. Sem aditivos artificiais, sem corantes, sem pós. Apenas sabor puro com 50% a 75% de fruta real em cada colher.",
-    "p2": "Cada sabor é feito à mão em pequenos lotes na nossa cozinha em Charneca de Caparica, da fruta fresca ao cone pronto, porque acreditamos que os melhores ingredientes falam por si.",
-    "p3": "Este compromisso com a qualidade baseia-se em técnicas autênticas, aperfeiçoadas através de formação profissional em Itália.",
+    "subtitle": "Sem corantes, sem aditivos de sabor, sem conservantes.",
+    "p1": "Tudo começa com 100% de fruta fresca, da qual grande parte é da época e uma parte biológica, leite e natas de origem natural, e ingredientes escolhidos a dedo, de produtores de qualidade, como é o caso da nossa Baunilha Bourbon de Madagáscar ou Doce de Leite Argentino. Sem aditivos artificiais, sem corantes, sem conservantes — apenas puro sabor, com até 75% de fruta em cada bola de gelado.",
+    "p2": "Cada sabor é feito à mão e em pequenas quantidades no nosso laboratório na Charneca de Caparica, desde a fruta fresca até ao cone porque acreditamos que os melhores ingredientes falam por si.",
+    "p3": "Este foco na qualidade resulta também de técnicas autênticas, aprendidas e aperfeiçoadas através de formação profissional em gelado artesanal com base na tradição italiana.",
     "imageAlt": "Ingredientes frescos para gelado artesanal"
   },
   "menu": {
     "title": "Os Nossos Sabores",
     "subtitle": "Feito à mão. Sempre fresco.",
-    "description": "Oferecemos uma gama diversificada de opções veganas e sem glúten. Estas fotos destacam os nossos sabores principais. Encontre especialidades diárias nas nossas lojas na Costa da Caparica e na Charneca da Caparica. Todos os sabores são naturalmente isentos de glúten, exceto o Oreo.",
+    "description": "Oferecemos uma vasta gama de opções biológicas, vegan e sem glúten. Estas imagens destacam os nossos sabores de gelado habituais. Os nossos sabores são naturalmente isentos de glúten, exceto o Oreo e algumas das nossas Criações que poderão conter bolacha.",
     "vegan": "Vegano",
     "glutenFree": "Sem Glúten",
     "specialFlavor": "Sabor Especial Diário",
@@ -60,8 +60,8 @@
   "takeaway": {
     "title": "Sustentável por Natureza",
     "subtitle": "Para levar, com consciência.",
-    "p1": "As nossas embalagens de takeaway estão disponíveis em 0,5L e 1L, são totalmente recicláveis e mantêm o seu gelado fresco até casa.",
-    "p2": "Acreditamos que gelado delicioso e responsabilidade ambiental andam de mãos dadas. Desde a escolha de ingredientes locais até embalagens ecológicas, cada decisão é pensada para o planeta.",
+    "p1": "As nossas caixas para takeaway estão disponíveis em tamanhos de 0,5L e 1L, são reutilizáveis e recicláveis, e mantêm o teu gelado fresco até chegar a casa. O gelado mantém a sua textura e cremosidade perfeitas durante cerca de 30 minutos até chegar ao teu congelador de casa, onde o podes desfrutar com os teus crepes, waffles ou brownies caseiros.",
+    "p2": "Acreditamos que um gelado delicioso e responsabilidade ambiental andam de mãos dadas. Desde a escolha de ingredientes locais até ao embalamento ecológico, todas as nossas decisões têm o planeta em mente.",
     "imageAlt": "Embalagem reciclável de gelado artesanal Anara"
   },
   "locations": {
@@ -86,7 +86,7 @@
     },
     "dayClosed": "Fechado",
     "eventsTitle": "Eventos Privados & Catering",
-    "eventsText": "A nossa loja móvel está disponível para casamentos, festas privadas e eventos corporativos.",
+    "eventsText": "Os nossos gelados e sorbets estão disponíveis para casamentos, festas privadas e eventos corporativos.",
     "eventsCta": "Contacte-nos"
   },
   "reviews": {
@@ -144,7 +144,7 @@
     "subtitle": "Frescas. Sazonais. Inesperadas.",
     "intro1": "Criamos pelo menos um ou dois sabores especiais por semana,",
     "introIgLink": "partilhados no Instagram",
-    "intro2": "As nossas criações nascem de inspirações inesperadas, onde o artesanato clássico do gelado encontra sabores de diversas tradições culinárias e influências globais.",
+    "intro2": "As nossas criações nascem de inspirações inesperadas, onde a arte clássica do gelado artesanal se cruza com sabores de diversas tradições culinárias e influências globais. Descobre os nossos sabores especiais da semana nas nossas lojas da Charneca da Caparica e da Costa da Caparica.",
     "igSliderLabel": "Foto de Substituição",
     "coneLabel": "Foto de Substituição"
   },
