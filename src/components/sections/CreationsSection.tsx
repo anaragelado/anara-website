@@ -105,12 +105,11 @@ export default function CreationsSection() {
         </div>
       </FadeIn>
 
-      {/* ─── Secondary grid — A/B Test Prototypes ─── */}
+      {/* ─── Creations cone grid — Option A, aspect-square ─── */}
       <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
-        {/* Prototype 1: Standard layout (cards 1 & 2) */}
-        {[0, 1].map((i) => (
-          <div key={`p1-${i}`} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
+        {[0, 1, 2, 3].map((i) => (
+          <div key={i} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
+            <div className="relative aspect-square overflow-hidden rounded-2xl">
               <Image
                 src={PROTOTYPE_CONE.src}
                 alt={PROTOTYPE_CONE.alt}
@@ -127,32 +126,6 @@ export default function CreationsSection() {
                   {tMenu("vegan")}
                 </span>
                 <span className="inline-flex items-center rounded-full bg-brand-yellow/10 px-3 py-0.5 text-xs font-medium text-text-secondary">
-                  {tMenu("glutenFree")}
-                </span>
-              </div>
-            </div>
-          </div>
-        ))}
-
-        {/* Prototype 2: Overlay layout (cards 3 & 4) */}
-        {[0, 1].map((i) => (
-          <div key={`p2-${i}`} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 overflow-hidden rounded-2xl aspect-[3/4] hover:shadow-lg">
-            <Image
-              src={PROTOTYPE_CONE.src}
-              alt={PROTOTYPE_CONE.alt}
-              fill
-              sizes="(max-width: 768px) 50vw, 25vw"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col items-center justify-end text-center">
-              <p className="text-white text-base md:text-lg font-bold font-heading drop-shadow-md mb-3">{coneName}</p>
-              <div className="flex items-center justify-center gap-2">
-                <span className="inline-flex items-center gap-1 rounded-full bg-brand-green px-3 py-0.5 text-xs font-medium text-white shadow-sm">
-                  <Leaf size={12} strokeWidth={1.5} />
-                  {tMenu("vegan")}
-                </span>
-                <span className="inline-flex items-center rounded-full bg-brand-yellow px-3 py-0.5 text-xs font-medium text-text-primary shadow-sm">
                   {tMenu("glutenFree")}
                 </span>
               </div>

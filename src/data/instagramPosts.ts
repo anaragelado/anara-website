@@ -38,9 +38,9 @@ export const instagramPosts: InstagramPost[] = [
     alt: "Manga com Coentros",
   },
   {
-    imagePath: "/assets/images/Instagram-Morango Natas com calda Morango.webp",
+    imagePath: "/assets/images/cone-strawberry-v2.webp",
     url: PROFILE_URL,
-    alt: "Morango Natas com calda de Morango",
+    alt: "Morango",
   },
   {
     imagePath: "/assets/images/Instagram-Pastel de Nata.jpg",

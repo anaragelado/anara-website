@@ -276,7 +276,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Global Text:** Apply all text corrections precisely as defined in `.agent/context/06-text-corrections.md` across both English and Portuguese routes.
   * **Reviews Section:** Update the static reviews data. Only use the 4 specific reviews (João Augusto, Bénédicte Hure, Josien Nation - Galama, Iris KdR) located at IDs 19-22 in `.agent/context/05-content-data.md`. Ensure the English page pulls the translated English strings, and the Portuguese page pulls the native Portuguese strings.
 
-* [ ] **4D.4 Creations Section Formatting:**
+* [x] **4D.4 Creations Section Formatting:**
   * **Square Grid:** Set the "Creations" cone cards to Option A (the standard UI layout without overlays), but forcefully change the image aspect ratio to `aspect-square` (1:1) so it matches the warm, friendly feeling of the "Our Flavours" section.
   * **Slider Mockup Cleanup:** Remove the "Natas Morango" dummy card from the sliding Instagram prototype and ensure "Strawberry" is represented instead.
 
