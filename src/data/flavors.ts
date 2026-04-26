@@ -51,7 +51,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "raspberry",
-    image: "/assets/images/cone-raspberry-v1.webp",
+    image: "/assets/images/cone-raspberry-v2.webp",
     imageAlt: "Gelado artesanal de framboesa",
     vegan: true,
   },

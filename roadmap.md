@@ -293,6 +293,17 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **UI:** Render the flavours as a vertical list. Add simple "Move Up" and "Move Down" arrow buttons (or implement drag-and-drop if the coding agent prefers) so she can visually reorder them.
   * **Payload:** Add a "Send Order to WhatsApp" button that generates a numbered list of the final order for both sections, so Patrick can hardcode the final arrays.
 
+  * [x] **4D.7 Flavour Delta Extraction (Missing Images Check):**
+  * *Note: This is a data extraction script, not a UI change.*
+  * Read the `.agent/context/07-flavours.md` file.
+  * Extract the baseline array of flavours from the first section (Flavours we had on April 16th).
+  * Extract the target arrays of flavours from the second section (Staple Flavours) and third section (Creations Flavours) and combine them.
+  * Run a programmatic comparison to find the "Delta" (Flavours that exist in the combined target list but are MISSING from the April 16th baseline list).
+  * Output this Delta list clearly in the console/chat so Patrick can use it to manually identify the unlabelled images in the `public/assets/new-cones/` folder.
+
+  * [x] **4D.8 new raspberry image**
+  * use this image for raspberry: public\assets\images\cone-raspberry-v2.webp
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 
