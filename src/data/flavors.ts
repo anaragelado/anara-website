@@ -75,7 +75,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "watermelon",
-    image: "/assets/images/cone-watermelon-v1.jpg",
+    image: "/assets/images/cone-watermelon-v1.webp",
     imageAlt: "Gelado artesanal de melancia",
     vegan: true,
   },

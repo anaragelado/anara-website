@@ -72,7 +72,7 @@ export default function CreationsSection() {
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block aspect-[3/4] w-[45vw] flex-shrink-0 snap-center overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:w-[35vw] md:w-[22vw] lg:w-[18vw]"
+                className="group relative block aspect-square w-[45vw] flex-shrink-0 snap-center overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:w-[35vw] md:w-[22vw] lg:w-[18vw]"
               >
                 <Image
                   src={post.imagePath}
