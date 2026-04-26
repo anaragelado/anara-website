@@ -84,3 +84,21 @@ This document contains the curated, 5-star Google Maps reviews for Anara Gelado 
 *   **Name:** Aida Silva
 *   **Text:** "Melhor gelado da margem sul e arredores. Gelado artesanal com produtos de qualidade e sabores inconfundíveis. Não é preciso ir a Itália para se deliciar com o melhor gelado italiano. Maravilhoso!!!😋"
 
+## Added new reviews - 2026-04-26
+
+
+**Review 19**
+*   **Name:** João Augusto
+*   **Text:** "Como um verdadeiro apreciador de gelados, tenho a dizer que os gelados da Anara são  5 estrelas, 100% artesanais, consistência perfeita, e sabores maravilhosos, ja vim à  loja várias  vezes e fiquei sempre surpreendido pela positiva, desta vez provei o sabor de Tiramisù al limone.. e apenas tenho a dizer que é INCRÍVEL! Recomendo  todos a frequentarem este local.. não se vão  arrepender"
+
+**Review 20**
+*   **Name:** Bénédicte Huré
+*   **Text:** "Incredible artisanal ice cream. The flavors are just amazing, ice cream are made with fresh product. Now in the top of my favorite place."
+
+**Review 21**
+*   **Name:** Josien Nation - Galama
+*   **Text:** "This is not your standard gelado place! Incredibly good flavors and even sugar-free ice cream available. I would give more stars if I could :)"
+
+**Review 22**
+*   **Name:** Iris KdR
+*   **Text:** "Best icecream in the region! Very good texture and flavors made only from natural ingredients! Must go after a nice walk in Costa de Caparica! The salted pistachio ice cream is just the best! We also love the fruity flavors! We really like that the icecream is not to sweet."

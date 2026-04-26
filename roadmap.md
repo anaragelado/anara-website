@@ -256,6 +256,43 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * The text in the takeaway section should follow the scrolling position until it is reaching the end of that section. Since the image next to it is vertical, we have a lot of white space under the text column on the left. And furthermore it is easiert to read and to look at the image if we implement that behaviour.
 
 
+
+## Phase 4D: Content Injection, Final Layout Fixes & New Tooling
+**Goal:** Apply all final text/review content, fix header pill logic, format the Creations grid, and build new tools for photo naming and flavor sorting.
+
+* [ ] **4D.1 Manual Tasks (Patrick):**
+  * *Photo Editing:* Use Nano Banana 2 to alter one of the Strawberry cone photos into a Raspberry cone (darker red, slightly different shape). Wait for her reference photo before starting.
+  * *Email Communication:* Draft an email clarifying the Instagram Slider options (1, 2, and 3) in simpler terms, as she seems confused about how the automated code vs. manual image options work.
+
+* [ ] **4D.2 Header & Navigation Logic Updates:**
+  * **Nav Bar Text:** Change the navigation link "Creations" to "Our Creations".
+  * **Portuguese CTA:** Change the top-right button text on the PT version from "Visite-nos" to "Visita-nos".
+  * **Smart Indicator Pills Consolidation:** Update the logic in the Header. 
+    * If both shops are "Open", render only ONE generic green pill that says "Open" (or "Aberto").
+    * If both shops are "Closed", render only ONE generic red pill that says "Closed" (or "Fechado").
+    * Only render two separate pills if their statuses are different (e.g., one is open, one is closed).
+
+* [ ] **4D.3 Content & Text Injections:**
+  * **Global Text:** Apply all text corrections precisely as defined in `.agent/context/06-text-corrections.md` across both English and Portuguese routes.
+  * **Reviews Section:** Update the static reviews data. Only use the 4 specific ChatGPT-polished reviews (João Augusto, Bénédicte Hure, Josien Nation - Galama, Iris KdR) located at IDs 19-22 in `.agent/context/05-content-data.md`. Ensure the English page pulls the translated English strings, and the Portuguese page pulls the native Portuguese strings.
+
+* [ ] **4D.4 Creations Section Formatting:**
+  * **Square Grid:** Set the "Creations" cone cards to Option A (the standard UI layout without overlays), but forcefully change the image aspect ratio to `aspect-square` (1:1) so it matches the warm, friendly feeling of the "Our Flavours" section.
+  * **Slider Mockup Cleanup:** Remove the "Natas Morango" dummy card from the sliding Instagram prototype and ensure "Strawberry" is represented instead.
+
+* [ ] **4D.5 Tooling: Flavor Tagger V2 (For New Cones):**
+  * Build a new hidden route (e.g., `app/[lang]/flavor-tagger-v2/page.tsx`).
+  * **Scan:** Read the unlabelled images strictly from `public/assets/new-cones/`.
+  * **UI:** Do NOT use AI suggestions. Just render the large image (with `aspect-square` or `aspect-[3/4]`) and a blank text `<input>` field. 
+  * **Payload:** When she clicks "Send to WhatsApp", the logic must automatically handle duplicates by appending `-v1`, `-v2` to the slugs (e.g., `[Original_IMG] -> cone-chocolate-v1.jpg`).
+  * *(Note: After Patrick receives this payload and renames the files, we will re-use the existing Curator tool to let her pick the best versions).*
+
+* [ ] **4D.6 Tooling: Flavor Sorting Portal:**
+  * Build a new hidden route (e.g., `app/[lang]/flavor-sorter/page.tsx`).
+  * **Data:** Pull the confirmed lists of flavours from `.agent/context/07-flavours.md` (separate lists for Staple Flavours and Creations).
+  * **UI:** Render the flavours as a vertical list. Add simple "Move Up" and "Move Down" arrow buttons (or implement drag-and-drop if the coding agent prefers) so she can visually reorder them.
+  * **Payload:** Add a "Send Order to WhatsApp" button that generates a numbered list of the final order for both sections, so Patrick can hardcode the final arrays.
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 
