@@ -280,7 +280,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Square Grid:** Set the "Creations" cone cards to Option A (the standard UI layout without overlays), but forcefully change the image aspect ratio to `aspect-square` (1:1) so it matches the warm, friendly feeling of the "Our Flavours" section.
   * **Slider Mockup Cleanup:** Remove the "Natas Morango" dummy card from the sliding Instagram prototype and ensure "Strawberry" is represented instead.
 
-* [ ] **4D.5 Tooling: Unified Image Review & Curator Portal:**
+* [x] **4D.5 Tooling: Unified Image Review & Curator Portal:**
   * Build a new hidden route (e.g., `app/[lang]/master-review/page.tsx`).
   * **Data Prep:** Scan the directory where Patrick saved the pre-grouped images -> public\assets\new-cones. Group them programmatically by their base slug (e.g., group `cone-unknown-1-v1.jpg` and `cone-unknown-1-v2.jpg` together).
   * **UI - The "Unknowns":** If the slug contains `unknown`, display the image(s) and force a text `<input>` field so she must type the name.
