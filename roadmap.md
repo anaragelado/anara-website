@@ -280,18 +280,19 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Square Grid:** Set the "Creations" cone cards to Option A (the standard UI layout without overlays), but forcefully change the image aspect ratio to `aspect-square` (1:1) so it matches the warm, friendly feeling of the "Our Flavours" section.
   * **Slider Mockup Cleanup:** Remove the "Natas Morango" dummy card from the sliding Instagram prototype and ensure "Strawberry" is represented instead.
 
-* [ ] **4D.5 Tooling: Flavor Tagger V2 (For New Cones):**
-  * Build a new hidden route (e.g., `app/[lang]/flavor-tagger-v2/page.tsx`).
-  * **Scan:** Read the unlabelled images strictly from `public/assets/new-cones/`.
-  * **UI:** Do NOT use AI suggestions. Just render the large image (with `aspect-square` or `aspect-[3/4]`) and a blank text `<input>` field. 
-  * **Payload:** When she clicks "Send to WhatsApp", the logic must automatically handle duplicates by appending `-v1`, `-v2` to the slugs (e.g., `[Original_IMG] -> cone-chocolate-v1.jpg`).
-  * *(Note: After Patrick receives this payload and renames the files, we will re-use the existing Curator tool to let her pick the best versions).*
+* [ ] **4D.5 Tooling: Unified Image Review & Curator Portal:**
+  * Build a new hidden route (e.g., `app/[lang]/master-review/page.tsx`).
+  * **Data Prep:** Scan the directory where Patrick saved the pre-grouped images -> public\assets\new-cones. Group them programmatically by their base slug (e.g., group `cone-unknown-1-v1.jpg` and `cone-unknown-1-v2.jpg` together).
+  * **UI - The "Unknowns":** If the slug contains `unknown`, display the image(s) and force a text `<input>` field so she must type the name.
+  * **UI - The "Knowns":** If the slug has a valid name (e.g., `chocolate`), display "Suggested Flavor: Chocolate". Render a ✅ (Confirm) and ❌ (Change) button. If ❌ is clicked, reveal a text input for her to rename it.
+  * **UI - Image Selection:** For ANY group that contains more than 1 image, force her to tap her favorite version. Highlight the tapped image with a thick green border `ring-4 ring-[#68B34A]` and a ✅ icon.
+  * **Payload:** When she clicks "Send to WhatsApp" at the bottom, generate a clean list mapping the final confirmed name to the single selected filename (e.g., `[Chocolate Belga] -> SELECTED: cone-chocolate-v2.jpg`).
 
 * [ ] **4D.6 Tooling: Flavor Sorting Portal:**
-  * Build a new hidden route (e.g., `app/[lang]/flavor-sorter/page.tsx`).
+  * Build a separate hidden route (e.g., `app/[lang]/flavor-sorter/page.tsx`) to be used AFTER the image names are finalized.
   * **Data:** Pull the confirmed lists of flavours from `.agent/context/07-flavours.md` (separate lists for Staple Flavours and Creations).
-  * **UI:** Render the flavours as a vertical list. Add simple "Move Up" and "Move Down" arrow buttons (or implement drag-and-drop if the coding agent prefers) so she can visually reorder them.
-  * **Payload:** Add a "Send Order to WhatsApp" button that generates a numbered list of the final order for both sections, so Patrick can hardcode the final arrays.
+  * **UI:** Render the flavours as two vertical lists. Add simple "Move Up" and "Move Down" arrow buttons so she can visually reorder them.
+  * **Payload:** Add a "Send Order to WhatsApp" button that generates a numbered list of the final order for both sections, so Patrick can update the final arrays.
 
   * [x] **4D.7 Flavour Delta Extraction (Missing Images Check):**
   * *Note: This is a data extraction script, not a UI change.*
