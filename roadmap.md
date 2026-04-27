@@ -305,6 +305,23 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * [x] **4D.8 new raspberry image**
   * use this image for raspberry: public\assets\images\cone-raspberry-v2.webp
 
+
+  * [x] **4D.9 Tooling: Instagram URL Mapper Portal:**
+  * Build a new hidden route (e.g., `app/[lang]/instagram-url-mapper/page.tsx`).
+  * **Data Scan:** Read `public/assets/images/` and filter strictly for files starting with `Instagram-` (case-insensitive).
+  * **Header Instructions:** Add clear text at the top: "Please paste the Instagram link for each image. To get the link: Open the post on Instagram, tap the Paper Airplane (Share) icon, and tap 'Copy link'."
+  * **UI:** Render a vertical list. For each file, display the image (`h-32 object-contain`), a clean title (the filename minus "Instagram-" and ".jpg"), and a text `<input>` field.
+  * **State & Validation:** Track the URL inputs in React state. The "Send to WhatsApp" button must be strictly disabled (and greyed out) until every single input contains text.
+  * **Payload Logic (Future-Proofed for Patrick):** 
+    * Write a helper to clean the URLs (strip any `?igsh=...` tracking parameters).
+    * Write a helper to slugify the clean title (lowercase, replace spaces with hyphens, remove accents).
+    * Generate the formatted message for all 22 items: 
+      `Title: [Clean Title]`
+      `URL: [Cleaned_URL]`
+      `FILE: insta-[slugified-title].jpg`
+      `(Empty Line)`
+    * URL-encode the string and trigger the `window.open('https://wa.me/393402362566?text=...')` action.
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 
