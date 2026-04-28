@@ -27,7 +27,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "strawberry",
-    image: "/assets/images/cone-strawberry-v2.webp",
+    image: "/assets/images/cone-strawberry-v3.jpg",
     imageAlt: "Gelado artesanal de morango",
     vegan: true,
   },
@@ -78,5 +78,23 @@ export const flavors: Flavor[] = [
     image: "/assets/images/cone-watermelon-v1.webp",
     imageAlt: "Gelado artesanal de melancia",
     vegan: true,
+  },
+  {
+    id: "lemon",
+    image: "/assets/images/cone-lemon-v1.jpg",
+    imageAlt: "Gelado artesanal de limão",
+    vegan: true,
+  },
+  {
+    id: "madeira-banana",
+    image: "/assets/images/cone-banana-da-madeira-v1.jpg",
+    imageAlt: "Gelado artesanal de banana da Madeira",
+    vegan: true,
+  },
+  {
+    id: "salted-caramel",
+    image: "/assets/images/cone-salted-caramel-v1.jpg",
+    imageAlt: "Gelado artesanal de caramelo salgado",
+    vegan: false,
   },
 ];

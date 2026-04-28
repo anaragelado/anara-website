@@ -54,7 +54,10 @@
       "morango-natas": "Strawberry & Cream",
       "peanut-chocolate": "Peanut & Chocolate",
       "doce-de-leite": "Doce de Leite",
-      "watermelon": "Watermelon"
+      "watermelon": "Watermelon",
+      "lemon": "Lemon",
+      "madeira-banana": "Madeira Banana",
+      "salted-caramel": "Salted Caramel"
     }
   },
   "takeaway": {
@@ -146,7 +149,13 @@
     "introIgLink": "shared on Instagram",
     "intro2": "Our creations are born from unexpected inspirations, where classic gelato craftsmanship meets flavours from diverse culinary traditions and global influences. Find weekly specials at our Charneca da Caparica and Costa da Caparica locations.",
     "igSliderLabel": "Placeholder Photo",
-    "coneLabel": "Placeholder Photo"
+    "coneLabel": "Placeholder Photo",
+    "items": {
+      "pastel-de-nata": "Pastel de Nata",
+      "morango-natas": "Strawberry & Cream Swirl",
+      "carrot-cake": "Carrot Cake",
+      "madagascan-vanilla": "Madagascan Vanilla with Damson Swirl"
+    }
   },
   "footer": {
     "imprint": "Imprint",

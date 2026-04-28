@@ -1,23 +1,43 @@
 "use client";
 
 import { useRef } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useTranslations } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
 import Image from "next/image";
 import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
 import { instagramPosts } from "@/data/instagramPosts";
 
-const PROTOTYPE_CONE = {
-  src: "/assets/images/cone-carrot-cake-v1.webp",
-  alt: "Carrot Cake gelato cone",
-};
+const CREATION_ITEMS = [
+  {
+    key: "pastel-de-nata" as const,
+    image: "/assets/images/cone-pastel-de-nata-v1.jpg",
+    vegan: false,
+    glutenFree: true,
+  },
+  {
+    key: "morango-natas" as const,
+    image: "/assets/images/cone-morango-natas-com-calda-de-morango-v1.webp",
+    vegan: false,
+    glutenFree: true,
+  },
+  {
+    key: "carrot-cake" as const,
+    image: "/assets/images/cone-carrot-cake-v1.webp",
+    vegan: false,
+    glutenFree: true,
+  },
+  {
+    key: "madagascan-vanilla" as const,
+    image: "/assets/images/cone-madagascan-vanilla-with-damson-swirl-v3.jpg",
+    vegan: false,
+    glutenFree: true,
+  },
+];
 
 export default function CreationsSection() {
   const t = useTranslations("creations");
   const tMenu = useTranslations("menu");
-  const locale = useLocale();
-  const coneName = locale === "pt" ? "Bolo de Cenoura" : "Carrot Cake";
 
   const sliderRef = useRef<HTMLDivElement>(null);
 
@@ -105,29 +125,33 @@ export default function CreationsSection() {
         </div>
       </FadeIn>
 
-      {/* ─── Creations cone grid — Option A, aspect-square ─── */}
+      {/* ─── Creations cone grid ─── */}
       <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
-        {[0, 1, 2, 3].map((i) => (
-          <div key={i} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
+        {CREATION_ITEMS.map((item) => (
+          <div key={item.key} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
             <div className="relative aspect-square overflow-hidden rounded-2xl">
               <Image
-                src={PROTOTYPE_CONE.src}
-                alt={PROTOTYPE_CONE.alt}
+                src={item.image}
+                alt={t(`items.${item.key}`)}
                 fill
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover"
               />
             </div>
             <div className="mt-3 text-center">
-              <p className="text-sm font-medium md:text-base">{coneName}</p>
+              <p className="text-sm font-medium md:text-base">{t(`items.${item.key}`)}</p>
               <div className="mt-1 flex items-center justify-center gap-2">
-                <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 px-3 py-0.5 text-xs font-medium text-brand-green">
-                  <Leaf size={12} strokeWidth={1.5} />
-                  {tMenu("vegan")}
-                </span>
-                <span className="inline-flex items-center rounded-full bg-brand-yellow/10 px-3 py-0.5 text-xs font-medium text-text-secondary">
-                  {tMenu("glutenFree")}
-                </span>
+                {item.vegan && (
+                  <span className="inline-flex items-center gap-1 rounded-full bg-brand-green/10 px-3 py-0.5 text-xs font-medium text-brand-green">
+                    <Leaf size={12} strokeWidth={1.5} />
+                    {tMenu("vegan")}
+                  </span>
+                )}
+                {item.glutenFree && (
+                  <span className="inline-flex items-center rounded-full bg-brand-yellow/10 px-3 py-0.5 text-xs font-medium text-text-secondary">
+                    {tMenu("glutenFree")}
+                  </span>
+                )}
               </div>
             </div>
           </div>

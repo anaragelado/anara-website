@@ -54,7 +54,10 @@
       "morango-natas": "Morango Natas",
       "peanut-chocolate": "Amendoim & Chocolate",
       "doce-de-leite": "Doce de Leite",
-      "watermelon": "Melancia"
+      "watermelon": "Melancia",
+      "lemon": "Limão",
+      "madeira-banana": "Banana da Madeira",
+      "salted-caramel": "Caramelo Salgado"
     }
   },
   "takeaway": {
@@ -146,7 +149,13 @@
     "introIgLink": "partilhados no Instagram",
     "intro2": "As nossas criações nascem de inspirações inesperadas, onde a arte clássica do gelado artesanal se cruza com sabores de diversas tradições culinárias e influências globais. Descobre os nossos sabores especiais da semana nas nossas lojas da Charneca da Caparica e da Costa da Caparica.",
     "igSliderLabel": "Foto de Substituição",
-    "coneLabel": "Foto de Substituição"
+    "coneLabel": "Foto de Substituição",
+    "items": {
+      "pastel-de-nata": "Pastel de Nata",
+      "morango-natas": "Morango Natas com calda de Morango",
+      "carrot-cake": "Bolo de Cenoura",
+      "madagascan-vanilla": "Baunilha de Madagáscar com calda de Abrunho"
+    }
   },
   "footer": {
     "imprint": "Impressum",
