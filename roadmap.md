@@ -322,6 +322,25 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
       `(Empty Line)`
     * URL-encode the string and trigger the `window.open('https://wa.me/393402362566?text=...')` action.
 
+
+    * [ ] **4D.10 Tooling: Flavor Sorting Portal:**
+  * Build a new hidden route (e.g., `app/[lang]/flavor-sorter/page.tsx`).
+  * **Data Integration:** Pull the final, confirmed list of Staple Flavours and Creations cones (including their finalized `cone-[slug]-vX.jpg` image paths).
+  * **UI Layout:** 
+    * Render two distinct sections: "Order: Staple Flavours" and "Order: Our Creations".
+    * For each item, display a visual row containing: the ice cream image (`w-16 h-16 object-cover rounded-lg`), the flavour name, and interactive controls.
+  * **Sorting Mechanics:** Implement simple "Move Up" and "Move Down" arrow buttons (using `lucide-react` icons like `ChevronUp` and `ChevronDown`) for each item. This is much more reliable on mobile touchscreens than drag-and-drop.
+  * **State Management:** Keep track of the reordered arrays in React state.
+  * **Payload Logic:** 
+    * Add a "Send Order to Patrick" button at the very bottom.
+    * Generate a clean, numbered text list for both categories based on the final state:
+      `[Staple Flavours]`
+      `1. [Flavour Name]`
+      `2. [Flavour Name]`
+      `[Creations]`
+      `1. [Flavour Name]`
+    * URL-encode the string and trigger `window.open('https://wa.me/393402362566?text=...')`.
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 

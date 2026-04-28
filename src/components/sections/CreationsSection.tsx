@@ -7,39 +7,7 @@ import FadeIn from "@/components/FadeIn";
 import Image from "next/image";
 import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
 import { instagramPosts } from "@/data/instagramPosts";
-
-const CREATION_ITEMS = [
-  {
-    key: "pastel-de-nata" as const,
-    image: "/assets/images/cone-pastel-de-nata-v1.jpg",
-    vegan: false,
-    glutenFree: true,
-  },
-  {
-    key: "morango-natas" as const,
-    image: "/assets/images/cone-morango-natas-com-calda-de-morango-v1.webp",
-    vegan: false,
-    glutenFree: true,
-  },
-  {
-    key: "carrot-cake" as const,
-    image: "/assets/images/cone-carrot-cake-v1.webp",
-    vegan: false,
-    glutenFree: true,
-  },
-  {
-    key: "madagascan-vanilla" as const,
-    image: "/assets/images/cone-madagascan-vanilla-with-damson-swirl-v3.jpg",
-    vegan: false,
-    glutenFree: true,
-  },
-  {
-    key: "natas-toffee-pinhoes" as const,
-    image: "/assets/images/cone-natas-com-toffee-pinhoes-caramelizados-v2.jpg",
-    vegan: false,
-    glutenFree: true,
-  },
-];
+import { creations as CREATION_ITEMS } from "@/data/creations";
 
 export default function CreationsSection() {
   const t = useTranslations("creations");
