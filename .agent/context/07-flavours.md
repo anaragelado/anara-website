@@ -42,6 +42,7 @@ Madagascan Bourbon Vanilla / Baunilha Bourbon de Madagáscar - Gluten Free
 Salted Caramel / Caramelo Salgado - Gluten Free
 Peanut with Chocolate Chunks / Amendoim com Pedaços de Chocolate - Vegan and Gluten Free
 Cinnamon / Canela - Gluten Free
+Coconut / Coco. - Gluten Free
 Coffee / Café - Gluten Free
 Fior di Latte / Natas (Fior di Latte) - Gluten Free
 Oreo / Oreo
@@ -54,5 +55,6 @@ Pastel de Nata / Pastel de Nata - Gluten Free
 Strawberry Fior di Latte with Strawberry Swirl / Morango Natas com calda de Morango - Gluten Free
 Carrot Cake / Bolo de Cenoura - Gluten Free
 Madagascan Vanilla with Damson Swirl / Baunilha de Madagáscar com calda de Abrunho - Gluten Free
+Natas com Toffee e Pinhões Caramelizados  - Gluten Free
 
 

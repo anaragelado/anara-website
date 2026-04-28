@@ -57,7 +57,15 @@
       "watermelon": "Melancia",
       "lemon": "Limão",
       "madeira-banana": "Banana da Madeira",
-      "salted-caramel": "Caramelo Salgado"
+      "salted-caramel": "Caramelo Salgado",
+      "belgian-chocolate": "Chocolate Belga",
+      "algarve-orange": "Laranja do Algarve",
+      "baunilha-bourbon-madagascar": "Baunilha Bourbon de Madagáscar",
+      "cinnamon": "Canela",
+      "coconut": "Coco",
+      "coffee": "Café",
+      "belgian-chocolate-algarve-orange": "Chocolate Belga com Laranja do Algarve",
+      "melon": "Meloa"
     }
   },
   "takeaway": {
@@ -154,7 +162,8 @@
       "pastel-de-nata": "Pastel de Nata",
       "morango-natas": "Morango Natas com calda de Morango",
       "carrot-cake": "Bolo de Cenoura",
-      "madagascan-vanilla": "Baunilha de Madagáscar com calda de Abrunho"
+      "madagascan-vanilla": "Baunilha de Madagáscar com calda de Abrunho",
+      "natas-toffee-pinhoes": "Natas com Toffee e Pinhões Caramelizados"
     }
   },
   "footer": {

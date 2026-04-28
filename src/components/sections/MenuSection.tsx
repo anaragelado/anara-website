@@ -32,13 +32,19 @@ export default function MenuSection() {
 
             {/* Image */}
             <div className="relative aspect-square overflow-hidden rounded-2xl">
-              <Image
-                src={flavor.image}
-                alt={flavor.imageAlt}
-                fill
-                sizes="(max-width: 768px) 50vw, 33vw"
-                className="object-cover"
-              />
+              {flavor.placeholder ? (
+                <div className="flex h-full w-full items-center justify-center bg-background-primary text-xs font-medium text-text-secondary opacity-60">
+                  Photo missing
+                </div>
+              ) : (
+                <Image
+                  src={flavor.image}
+                  alt={flavor.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover"
+                />
+              )}
             </div>
 
             {/* Name + badges */}

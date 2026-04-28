@@ -4,6 +4,7 @@ export interface Flavor {
   imageAlt: string;
   vegan: boolean;
   isSpecial?: boolean;
+  placeholder?: boolean;
 }
 
 export const flavors: Flavor[] = [
@@ -11,7 +12,7 @@ export const flavors: Flavor[] = [
     id: "salted-pistachio",
     image: "/assets/images/cone-salted-pistachio-v1.webp",
     imageAlt: "Gelado artesanal de pistáchio salgado",
-    vegan: false,
+    vegan: true,
   },
   {
     id: "mango",
@@ -22,7 +23,7 @@ export const flavors: Flavor[] = [
   {
     id: "natas",
     image: "/assets/images/cone-natas-v1.webp",
-    imageAlt: "Gelado artesanal de natas",
+    imageAlt: "Gelado artesanal de natas fior di latte",
     vegan: false,
   },
   {
@@ -54,12 +55,6 @@ export const flavors: Flavor[] = [
     image: "/assets/images/cone-raspberry-v2.webp",
     imageAlt: "Gelado artesanal de framboesa",
     vegan: true,
-  },
-  {
-    id: "morango-natas",
-    image: "/assets/images/cone-morango-natas-com-calda-de-morango-v1.webp",
-    imageAlt: "Gelado artesanal de morango natas com calda de morango",
-    vegan: false,
   },
   {
     id: "peanut-chocolate",
@@ -96,5 +91,55 @@ export const flavors: Flavor[] = [
     image: "/assets/images/cone-salted-caramel-v1.jpg",
     imageAlt: "Gelado artesanal de caramelo salgado",
     vegan: false,
+  },
+  {
+    id: "belgian-chocolate",
+    image: "/assets/images/cone-belgian-chocolate-v1.webp",
+    imageAlt: "Gelado artesanal de chocolate belga",
+    vegan: true,
+  },
+  {
+    id: "algarve-orange",
+    image: "/assets/images/cone-algarve-orange-v1.webp",
+    imageAlt: "Gelado artesanal de laranja do Algarve",
+    vegan: true,
+  },
+  {
+    id: "baunilha-bourbon-madagascar",
+    image: "/assets/images/cone-baunilha-bourbon-madagascar-v1.webp",
+    imageAlt: "Gelado artesanal de baunilha bourbon de Madagáscar",
+    vegan: false,
+  },
+  {
+    id: "cinnamon",
+    image: "/assets/images/cone-cinnamon-v1.webp",
+    imageAlt: "Gelado artesanal de canela",
+    vegan: false,
+  },
+  {
+    id: "coconut",
+    image: "/assets/images/cone-coconut-v1.webp",
+    imageAlt: "Gelado artesanal de coco",
+    vegan: false,
+  },
+  {
+    id: "coffee",
+    image: "/assets/images/cone-coffee-v1.webp",
+    imageAlt: "Gelado artesanal de café",
+    vegan: false,
+  },
+  {
+    id: "belgian-chocolate-algarve-orange",
+    image: "",
+    imageAlt: "",
+    vegan: true,
+    placeholder: true,
+  },
+  {
+    id: "melon",
+    image: "",
+    imageAlt: "",
+    vegan: true,
+    placeholder: true,
   },
 ];

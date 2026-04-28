@@ -33,6 +33,12 @@ const CREATION_ITEMS = [
     vegan: false,
     glutenFree: true,
   },
+  {
+    key: "natas-toffee-pinhoes" as const,
+    image: "/assets/images/cone-natas-com-toffee-pinhoes-caramelizados-v2.jpg",
+    vegan: false,
+    glutenFree: true,
+  },
 ];
 
 export default function CreationsSection() {
@@ -126,7 +132,7 @@ export default function CreationsSection() {
       </FadeIn>
 
       {/* ─── Creations cone grid ─── */}
-      <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
+      <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 lg:gap-6">
         {CREATION_ITEMS.map((item) => (
           <div key={item.key} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
             <div className="relative aspect-square overflow-hidden rounded-2xl">
