@@ -323,7 +323,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * URL-encode the string and trigger the `window.open('https://wa.me/393402362566?text=...')` action.
 
 
-    * [ ] **4D.10 Tooling: Flavor Sorting Portal:**
+    * [x] **4D.10 Tooling: Flavor Sorting Portal:**
   * Build a new hidden route (e.g., `app/[lang]/flavor-sorter/page.tsx`).
   * **Data Integration:** Pull the final, confirmed list of Staple Flavours and Creations cones (including their finalized `cone-[slug]-vX.jpg` image paths).
   * **UI Layout:** 
@@ -340,6 +340,22 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
       `[Creations]`
       `1. [Flavour Name]`
     * URL-encode the string and trigger `window.open('https://wa.me/393402362566?text=...')`.
+
+
+    * [ ] **4D.11 Asset Management, UI Updates & Instagram Extraction:**
+  * **File Management (Instagram Images):**
+    * Move the 3 new images (`Instagram-Kombucha Maracuja 3.webp`, `Instagram-Pastel de Nata2.webp`, `Instagram-SalameChocolate2.webp`) from `public/assets/images/new-instagram-slider/` into `public/assets/images/`.
+    * Delete the now-empty `new-instagram-slider` folder.
+    * Move the 3 corresponding old images (`Instagram-Kombucha de Maracujá2.webp`, `Instagram-Pastel de Nata.webp`, `Instagram-Salame de Chocolate.webp`) from `public/assets/images/` into `public/assets/images/_archive/`.
+    * Update the Instagram slider data array in the codebase to reference the 3 new filenames.
+  * **File Management & UI Updates (Cone Images):**
+    * *Belgian Chocolate w/ Orange:* Move `cone-belgian-chocolate-with-algarve-orange-v2.webp` from the `_archive` folder back to `public/assets/images/`. Update the Staple Flavours data to use this image (replacing the current placeholder).
+    * *Raspberry:* Update the Flavours data to use `cone-raspberry-v4.jpg`. Move the old `cone-raspberry-v2.webp` into the `_archive` folder.
+    * *Strawberry:* Update the Flavours data AND the image slider in the "Our Story" section to use `cone-strawberry-v4.jpg`. Move the old `cone-strawberry-v3.jpg` into the `_archive` folder.
+  * **Text/Translation Update:**
+    * In the "Our Creations" section / `en.json` translation file, change the English translation of "Natas com Toffe e Pinhões Caramelizados" to exactly: "Fior di Latte with Toffee and Caramelised Pine Nuts".
+  * **Data Extraction (Terminal Output):**
+    * Run a quick script to read the `public/assets/images/` directory and list all 22 active `Instagram-...` filenames. Output this clean list directly in the chat/console so Patrick can copy it for the client to define the order.
 
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
