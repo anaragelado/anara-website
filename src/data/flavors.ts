@@ -28,7 +28,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "strawberry",
-    image: "/assets/images/cone-strawberry-v3.jpg",
+    image: "/assets/images/cone-strawberry-v4.jpg",
     imageAlt: "Gelado artesanal de morango",
     vegan: true,
   },
@@ -52,7 +52,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "raspberry",
-    image: "/assets/images/cone-raspberry-v2.webp",
+    image: "/assets/images/cone-raspberry-v4.jpg",
     imageAlt: "Gelado artesanal de framboesa",
     vegan: true,
   },
@@ -130,10 +130,9 @@ export const flavors: Flavor[] = [
   },
   {
     id: "belgian-chocolate-algarve-orange",
-    image: "",
-    imageAlt: "",
+    image: "/assets/images/cone-belgian-chocolate-with-algarve-orange-v2.webp",
+    imageAlt: "Gelado artesanal de chocolate belga com laranja do Algarve",
     vegan: true,
-    placeholder: true,
   },
   {
     id: "melon",

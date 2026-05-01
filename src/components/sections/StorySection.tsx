@@ -17,8 +17,8 @@ const storyImages = [
     alt: "Fresh lemons in a crate",
   },
   {
-    src: "/assets/images/cone-doce-de-leite-argentino-v1.webp",
-    alt: "Doce de Leite Argentino artisanal gelato — Anara Gelado",
+    src: "/assets/images/cone-strawberry-v4.jpg",
+    alt: "Strawberry artisanal gelato cone — Anara Gelado",
   },
 ];
 

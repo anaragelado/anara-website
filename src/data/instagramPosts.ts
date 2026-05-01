@@ -46,7 +46,7 @@ export const instagramPosts: InstagramPost[] = [
     alt: "Figo Pingo de Mel",
   },
   {
-    imagePath: "/assets/images/Instagram-Kombucha de Maracujá2.webp",
+    imagePath: "/assets/images/Instagram-Kombucha Maracujá 3.webp",
     url: "https://www.instagram.com/p/DKMg5aWs2m5",
     alt: "Kombucha de Maracujá",
   },
@@ -91,7 +91,7 @@ export const instagramPosts: InstagramPost[] = [
     alt: "Natas com Toffee e Pinhões",
   },
   {
-    imagePath: "/assets/images/Instagram-Pastel de Nata.webp",
+    imagePath: "/assets/images/Instagram-Pastel de Nata2.webp",
     url: "https://www.instagram.com/p/CtRjzDht7d1",
     alt: "Pastel de Nata",
   },
@@ -101,7 +101,7 @@ export const instagramPosts: InstagramPost[] = [
     alt: "Requeijão com Figos Caramelizados",
   },
   {
-    imagePath: "/assets/images/Instagram-Salame de Chocolate.webp",
+    imagePath: "/assets/images/Instagram-SalameChocolate2.webp",
     url: "https://www.instagram.com/p/DSALI5sDSOd",
     alt: "Salame de Chocolate",
   },
