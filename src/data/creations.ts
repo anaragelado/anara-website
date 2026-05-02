@@ -36,4 +36,10 @@ export const creations: Creation[] = [
     vegan: false,
     glutenFree: true,
   },
+  {
+    key: "limao-pepino-hortela",
+    image: "/assets/images/cone-limao-pepino-hortela-v1.webp",
+    vegan: true,
+    glutenFree: true,
+  },
 ];

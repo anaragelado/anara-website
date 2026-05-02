@@ -55,6 +55,7 @@ const CREATION_NAMES: Record<string, string> = {
   "carrot-cake": "Carrot Cake",
   "madagascan-vanilla": "Madagascan Vanilla with Damson Swirl",
   "natas-toffee-pinhoes": "Fior di Latte with Toffee and Caramelised Pine Nuts",
+  "limao-pepino-hortela": "Lemon, Cucumber & Mint",
 };
 
 function moveInArray<T>(arr: T[], index: number, direction: "up" | "down"): T[] {

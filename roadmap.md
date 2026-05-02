@@ -357,6 +357,25 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * **Data Extraction (Terminal Output):**
     * Run a quick script to read the `public/assets/images/` directory and list all 22 active `Instagram-...` filenames. Output this clean list directly in the chat/console so Patrick can copy it for the client to define the order.
 
+
+    * [ ] **4D.12 Slider UX Overhaul & 6th Special Creation:**
+  * **Instagram Slider "Infinite Loop" Fix:** 
+    * Strip out the glitchy 3x array duplication and debounce "teleport" logic. Revert to a single, clean array of the 22 items.
+    * Keep it as a standard finite slider (Start to End) using native CSS scroll-snapping.
+    * Update the Right Arrow logic: if the user reaches the absolute end of the slider, clicking the Right Arrow should smoothly scroll them back to the very first image.
+  * **Mobile Slider Arrows & Alignment:**
+    * Un-hide the Left/Right navigation arrows on mobile viewports.
+    * Ensure the slider mounts displaying the FIRST image perfectly aligned/centered, not starting partially scrolled.
+    * Implement scroll state detection: The "Left" arrow must be completely hidden when the slider is at the starting position (index 0). It should only appear once the user swipes or clicks right.
+    * Ensure native touch-swiping remains fully enabled alongside the new arrow buttons.
+  * **6th Special Creation Addition & Optimization:**
+    * Locate `public/assets/images/cone-limao-pepino-hortela-v1.jpg` and optimize it into a highly compressed `.webp` format, matching the standards of the other images.
+    * Add this new flavour to the active UI array for the "Our Creations" special cones section.
+  * **Creations Grid Layout Update:**
+    * Adjust the Tailwind grid classes for the Special Creations block.
+    * **Mobile:** Set to 2 columns (`grid-cols-2`), resulting in 3 rows.
+    * **Desktop:** Set to 3 columns (`md:grid-cols-3`), resulting in exactly 2 rows.
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 

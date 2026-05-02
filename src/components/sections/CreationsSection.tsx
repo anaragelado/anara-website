@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useCallback } from "react";
+import { useRef, useState, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
@@ -9,54 +9,41 @@ import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
 import { instagramPosts } from "@/data/instagramPosts";
 import { creations as CREATION_ITEMS } from "@/data/creations";
 
-// Triple the posts so we can loop seamlessly in both directions
-const LOOPED_POSTS = [...instagramPosts, ...instagramPosts, ...instagramPosts];
-const N = instagramPosts.length;
-
 export default function CreationsSection() {
   const t = useTranslations("creations");
   const tMenu = useTranslations("menu");
 
   const sliderRef = useRef<HTMLDivElement>(null);
-  const copy2StartRef = useRef(0);
-  const copy3StartRef = useRef(0);
-  const loopTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [atStart, setAtStart] = useState(true);
 
-  // On mount: jump to center copy so user can scroll both left and right
-  useEffect(() => {
+  const getCardAmount = () => {
     const container = sliderRef.current;
-    if (!container) return;
-    requestAnimationFrame(() => {
-      const cards = container.querySelectorAll<HTMLAnchorElement>(":scope > a");
-      if (cards.length < N * 2) return;
-      copy2StartRef.current = cards[N].offsetLeft;
-      copy3StartRef.current = cards[N * 2].offsetLeft;
-      container.scrollLeft = copy2StartRef.current;
-    });
-  }, []);
-
-  // After scroll settles: if user drifted into copy1 or copy3, teleport to copy2
-  const handleScroll = useCallback(() => {
-    if (loopTimer.current) clearTimeout(loopTimer.current);
-    loopTimer.current = setTimeout(() => {
-      const container = sliderRef.current;
-      if (!container || !copy2StartRef.current) return;
-      const w = copy3StartRef.current - copy2StartRef.current;
-      if (container.scrollLeft < copy2StartRef.current) {
-        container.scrollLeft += w;
-      } else if (container.scrollLeft >= copy3StartRef.current) {
-        container.scrollLeft -= w;
-      }
-    }, 300);
-  }, []);
-
-  const scrollBy = (direction: "left" | "right") => {
-    const container = sliderRef.current;
-    if (!container) return;
+    if (!container) return 320 + 24;
     const firstCard = container.querySelector<HTMLAnchorElement>(":scope > a");
     const cardWidth = firstCard?.offsetWidth ?? 320;
-    const gap = 24; // matches md:gap-6
-    container.scrollBy({ left: direction === "left" ? -(cardWidth + gap) : (cardWidth + gap), behavior: "smooth" });
+    const gap = parseFloat(getComputedStyle(container).gap) || 16;
+    return cardWidth + gap;
+  };
+
+  const handleScroll = useCallback(() => {
+    const container = sliderRef.current;
+    if (!container) return;
+    setAtStart(container.scrollLeft < 10);
+  }, []);
+
+  const scrollLeft = () => {
+    sliderRef.current?.scrollBy({ left: -getCardAmount(), behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    const container = sliderRef.current;
+    if (!container) return;
+    const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
+    if (atEnd) {
+      container.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      container.scrollBy({ left: getCardAmount(), behavior: "smooth" });
+    }
   };
 
   return (
@@ -71,7 +58,7 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* Intro text with inline Instagram link (4B.6) */}
+      {/* Intro text with inline Instagram link */}
       <FadeIn delay={0.1}>
         <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-text-secondary md:text-lg">
           {t("intro1")}{" "}
@@ -87,7 +74,7 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* ─── Instagram Feed Slider (looping snap-scroll) ─── */}
+      {/* ─── Instagram Feed Slider ─── */}
       <FadeIn delay={0.15} className="mt-10 -mx-4 md:-mx-8">
         <div className="relative">
           <div
@@ -95,13 +82,13 @@ export default function CreationsSection() {
             onScroll={handleScroll}
             className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-4 md:gap-6 md:px-8"
           >
-            {LOOPED_POSTS.map((post, index) => (
+            {instagramPosts.map((post, index) => (
               <a
                 key={index}
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block aspect-square w-[45vw] flex-shrink-0 snap-center overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:w-[35vw] md:w-[22vw] lg:w-[18vw]"
+                className="group relative block aspect-square w-[45vw] flex-shrink-0 snap-start overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:w-[35vw] md:w-[22vw] lg:w-[18vw]"
               >
                 <Image
                   src={post.imagePath}
@@ -114,28 +101,32 @@ export default function CreationsSection() {
             ))}
           </div>
 
-          {/* Desktop navigation arrows */}
+          {/* Left arrow — hidden when at the very start */}
+          {!atStart && (
+            <button
+              type="button"
+              onClick={scrollLeft}
+              aria-label="Scroll left"
+              className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:left-4"
+            >
+              <ChevronLeft size={20} strokeWidth={1.75} />
+            </button>
+          )}
+
+          {/* Right arrow — always visible, wraps to start at end */}
           <button
             type="button"
-            onClick={() => scrollBy("left")}
-            aria-label="Scroll left"
-            className="absolute left-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:flex md:left-4"
-          >
-            <ChevronLeft size={20} strokeWidth={1.75} />
-          </button>
-          <button
-            type="button"
-            onClick={() => scrollBy("right")}
+            onClick={scrollRight}
             aria-label="Scroll right"
-            className="absolute right-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:flex md:right-4"
+            className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:right-4"
           >
             <ChevronRight size={20} strokeWidth={1.75} />
           </button>
         </div>
       </FadeIn>
 
-      {/* ─── Creations cone grid ─── */}
-      <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 lg:gap-6">
+      {/* ─── Creations cone grid: 2 cols mobile → 3 cols desktop ─── */}
+      <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-6">
         {CREATION_ITEMS.map((item) => (
           <div key={item.key} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
             <div className="relative aspect-square overflow-hidden rounded-2xl">
@@ -143,7 +134,7 @@ export default function CreationsSection() {
                 src={item.image}
                 alt={t(`items.${item.key}`)}
                 fill
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover"
               />
             </div>
