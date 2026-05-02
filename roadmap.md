@@ -342,7 +342,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * URL-encode the string and trigger `window.open('https://wa.me/393402362566?text=...')`.
 
 
-    * [ ] **4D.11 Asset Management, UI Updates & Instagram Extraction:**
+    * [x] **4D.11 Asset Management, UI Updates & Instagram Extraction:**
   * **File Management (Instagram Images):**
     * Move the 3 new images (`Instagram-Kombucha Maracuja 3.webp`, `Instagram-Pastel de Nata2.webp`, `Instagram-SalameChocolate2.webp`) from `public/assets/images/new-instagram-slider/` into `public/assets/images/`.
     * Delete the now-empty `new-instagram-slider` folder.

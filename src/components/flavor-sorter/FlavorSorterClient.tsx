@@ -33,7 +33,7 @@ const FLAVOR_NAMES: Record<string, string> = {
   "pineapple": "Pineapple",
   "oreo": "Oreo",
   "raspberry": "Raspberry",
-  "peanut-chocolate": "Peanut & Chocolate",
+  "peanut-chocolate": "Peanut with Chocolate Chunks",
   "doce-de-leite": "Doce de Leite",
   "watermelon": "Watermelon",
   "lemon": "Lemon",

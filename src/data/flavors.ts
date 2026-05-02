@@ -136,9 +136,8 @@ export const flavors: Flavor[] = [
   },
   {
     id: "melon",
-    image: "",
-    imageAlt: "",
+    image: "/assets/images/cone-meloa-v1.webp",
+    imageAlt: "Gelado artesanal de meloa",
     vegan: true,
-    placeholder: true,
   },
 ];

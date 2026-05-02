@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
@@ -9,11 +9,46 @@ import { Leaf, ChevronLeft, ChevronRight } from "lucide-react";
 import { instagramPosts } from "@/data/instagramPosts";
 import { creations as CREATION_ITEMS } from "@/data/creations";
 
+// Triple the posts so we can loop seamlessly in both directions
+const LOOPED_POSTS = [...instagramPosts, ...instagramPosts, ...instagramPosts];
+const N = instagramPosts.length;
+
 export default function CreationsSection() {
   const t = useTranslations("creations");
   const tMenu = useTranslations("menu");
 
   const sliderRef = useRef<HTMLDivElement>(null);
+  const copy2StartRef = useRef(0);
+  const copy3StartRef = useRef(0);
+  const loopTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // On mount: jump to center copy so user can scroll both left and right
+  useEffect(() => {
+    const container = sliderRef.current;
+    if (!container) return;
+    requestAnimationFrame(() => {
+      const cards = container.querySelectorAll<HTMLAnchorElement>(":scope > a");
+      if (cards.length < N * 2) return;
+      copy2StartRef.current = cards[N].offsetLeft;
+      copy3StartRef.current = cards[N * 2].offsetLeft;
+      container.scrollLeft = copy2StartRef.current;
+    });
+  }, []);
+
+  // After scroll settles: if user drifted into copy1 or copy3, teleport to copy2
+  const handleScroll = useCallback(() => {
+    if (loopTimer.current) clearTimeout(loopTimer.current);
+    loopTimer.current = setTimeout(() => {
+      const container = sliderRef.current;
+      if (!container || !copy2StartRef.current) return;
+      const w = copy3StartRef.current - copy2StartRef.current;
+      if (container.scrollLeft < copy2StartRef.current) {
+        container.scrollLeft += w;
+      } else if (container.scrollLeft >= copy3StartRef.current) {
+        container.scrollLeft -= w;
+      }
+    }, 300);
+  }, []);
 
   const scrollBy = (direction: "left" | "right") => {
     const container = sliderRef.current;
@@ -21,8 +56,7 @@ export default function CreationsSection() {
     const firstCard = container.querySelector<HTMLAnchorElement>(":scope > a");
     const cardWidth = firstCard?.offsetWidth ?? 320;
     const gap = 24; // matches md:gap-6
-    const amount = cardWidth + gap;
-    container.scrollBy({ left: direction === "left" ? -amount : amount, behavior: "smooth" });
+    container.scrollBy({ left: direction === "left" ? -(cardWidth + gap) : (cardWidth + gap), behavior: "smooth" });
   };
 
   return (
@@ -53,14 +87,15 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* ─── Instagram Feed Slider (3:4 snap-scroll) ─── */}
+      {/* ─── Instagram Feed Slider (looping snap-scroll) ─── */}
       <FadeIn delay={0.15} className="mt-10 -mx-4 md:-mx-8">
         <div className="relative">
           <div
             ref={sliderRef}
+            onScroll={handleScroll}
             className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-4 md:gap-6 md:px-8"
           >
-            {instagramPosts.map((post, index) => (
+            {LOOPED_POSTS.map((post, index) => (
               <a
                 key={index}
                 href={post.url}
