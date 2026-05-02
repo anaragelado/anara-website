@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 import { useTranslations } from "next-intl";
 import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
@@ -13,38 +13,7 @@ export default function CreationsSection() {
   const t = useTranslations("creations");
   const tMenu = useTranslations("menu");
 
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [atStart, setAtStart] = useState(true);
-
-  const getCardAmount = () => {
-    const container = sliderRef.current;
-    if (!container) return 320 + 24;
-    const firstCard = container.querySelector<HTMLAnchorElement>(":scope > a");
-    const cardWidth = firstCard?.offsetWidth ?? 320;
-    const gap = parseFloat(getComputedStyle(container).gap) || 16;
-    return cardWidth + gap;
-  };
-
-  const handleScroll = useCallback(() => {
-    const container = sliderRef.current;
-    if (!container) return;
-    setAtStart(container.scrollLeft < 10);
-  }, []);
-
-  const scrollLeft = () => {
-    sliderRef.current?.scrollBy({ left: -getCardAmount(), behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    const container = sliderRef.current;
-    if (!container) return;
-    const atEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
-    if (atEnd) {
-      container.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      container.scrollBy({ left: getCardAmount(), behavior: "smooth" });
-    }
-  };
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
 
   return (
     <SectionWrapper id="creations">
@@ -74,49 +43,46 @@ export default function CreationsSection() {
         </p>
       </FadeIn>
 
-      {/* ─── Instagram Feed Slider ─── */}
+      {/* ─── Embla Carousel (true infinite loop) ─── */}
       <FadeIn delay={0.15} className="mt-10 -mx-4 md:-mx-8">
         <div className="relative">
-          <div
-            ref={sliderRef}
-            onScroll={handleScroll}
-            className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth scrollbar-hide px-4 md:gap-6 md:px-8"
-          >
-            {instagramPosts.map((post, index) => (
-              <a
-                key={index}
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative block aspect-square w-[45vw] flex-shrink-0 snap-start overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:w-[35vw] md:w-[22vw] lg:w-[18vw]"
-              >
-                <Image
-                  src={post.imagePath}
-                  alt={post.alt}
-                  fill
-                  sizes="(max-width: 640px) 45vw, (max-width: 768px) 35vw, (max-width: 1024px) 22vw, 18vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </a>
-            ))}
+          {/* Embla viewport */}
+          <div className="overflow-hidden px-4 md:px-8" ref={emblaRef}>
+            <div className="flex gap-4 md:gap-6">
+              {instagramPosts.map((post, index) => (
+                <a
+                  key={index}
+                  href={post.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative block aspect-square flex-[0_0_45vw] min-w-0 overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-[1.02] sm:flex-[0_0_35vw] md:flex-[0_0_22vw] lg:flex-[0_0_18vw]"
+                >
+                  <Image
+                    src={post.imagePath}
+                    alt={post.alt}
+                    fill
+                    sizes="(max-width: 640px) 45vw, (max-width: 768px) 35vw, (max-width: 1024px) 22vw, 18vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Left arrow — hidden when at the very start */}
-          {!atStart && (
-            <button
-              type="button"
-              onClick={scrollLeft}
-              aria-label="Scroll left"
-              className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:left-4"
-            >
-              <ChevronLeft size={20} strokeWidth={1.75} />
-            </button>
-          )}
-
-          {/* Right arrow — always visible, wraps to start at end */}
+          {/* Left arrow — always visible (infinite loop) */}
           <button
             type="button"
-            onClick={scrollRight}
+            onClick={() => emblaApi?.scrollPrev()}
+            aria-label="Scroll left"
+            className="absolute left-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:left-4"
+          >
+            <ChevronLeft size={20} strokeWidth={1.75} />
+          </button>
+
+          {/* Right arrow — always visible (infinite loop) */}
+          <button
+            type="button"
+            onClick={() => emblaApi?.scrollNext()}
             aria-label="Scroll right"
             className="absolute right-2 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white text-text-primary shadow-md transition-all hover:scale-105 hover:shadow-lg md:right-4"
           >
