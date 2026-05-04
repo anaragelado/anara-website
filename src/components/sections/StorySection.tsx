@@ -17,8 +17,8 @@ const storyImages = [
     alt: "Fresh lemons in a crate",
   },
   {
-    src: "/assets/images/cone-strawberry-v4.jpg",
-    alt: "Strawberry artisanal gelato cone — Anara Gelado",
+    src: "/assets/images/cone-strawberry-horizontal.webp",
+    alt: "Strawberry artisanal gelato — Anara Gelado",
   },
 ];
 

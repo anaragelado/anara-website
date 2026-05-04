@@ -92,7 +92,7 @@ export default function CreationsSection() {
       </FadeIn>
 
       {/* ─── Creations cone grid: 2 cols mobile → 3 cols desktop ─── */}
-      <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-6">
+      <FadeIn delay={0.2} className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 lg:gap-6">
         {CREATION_ITEMS.map((item) => (
           <div key={item.key} className="group relative flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-md rounded-2xl bg-background-secondary p-3">
             <div className="relative aspect-square overflow-hidden rounded-2xl">

@@ -9,22 +9,10 @@ export interface Flavor {
 
 export const flavors: Flavor[] = [
   {
-    id: "salted-pistachio",
-    image: "/assets/images/cone-salted-pistachio-v1.webp",
-    imageAlt: "Gelado artesanal de pistáchio salgado",
+    id: "belgian-chocolate",
+    image: "/assets/images/cone-belgian-chocolate-v1.webp",
+    imageAlt: "Gelado artesanal de chocolate belga",
     vegan: true,
-  },
-  {
-    id: "mango",
-    image: "/assets/images/cone-mango-v2.webp",
-    imageAlt: "Gelado artesanal de manga",
-    vegan: true,
-  },
-  {
-    id: "natas",
-    image: "/assets/images/cone-natas-v1.webp",
-    imageAlt: "Gelado artesanal de natas fior di latte",
-    vegan: false,
   },
   {
     id: "strawberry",
@@ -33,27 +21,9 @@ export const flavors: Flavor[] = [
     vegan: true,
   },
   {
-    id: "hazelnut-piemont",
-    image: "/assets/images/cone-hazelnut-piemont-v1.webp",
-    imageAlt: "Gelado artesanal de avelã do Piemonte",
-    vegan: false,
-  },
-  {
-    id: "pineapple",
-    image: "/assets/images/cone-pineapple-v1.webp",
-    imageAlt: "Gelado artesanal de ananás",
-    vegan: true,
-  },
-  {
-    id: "oreo",
-    image: "/assets/images/cone-oreo-v1.webp",
-    imageAlt: "Gelado artesanal de Oreo",
-    vegan: false,
-  },
-  {
-    id: "raspberry",
-    image: "/assets/images/cone-raspberry-v4.jpg",
-    imageAlt: "Gelado artesanal de framboesa",
+    id: "salted-pistachio",
+    image: "/assets/images/cone-salted-pistachio-v1.webp",
+    imageAlt: "Gelado artesanal de pistáchio salgado",
     vegan: true,
   },
   {
@@ -63,9 +33,9 @@ export const flavors: Flavor[] = [
     vegan: true,
   },
   {
-    id: "doce-de-leite",
-    image: "/assets/images/cone-doce-de-leite-argentino-v1.webp",
-    imageAlt: "Gelado artesanal de doce de leite argentino",
+    id: "hazelnut-piemont",
+    image: "/assets/images/cone-hazelnut-piemont-v1.webp",
+    imageAlt: "Gelado artesanal de avelã do Piemonte",
     vegan: false,
   },
   {
@@ -75,9 +45,39 @@ export const flavors: Flavor[] = [
     vegan: true,
   },
   {
-    id: "lemon",
-    image: "/assets/images/cone-lemon-v1.jpg",
-    imageAlt: "Gelado artesanal de limão",
+    id: "mango",
+    image: "/assets/images/cone-mango-v2.webp",
+    imageAlt: "Gelado artesanal de manga",
+    vegan: true,
+  },
+  {
+    id: "coconut",
+    image: "/assets/images/cone-coconut-v1.webp",
+    imageAlt: "Gelado artesanal de coco",
+    vegan: false,
+  },
+  {
+    id: "raspberry",
+    image: "/assets/images/cone-raspberry-v4.jpg",
+    imageAlt: "Gelado artesanal de framboesa",
+    vegan: true,
+  },
+  {
+    id: "coffee",
+    image: "/assets/images/cone-coffee-v1.webp",
+    imageAlt: "Gelado artesanal de café",
+    vegan: false,
+  },
+  {
+    id: "pineapple",
+    image: "/assets/images/cone-pineapple-v1.webp",
+    imageAlt: "Gelado artesanal de ananás",
+    vegan: true,
+  },
+  {
+    id: "belgian-chocolate-algarve-orange",
+    image: "/assets/images/cone-belgian-chocolate-with-algarve-orange-v2.webp",
+    imageAlt: "Gelado artesanal de chocolate belga com laranja do Algarve",
     vegan: true,
   },
   {
@@ -87,28 +87,10 @@ export const flavors: Flavor[] = [
     vegan: true,
   },
   {
-    id: "salted-caramel",
-    image: "/assets/images/cone-salted-caramel-v1.jpg",
-    imageAlt: "Gelado artesanal de caramelo salgado",
-    vegan: false,
-  },
-  {
-    id: "belgian-chocolate",
-    image: "/assets/images/cone-belgian-chocolate-v1.webp",
-    imageAlt: "Gelado artesanal de chocolate belga",
+    id: "lemon",
+    image: "/assets/images/cone-lemon-v1.jpg",
+    imageAlt: "Gelado artesanal de limão",
     vegan: true,
-  },
-  {
-    id: "algarve-orange",
-    image: "/assets/images/cone-algarve-orange-v1.webp",
-    imageAlt: "Gelado artesanal de laranja do Algarve",
-    vegan: true,
-  },
-  {
-    id: "baunilha-bourbon-madagascar",
-    image: "/assets/images/cone-baunilha-bourbon-madagascar-v1.webp",
-    imageAlt: "Gelado artesanal de baunilha bourbon de Madagáscar",
-    vegan: false,
   },
   {
     id: "cinnamon",
@@ -117,27 +99,45 @@ export const flavors: Flavor[] = [
     vegan: false,
   },
   {
-    id: "coconut",
-    image: "/assets/images/cone-coconut-v1.webp",
-    imageAlt: "Gelado artesanal de coco",
+    id: "baunilha-bourbon-madagascar",
+    image: "/assets/images/cone-baunilha-bourbon-madagascar-v1.webp",
+    imageAlt: "Gelado artesanal de baunilha bourbon de Madagáscar",
     vegan: false,
   },
   {
-    id: "coffee",
-    image: "/assets/images/cone-coffee-v1.webp",
-    imageAlt: "Gelado artesanal de café",
-    vegan: false,
-  },
-  {
-    id: "belgian-chocolate-algarve-orange",
-    image: "/assets/images/cone-belgian-chocolate-with-algarve-orange-v2.webp",
-    imageAlt: "Gelado artesanal de chocolate belga com laranja do Algarve",
+    id: "algarve-orange",
+    image: "/assets/images/cone-algarve-orange-v1.webp",
+    imageAlt: "Gelado artesanal de laranja do Algarve",
     vegan: true,
+  },
+  {
+    id: "salted-caramel",
+    image: "/assets/images/cone-salted-caramel-v1.jpg",
+    imageAlt: "Gelado artesanal de caramelo salgado",
+    vegan: false,
+  },
+  {
+    id: "doce-de-leite",
+    image: "/assets/images/cone-doce-de-leite-argentino-v1.webp",
+    imageAlt: "Gelado artesanal de doce de leite argentino",
+    vegan: false,
   },
   {
     id: "melon",
     image: "/assets/images/cone-meloa-v1.webp",
     imageAlt: "Gelado artesanal de meloa",
     vegan: true,
+  },
+  {
+    id: "natas",
+    image: "/assets/images/cone-natas-v1.webp",
+    imageAlt: "Gelado artesanal de natas fior di latte",
+    vegan: false,
+  },
+  {
+    id: "oreo",
+    image: "/assets/images/cone-oreo-v1.webp",
+    imageAlt: "Gelado artesanal de Oreo",
+    vegan: false,
   },
 ];

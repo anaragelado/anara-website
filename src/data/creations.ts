@@ -30,16 +30,4 @@ export const creations: Creation[] = [
     vegan: false,
     glutenFree: true,
   },
-  {
-    key: "natas-toffee-pinhoes",
-    image: "/assets/images/cone-natas-com-toffee-pinhoes-caramelizados-v2.jpg",
-    vegan: false,
-    glutenFree: true,
-  },
-  {
-    key: "limao-pepino-hortela",
-    image: "/assets/images/cone-limao-pepino-hortela-v1.webp",
-    vegan: true,
-    glutenFree: true,
-  },
 ];

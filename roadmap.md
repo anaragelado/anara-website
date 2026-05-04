@@ -377,7 +377,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * **Desktop:** Set to 3 columns (`md:grid-cols-3`), resulting in exactly 2 rows.
 
 
-    * [ ] **4D.13 Final Text Corrections & SEO Optimization:**
+    * [x] **4D.13 Final Text Corrections & SEO Optimization:**
   * *Agent Directive:* Meticulously double-check both `en.json` and `pt.json` (or your localized data files) to ensure these exact text replacements are applied without breaking surrounding text or layout.
   * **Menu Translation Update:**
     * Locate the flavour "Morango Natas com calda de Morango". Update its English translation to exactly: "Strawberry Fior di Latte with Strawberry Swirl".
@@ -397,6 +397,24 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * *Sustentável por natureza (PT) Part 2:* Update text to "...acreditamos que um delicioso gelado feito à mão e responsabilidade..."
     * *Private Events (EN):* Update text to "...Our Italian-style gelatos and sorbets are available..."
     * *Private Events & Catering (PT):* Update text to "...Os nossos gelados e sorbets de estilo italiano estão..."
+
+* [x] **4D.14 Media Optimization, Grid Updates & Flavor Reordering:**
+  * **"Our Story" Image Swap & Optimization:**
+    * Locate the file `public/assets/images/cone-strawberry-horizontal.jpg`.
+    * Convert and compress this image into an appropriately sized `.webp` format for web performance (e.g., `cone-strawberry-horizontal.webp`).
+    * Update the "Our Story" image slider array to use this new horizontal WebP image, replacing the previous vertical strawberry photo.
+  * **"Our Creations" Special Cones Reduction:**
+    * Reduce the active array of special creation cones from 6 back to exactly 4 items.
+    * Set the exact display order to: 
+      1. Pastel de Nata
+      2. Morango Natas (Strawberry Fior di Latte with Strawberry Swirl)
+      3. Carrot Cake
+      4. Vanilla Damson
+    * Adjust the Tailwind grid classes (e.g., `md:grid-cols-2` or `md:grid-cols-4`) so the 4 cards are displayed perfectly balanced on desktop, avoiding empty row spaces.
+  * **Staple Flavours Reordering:**
+    * Read the target order specified in the `.agent/context/09_order-stable-flavours.md` file.
+    * Update the hardcoded staple flavours array in the codebase to exactly match this new sequence.
+
 
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
