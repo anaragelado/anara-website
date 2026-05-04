@@ -358,7 +358,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * Run a quick script to read the `public/assets/images/` directory and list all 22 active `Instagram-...` filenames. Output this clean list directly in the chat/console so Patrick can copy it for the client to define the order.
 
 
-    * [ ] **4D.12 Slider UX Overhaul & 6th Special Creation:**
+    * [x] **4D.12 Slider UX Overhaul & 6th Special Creation:**
   * **Instagram Slider "Infinite Loop" Fix:** 
     * Strip out the glitchy 3x array duplication and debounce "teleport" logic. Revert to a single, clean array of the 22 items.
     * Keep it as a standard finite slider (Start to End) using native CSS scroll-snapping.
