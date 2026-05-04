@@ -376,6 +376,28 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * **Mobile:** Set to 2 columns (`grid-cols-2`), resulting in 3 rows.
     * **Desktop:** Set to 3 columns (`md:grid-cols-3`), resulting in exactly 2 rows.
 
+
+    * [ ] **4D.13 Final Text Corrections & SEO Optimization:**
+  * *Agent Directive:* Meticulously double-check both `en.json` and `pt.json` (or your localized data files) to ensure these exact text replacements are applied without breaking surrounding text or layout.
+  * **Menu Translation Update:**
+    * Locate the flavour "Morango Natas com calda de Morango". Update its English translation to exactly: "Strawberry Fior di Latte with Strawberry Swirl".
+  * **Hero Title Update:**
+    * In the English version, replace the word "Ice Cream" in the main H1 title with "Gelato" (e.g., "Artisanal Gelato").
+  * **Badge Terminology (Portuguese):**
+    * In the Portuguese version, change the dietary badge text from "Vegano" to strictly "Vegan" across all flavor and creation cards.
+  * **Missing Sentence (Our Flavours / Os Nossos Sabores):**
+    * EN: Immediately after the sentence ending in "...contain cookies.", add: "We also have non added sugar gelato."
+    * PT: Immediately after the sentence ending in "...conter bolacha.", add: "Também temos sabores sem aditivos de açúcar."
+  * **SEO Keyword Injections (Find and Replace):**
+    * *Our Flavours (EN):* Update text to "...our staple artisanal ice cream flavours..."
+    * *Os Nossos Sabores (PT):* Update text to "...os nossos sabores de gelado artesanal habituais..."
+    * *Sustainable by Nature (EN):* Update text to "...keep your artisanal gelato fresh all the way home..."
+    * *Sustentável por natureza (PT):* Update text to "...e mantêm o teu gelado artesanal fresco..."
+    * *Sustainable by Nature (EN) Part 2:* Update text to "...We believe delicious handcrafted gelato..."
+    * *Sustentável por natureza (PT) Part 2:* Update text to "...acreditamos que um delicioso gelado feito à mão e responsabilidade..."
+    * *Private Events (EN):* Update text to "...Our Italian-style gelatos and sorbets are available..."
+    * *Private Events & Catering (PT):* Update text to "...Os nossos gelados e sorbets de estilo italiano estão..."
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 

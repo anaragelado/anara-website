@@ -23,7 +23,7 @@
     "closedNow": "Closed"
   },
   "hero": {
-    "headline": "Artisanal Ice Cream",
+    "headline": "Artisanal Gelato",
     "subheadline": "From the farm to the cone.",
     "cta": "Find Us"
   },
@@ -38,7 +38,7 @@
   "menu": {
     "title": "Our Flavours",
     "subtitle": "Handcrafted. Always fresh.",
-    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple ice cream flavours. All our flavours are naturally gluten-free, apart from Oreo and a few of our Creations that contain cookies. Find weekly specials at our Charneca da Caparica and Costa da Caparica locations.",
+    "description": "We offer a diverse range of vegan and gluten-free options. These photos highlight our staple artisanal ice cream flavours. All our flavours are naturally gluten-free, apart from Oreo and a few of our Creations that contain cookies. We also have non added sugar gelato. Find weekly specials at our Charneca da Caparica and Costa da Caparica locations.",
     "vegan": "Vegan",
     "glutenFree": "Gluten-Free",
     "specialFlavor": "Special Daily Flavour",
@@ -71,8 +71,8 @@
   "takeaway": {
     "title": "Sustainable by Nature",
     "subtitle": "Take away, with care.",
-    "p1": "Our takeaway boxes come in 0.5L and 1L sizes, are fully recyclable, and keep your gelato fresh all the way home. Your gelato maintains its perfect texture and consistency for up to 30 minutes on the way to your freezer at home, where you can enjoy it with your homemade crêpes, waffles or brownies.",
-    "p2": "We believe delicious gelato and environmental responsibility go hand in hand. From sourcing local ingredients to eco-friendly packaging, every decision is made with the planet in mind.",
+    "p1": "Our takeaway boxes come in 0.5L and 1L sizes, are fully recyclable, and keep your artisanal gelato fresh all the way home. Your gelato maintains its perfect texture and consistency for up to 30 minutes on the way to your freezer at home, where you can enjoy it with your homemade crêpes, waffles or brownies.",
+    "p2": "We believe delicious handcrafted gelato and environmental responsibility go hand in hand. From sourcing local ingredients to eco-friendly packaging, every decision is made with the planet in mind.",
     "imageAlt": "Recyclable artisanal gelato packaging by Anara"
   },
   "locations": {
@@ -97,7 +97,7 @@
     },
     "dayClosed": "Closed",
     "eventsTitle": "Private Events & Catering",
-    "eventsText": "Our gelatos and sorbets are available for weddings, private parties, and corporate events.",
+    "eventsText": "Our Italian-style gelatos and sorbets are available for weddings, private parties, and corporate events.",
     "eventsCta": "Get in touch"
   },
   "reviews": {
@@ -160,7 +160,7 @@
     "coneLabel": "Placeholder Photo",
     "items": {
       "pastel-de-nata": "Pastel de Nata",
-      "morango-natas": "Strawberry & Cream Swirl",
+      "morango-natas": "Strawberry Fior di Latte with Strawberry Swirl",
       "carrot-cake": "Carrot Cake",
       "madagascan-vanilla": "Madagascan Vanilla with Damson Swirl",
       "natas-toffee-pinhoes": "Fior di Latte with Toffee and Caramelised Pine Nuts",

@@ -38,8 +38,8 @@
   "menu": {
     "title": "Os Nossos Sabores",
     "subtitle": "Feito à mão. Sempre fresco.",
-    "description": "Oferecemos uma vasta gama de opções biológicas, vegan e sem glúten. Estas imagens destacam os nossos sabores de gelado habituais. Os nossos sabores são naturalmente isentos de glúten, exceto o Oreo e algumas das nossas Criações que poderão conter bolacha.",
-    "vegan": "Vegano",
+    "description": "Oferecemos uma vasta gama de opções biológicas, vegan e sem glúten. Estas imagens destacam os nossos sabores de gelado artesanal habituais. Os nossos sabores são naturalmente isentos de glúten, exceto o Oreo e algumas das nossas Criações que poderão conter bolacha. Também temos sabores sem aditivos de açúcar.",
+    "vegan": "Vegan",
     "glutenFree": "Sem Glúten",
     "specialFlavor": "Sabor Especial Diário",
     "flavors": {
@@ -71,8 +71,8 @@
   "takeaway": {
     "title": "Sustentável por Natureza",
     "subtitle": "Para levar, com consciência.",
-    "p1": "As nossas caixas para takeaway estão disponíveis em tamanhos de 0,5L e 1L, são reutilizáveis e recicláveis, e mantêm o teu gelado fresco até chegar a casa. O gelado mantém a sua textura e cremosidade perfeitas durante cerca de 30 minutos até chegar ao teu congelador de casa, onde o podes desfrutar com os teus crepes, waffles ou brownies caseiros.",
-    "p2": "Acreditamos que um gelado delicioso e responsabilidade ambiental andam de mãos dadas. Desde a escolha de ingredientes locais até ao embalamento ecológico, todas as nossas decisões têm o planeta em mente.",
+    "p1": "As nossas caixas para takeaway estão disponíveis em tamanhos de 0,5L e 1L, são reutilizáveis e recicláveis, e mantêm o teu gelado artesanal fresco até chegar a casa. O gelado mantém a sua textura e cremosidade perfeitas durante cerca de 30 minutos até chegar ao teu congelador de casa, onde o podes desfrutar com os teus crepes, waffles ou brownies caseiros.",
+    "p2": "Acreditamos que um delicioso gelado feito à mão e responsabilidade ambiental andam de mãos dadas. Desde a escolha de ingredientes locais até ao embalamento ecológico, todas as nossas decisões têm o planeta em mente.",
     "imageAlt": "Embalagem reciclável de gelado artesanal Anara"
   },
   "locations": {
@@ -97,7 +97,7 @@
     },
     "dayClosed": "Fechado",
     "eventsTitle": "Eventos Privados & Catering",
-    "eventsText": "Os nossos gelados e sorbets estão disponíveis para casamentos, festas privadas e eventos corporativos.",
+    "eventsText": "Os nossos gelados e sorbets de estilo italiano estão disponíveis para casamentos, festas privadas e eventos corporativos.",
     "eventsCta": "Contacte-nos"
   },
   "reviews": {
