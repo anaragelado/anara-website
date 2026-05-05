@@ -16,7 +16,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "strawberry",
-    image: "/assets/images/cone-strawberry-v4.jpg",
+    image: "/assets/images/cone-strawberry-v5.webp",
     imageAlt: "Gelado artesanal de morango",
     vegan: true,
   },
@@ -58,7 +58,7 @@ export const flavors: Flavor[] = [
   },
   {
     id: "raspberry",
-    image: "/assets/images/cone-raspberry-v4.jpg",
+    image: "/assets/images/cone-raspberry-v7.webp",
     imageAlt: "Gelado artesanal de framboesa",
     vegan: true,
   },

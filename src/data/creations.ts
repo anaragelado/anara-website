@@ -7,8 +7,8 @@ export interface Creation {
 
 export const creations: Creation[] = [
   {
-    key: "pastel-de-nata",
-    image: "/assets/images/cone-pastel-de-nata-v1.jpg",
+    key: "carrot-cake",
+    image: "/assets/images/cone-carrot-cake-v1.webp",
     vegan: false,
     glutenFree: true,
   },
@@ -19,8 +19,8 @@ export const creations: Creation[] = [
     glutenFree: true,
   },
   {
-    key: "carrot-cake",
-    image: "/assets/images/cone-carrot-cake-v1.webp",
+    key: "pastel-de-nata",
+    image: "/assets/images/cone-pastel-de-nata-v1.jpg",
     vegan: false,
     glutenFree: true,
   },

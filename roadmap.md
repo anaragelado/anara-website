@@ -416,6 +416,24 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * Update the hardcoded staple flavours array in the codebase to exactly match this new sequence.
 
 
+* [x] **4D.15 Minor Text Fixes, Reordering, and Media Swaps:**
+  * **Text Fix (Punctuation):**
+    * In the "Our Story" translation strings (both EN and PT), locate the sentence: "No artificial additives, no colourings, no preservatives [long dash] just pure flavour with up to 75% fruit in each scoop."
+    * Remove the long dash character entirely and replace it with a standard hyphen (-) or a comma to ensure clean typography.
+  * **Text Fix (Content Deletion):**
+    * In the English translation file (`en.json`) for the "Our Flavours" section, delete the sentence: "Find weekly specials at our Charneca da Caparica and Costa da Caparica locations."
+    * Do not touch the Portuguese version. Ensure this exact sentence remains intact within the "Creations" section.
+  * **Creations Reordering:**
+    * Update the array order for the special cones in "Our Creations" to strictly follow this sequence: 1. Carrot Cake, 2. Morango Natas, 3. Pastel de Nata, 4. Vanilla Damson.
+  * **Flavours Section Image Swaps:**
+    * Convert `public/assets/images/cone-strawberry-v5.jpg` and `public/assets/images/cone-raspberry-v7.png` into highly optimized `.webp` formats, adjusting file sizes for web performance.
+    * Update the "Our Flavours" data array in the codebase to reference these two new `.webp` files.
+    * Move the previously active Strawberry and Raspberry image files into the `public/assets/images/_archive/` directory.
+  * **"Our Story" Slider Image Swap:**
+    * Convert `public/assets/images/cone-strawberry-horizontal-v2.jpg` into an optimized `.webp` format, adjusting the resolution and file size for smooth slider performance.
+    * Update the image slider array in the "Our Story" section to point to this new `.webp` file.
+    * Move the previously used horizontal strawberry image into the `public/assets/images/_archive/` folder.
+
   ## Phase 5: Technical SEO, Media & Launch Prep
 **Goal:** Optimize the SPA for search engines, secure contact methods against spam, optimize all media assets, and conduct rigorous mobile testing.
 
