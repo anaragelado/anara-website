@@ -1,40 +1,8 @@
-# Unused raw video footage — never referenced by the website.
-# Only hero-video-desktop.mp4 and hero-video-smartphone.mp4 are used.
-public/assets/videos/extraction-gelato-v01.mp4
-public/assets/videos/extraction-gelato-v02.mp4
-public/assets/videos/extraction-gelato-v03.mp4
-public/assets/videos/extraction-gelato-v04.mp4
-public/assets/videos/extraction-gelato-v05.mp4
-public/assets/videos/extraction-gelato-v06.mp4
-public/assets/videos/extraction-gelato-v07.mp4
-public/assets/videos/extraction-gelato-v08.mp4
-public/assets/videos/extraction-gelato-v09.mp4
-public/assets/videos/extraction-gelato-v10.mp4
-public/assets/videos/extraction-gelato-v11.mp4
-public/assets/videos/extraction-gelato-v12.mp4
-public/assets/videos/extraction-gelato-v13.mp4
-public/assets/videos/extraction-gelato-v14.mp4
-public/assets/videos/extraction-gelato-v15.mp4
-public/assets/videos/extraction-gelato-v16.mp4
-public/assets/videos/extraction-gelato-v17.mp4
-public/assets/videos/extraction-gelato-v18.mp4
-public/assets/videos/extraction-gelato-v19.mp4
-public/assets/videos/extraction-gelato-v20.mp4
-public/assets/videos/extraction-gelato-v21.mp4
-public/assets/videos/extraction-gelato-v22.mp4
-public/assets/videos/extraction-gelato-v23.mp4
-public/assets/videos/extraction-gelato-v24.mp4
-public/assets/videos/extraction-gelato-v25.mp4
-public/assets/videos/extraction-coffee-gelato.mp4
-public/assets/videos/extraction-cream-cheese-requeijao-gelato.mp4
-public/assets/videos/extraction-raspberry-gelato.mp4
-public/assets/videos/pastel-de-nata-extraction-and-finished-cone.mp4
-public/assets/videos/promo-video-full-with-outro.mp4
-public/assets/videos/promo-video-incomplete-missing-outro.mp4
-public/assets/videos/hero-video-desktop-old.mp4
+# Archived unused videos — only hero-video-desktop.mp4 and hero-video-smartphone.mp4 are used.
+public/assets/videos/_archive
 
 # Development-only image set (used only by /master-review internal tool).
 public/assets/new-cones
 
-# Archived unused cone images.
+# Archived unused images.
 public/assets/images/_archive
