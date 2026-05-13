@@ -43,6 +43,7 @@ export default function MenuSection() {
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover"
+                  style={flavor.imageScale ? { transform: `scale(${flavor.imageScale})` } : undefined}
                 />
               )}
             </div>

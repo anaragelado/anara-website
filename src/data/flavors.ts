@@ -5,6 +5,7 @@ export interface Flavor {
   vegan: boolean;
   isSpecial?: boolean;
   placeholder?: boolean;
+  imageScale?: number;
 }
 
 export const flavors: Flavor[] = [
@@ -16,9 +17,10 @@ export const flavors: Flavor[] = [
   },
   {
     id: "strawberry",
-    image: "/assets/images/cone-strawberry-v5.webp",
+    image: "/assets/images/cone-strawberry-v6.webp",
     imageAlt: "Gelado artesanal de morango",
     vegan: true,
+    imageScale: 1.1,
   },
   {
     id: "salted-pistachio",
