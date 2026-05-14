@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Work_Sans, Playfair_Display, Amatic_SC } from "next/font/google";
+import { headers } from "next/headers";
 import "./globals.css";
 
 const workSans = Work_Sans({
@@ -21,10 +22,12 @@ const amaticSC = Amatic_SC({
   display: "swap",
 });
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const locale = (await headers()).get("x-next-intl-locale") ?? "pt";
+
   return (
     <html
-      lang="pt"
+      lang={locale}
       className={`${workSans.variable} ${playfairDisplay.variable} ${amaticSC.variable} antialiased`}
     >
       <body className="min-h-dvh flex flex-col overscroll-y-none bg-background-primary text-text-primary font-body">
