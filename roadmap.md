@@ -447,18 +447,18 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **5.3 Sitemaps & Robots.txt:**
   * Create `app/sitemap.ts` to automatically generate the XML sitemap, ensuring all localized routes (`/pt` and `/en`) are indexed.
   * Create `app/robots.ts` to allow crawling while blocking unnecessary internal/API routes.
-* [ ] **5.4 Media Quality Improvements & Optimization:**
+* [ ] **5.4 Media Quality Improvements & Optimization:  (do not execute this task for now)**
   * *Design Task:* Enhance smartphone photos/videos using AI tools (Topaz, Midjourney, Nano Banana Pro) to match the high-end "farm-to-cone" aesthetic.
   * *Dev Task:* Route all images through Next.js `<Image>` components with `priority` on above-the-fold assets. Ensure strict use of `alt` tags emphasizing local SEO (e.g., "Gelado Artesanal Costa de Caparica").
   * *Dev Task:* Compress the looping hero videos. Ensure video tags include `playsInline`, `autoPlay`, `muted`, and `loop` so they play flawlessly on iOS/Android without requiring user interaction.
-* [ ] **5.5 Email Bot Protection:**
+* [x] **5.5 Email Bot Protection:**
   * Do not expose the raw `hello@anaragelado.pt` address in the DOM.
   * Implement an obfuscation technique (e.g., encoding the email in base64 and decoding it client-side, or requiring a user interaction like `onClick` to reveal the `mailto:` link) to prevent spam scrapers.
 * [x] **5.6**
   * Clean Up: Default Next.js SVGs removed from /public? (file.svg, globe.svg, next.svg, vercel.svg, window.svg). — Already absent from /public.
-* [ ] **5.7**
+* [x] **5.7**
   * check and correct favicon. I used a favicon checker and apperantly there is not svg favicon, there is no desktop png favicon, no touch icon declared, no touch web app title declared, no web app manifest declared. these files are needed in the public folder: `favicon.ico` (multi-resolution: 16, 32, 48), `favicon.svg` (Scalable, color-scheme aware), `favicon-16x16.png`, `favicon-32x32.png`, `favicon-96x96.png` (Recommended), `apple-touch-icon.png` (180×180, with padding), `web-app-manifest-192x192.png` (Maskable safe zone), `web-app-manifest-512x512.png` (Maskable safe zone), `site.webmanifest`
-* [ ] **5.8**
+* [x] **5.8**
   * please check the site.webmanifest. What input do you need or do zou have all the input by looking at the current website and the google maps entries of the HQ and the mobile shop? (.agent\context\03-architecture-content.md section 5) Please check that:
     * `name` & `short_name` are correct.
     * `start_url: "/"`
@@ -477,7 +477,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Please check the Copyright in the footer: Year updates automatically (new Date()). — Already implemented.
 * [ ] **5.14**
   * Please check lazy loading for images and videos in order to have a good speed performance.Layout Shift (CLS): Text stays stable while fonts load (Score < 0.1). Also make sure that all the images have an appropriate file size and resolution and are in the WebP format. 
-* [ ] **5.15**
+* [x] **5.15**
   * Please check H-Tags: Exactly one H1 per page. Canonical Tags: Self-referencing tags present (stripping query params like ?ref=). Sitemap: /sitemap.xml is valid. Robots: /robots.txt allows indexing (User-agent: * Allow: /). Schema Markup: Verified LocalBusiness + VideoObject via Google Rich Results Test. Credits: "Bildnachweis" (Image Credits) included in Legal page.The images and videos have been provided by Anara itself.
 * [x] **5.16**
   * Please check the imprint page. there seems to miss a few details. in the section "Alternative Dispute Resolution" the info for "entity" and "website" is missing. please check the context and search for the right infos. I suppose it is some sort of legal binding complaint book that portuguese business have to have. Make sure to adjust it in both languages.

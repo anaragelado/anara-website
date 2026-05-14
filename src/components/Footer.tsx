@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { Mail } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
+import ObfuscatedEmail from "./ObfuscatedEmail";
 
 function InstagramIcon({ size = 22 }: { size?: number }) {
   return (
@@ -50,12 +51,7 @@ export default function Footer() {
               <br />
               2820-166 Charneca de Caparica
             </p>
-            <a
-              href="mailto:info@anaragelado.pt"
-              className="mt-2 inline-block text-sm text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand"
-            >
-              info@anaragelado.pt
-            </a>
+            <ObfuscatedEmail className="mt-2 inline-block text-sm text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand" />
           </div>
           <div className="flex flex-col items-center gap-1">
             <a
@@ -81,13 +77,12 @@ export default function Footer() {
             >
               <InstagramIcon size={22} />
             </a>
-            <a
-              href="mailto:info@anaragelado.pt"
+            <ObfuscatedEmail
               aria-label={t("email")}
               className="flex min-h-[44px] min-w-[44px] items-center justify-center text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-sand"
             >
               <Mail size={22} strokeWidth={1.5} />
-            </a>
+            </ObfuscatedEmail>
           </div>
           <LanguageToggle />
         </div>
@@ -119,12 +114,7 @@ export default function Footer() {
                 <br />
                 2820-166 Charneca de Caparica
               </p>
-              <a
-                href="mailto:info@anaragelado.pt"
-                className="mt-2 inline-block text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand"
-              >
-                info@anaragelado.pt
-              </a>
+              <ObfuscatedEmail className="mt-2 inline-block text-text-secondary transition-all duration-300 ease-in-out hover:text-highlight-sand" />
             </div>
 
             {/* Col 2: Legal pages + language toggle */}
@@ -157,13 +147,12 @@ export default function Footer() {
               >
                 <InstagramIcon size={22} />
               </a>
-              <a
-                href="mailto:info@anaragelado.pt"
+              <ObfuscatedEmail
                 aria-label={t("email")}
                 className="flex min-h-[44px] min-w-[44px] items-center justify-center text-text-primary transition-all duration-300 ease-in-out hover:text-highlight-sand"
               >
                 <Mail size={22} strokeWidth={1.5} />
-              </a>
+              </ObfuscatedEmail>
             </div>
           </div>
         </div>

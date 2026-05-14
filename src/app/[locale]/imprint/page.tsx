@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import SectionWrapper from "@/components/SectionWrapper";
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
 
 export default async function ImprintPage({
   params,
@@ -38,12 +39,7 @@ function ImprintContent() {
             <div>
               <dt className="text-sm font-medium text-text-primary">{t("email")}</dt>
               <dd>
-                <a
-                  href="mailto:info@anaragelado.pt"
-                  className="text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline"
-                >
-                  {t("emailValue")}
-                </a>
+                <ObfuscatedEmail className="text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline" />
               </dd>
             </div>
           </dl>
@@ -80,6 +76,12 @@ function ImprintContent() {
               {t("webDesignName")}
             </a>
           </p>
+        </section>
+
+        {/* Image Credits */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">{t("imageCreditsTitle")}</h2>
+          <p className="mt-3 text-text-secondary">{t("imageCreditsText")}</p>
         </section>
       </SectionWrapper>
     </main>

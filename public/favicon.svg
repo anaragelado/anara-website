@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    :root { --bg: #FDDB00; --fg: #1A1A1A; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #2A2A2A; --fg: #FDDB00; } }
+  </style>
+  <rect width="32" height="32" rx="7" fill="var(--bg)"/>
+  <text x="16" y="24" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="23" text-anchor="middle" fill="var(--fg)">A</text>
+</svg>

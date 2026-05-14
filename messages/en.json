@@ -124,7 +124,9 @@
     "disputePortal": "For more information, please visit the Consumer Portal at www.consumidor.gov.pt.",
     "webDesignTitle": "Website Development & Design",
     "webDesignBy": "Web design by",
-    "webDesignName": "VideoMetrixs"
+    "webDesignName": "VideoMetrixs",
+    "imageCreditsTitle": "Image Credits",
+    "imageCreditsText": "All images and videos on this website were provided by Anara Gelado Artesanal."
   },
   "privacy": {
     "title": "Privacy Policy",

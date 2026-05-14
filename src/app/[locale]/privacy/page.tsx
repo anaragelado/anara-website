@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import SectionWrapper from "@/components/SectionWrapper";
+import ObfuscatedEmail from "@/components/ObfuscatedEmail";
 
 export default async function PrivacyPage({
   params,
@@ -53,12 +54,7 @@ function PrivacyContent() {
           <div>
             <h2 className="text-xl font-semibold">{t("contactTitle")}</h2>
             <p className="mt-3 leading-relaxed text-text-secondary">{t("contactText")}</p>
-            <a
-              href="mailto:info@anaragelado.pt"
-              className="mt-1 inline-block text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline"
-            >
-              {t("contactEmail")}
-            </a>
+            <ObfuscatedEmail className="mt-1 inline-block text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline" />
           </div>
         </section>
 
