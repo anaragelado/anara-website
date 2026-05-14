@@ -487,6 +487,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Corrections: you changed some things that I did not ask for. Correct email adress "info@anaragelado.pt" and the business name in the footer should be Anara Gelado Artesanal. Please also check the imprint page and the privacy page in english as well als portuguese.
 * [x] **5.19**
   * When clikcing on the logo in the nav bar, it should link back to the homepage header.
+* [x] **5.20**
+  * The favicon should be the logo public\assets\logo.svg on white background and not on yellow background. please update and check all favicons and icons.
 
 
   ## Phase 6: Manual testing and importaint steps 
