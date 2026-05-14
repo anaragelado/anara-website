@@ -481,6 +481,10 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Please check H-Tags: Exactly one H1 per page. Canonical Tags: Self-referencing tags present (stripping query params like ?ref=). Sitemap: /sitemap.xml is valid. Robots: /robots.txt allows indexing (User-agent: * Allow: /). Schema Markup: Verified LocalBusiness + VideoObject via Google Rich Results Test. Credits: "Bildnachweis" (Image Credits) included in Legal page.The images and videos have been provided by Anara itself.
 * [x] **5.16**
   * Please check the imprint page. there seems to miss a few details. in the section "Alternative Dispute Resolution" the info for "entity" and "website" is missing. please check the context and search for the right infos. I suppose it is some sort of legal binding complaint book that portuguese business have to have. Make sure to adjust it in both languages.
+[ ] **5.17**
+  * You changed the favicon to a symbol that I did not ask for. We need to change back the favicon to basically use this file and create out of this file the favicon: public\assets\logo.svg
+[ ] **5.18**
+  * Corrections: you changed some things that I did not ask for. Correct email adress "info@anaragelado.pt" and the business name in the footer should be Anara Gelado Artesanal. Please also check the imprint page and the privacy page in english as well als portuguese.
 
 
   ## Phase 6: Manual testing and importaint steps 
