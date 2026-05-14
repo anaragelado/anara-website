@@ -56,7 +56,16 @@ function ImprintContent() {
             </div>
             <div>
               <dt className="text-sm font-medium text-text-primary">{t("disputeWebsite")}</dt>
-              <dd>{t("disputeWebsiteValue")}</dd>
+              <dd>
+                <a
+                  href="https://www.cniacc.pt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-green transition-all duration-300 ease-in-out hover:text-highlight-sand hover:underline"
+                >
+                  {t("disputeWebsiteValue")}
+                </a>
+              </dd>
             </div>
           </dl>
           <p className="mt-4 text-sm text-text-secondary">{t("disputePortal")}</p>

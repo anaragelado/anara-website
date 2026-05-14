@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Menu } from "lucide-react";
 import { getLocationStatus, type DayHours, type LocationStatus } from "@/data/locations";
@@ -119,6 +119,7 @@ function CombinedBadge({ status }: { status: LocationStatus }) {
 
 export default function Header({ onMobileMenuOpen, locationHours, activeSection }: HeaderProps) {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [scrolled, setScrolled] = useState(false);
   const { statuses, mounted } = useLocationsStatus(locationHours);
 
@@ -152,7 +153,7 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
 
         {/* Logo + Desktop Open badge */}
         <div className="flex items-center gap-3">
-          <a href="#hero" className="flex-shrink-0">
+          <a href={`/${locale}#hero`} className="flex-shrink-0">
             <Image
               src="/assets/logo.svg"
               alt="Anara Gelado Artesanal"

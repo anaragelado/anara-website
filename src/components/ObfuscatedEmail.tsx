@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 // Email stored as reversed string — decoded only on the client after hydration
-const ENCODED = "tp.odaLegArana@ofni";
+const ENCODED = "tp.odalegarana@ofni";
 
 interface Props {
   className?: string;
