@@ -443,7 +443,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Implement dynamic canonical URLs to prevent duplicate content issues across i18n routing.
 * [ ] **5.2 Schema Markup (JSON-LD):**
   * Generate and inject `LocalBusiness` (or `IceCreamShop`) schema JSON-LD scripts into the `<head>`.
-  * Ensure the schema includes data for **both** locations (Charneca HQ and Costa Mobile Shop), including their respective coordinates and dynamic hours.
+  * Ensure the schema includes data for **both** locations (Charneca HQ and Costa Mobile Shop), including their respective coordinates and dynamic hours. See alos .agent\context\03-architecture-content.md section ## 5. Core Business Data for google maps infos. In case that is needed.
 * [ ] **5.3 Sitemaps & Robots.txt:**
   * Create `app/sitemap.ts` to automatically generate the XML sitemap, ensuring all localized routes (`/pt` and `/en`) are indexed.
   * Create `app/robots.ts` to allow crawling while blocking unnecessary internal/API routes.
@@ -454,8 +454,40 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [ ] **5.5 Email Bot Protection:**
   * Do not expose the raw `hello@anaragelado.pt` address in the DOM.
   * Implement an obfuscation technique (e.g., encoding the email in base64 and decoding it client-side, or requiring a user interaction like `onClick` to reveal the `mailto:` link) to prevent spam scrapers.
-* [ ] **5.6 Final Mobile QA & Performance Testing:**
+* [ ] **5.6**
+  * Clean Up: Default Next.js SVGs removed from /public? (file.svg, globe.svg, next.svg, vercel.svg, window.svg).
+* [ ] **5.7**
+  * check and correct favicon. I used a favicon checker and apperantly there is not svg favicon, there is no desktop png favicon, no touch icon declared, no touch web app title declared, no web app manifest declared. these files are needed in the public folder: `favicon.ico` (multi-resolution: 16, 32, 48), `favicon.svg` (Scalable, color-scheme aware), `favicon-16x16.png`, `favicon-32x32.png`, `favicon-96x96.png` (Recommended), `apple-touch-icon.png` (180×180, with padding), `web-app-manifest-192x192.png` (Maskable safe zone), `web-app-manifest-512x512.png` (Maskable safe zone), `site.webmanifest`
+* [ ] **5.8**
+  * please check the site.webmanifest. What input do you need or do zou have all the input by looking at the current website and the google maps entries of the HQ and the mobile shop? (.agent\context\03-architecture-content.md section 5) Please check that:
+    * `name` & `short_name` are correct.
+    * `start_url: "/"`
+    * `display: "standalone"`
+    * `theme_color` & `background_color` match brand.
+    * `icons`: Includes BOTH "maskable" AND "any" purpose entries.
+* [ ] **5.9**
+  * please check the metadata. Title and Description change to the correct language and every page has its own?. (See chrome browser tab)
+* [ ] **5.10**
+  * Please check the alt text of the images. Make sure that the description is suitable for all the images, for the corresponding images, and it should be in the correct language.
+* [ ] **5.11**
+  * Please check Hreflang Tags: View Page Source. Do we see: <link rel="alternate" hreflang="de" ... />?
+* [ ] **5.12**
+  * Please check The Open Graph Image. Make sure, if we have not defined an Open Graph Image, please choose one and make sure it has a resolution of 1200 x 630 pixels. I would prefer to use an image that showcases the HQ ice cream shop, so also feel free to look into the archive if there is an image that we can use. The social title should be in the social title format: client name, then the vertical line, then the slogan. Please choose a slogan that fits the business, which is basically the H1 of the website. I'm not sure if you can choose a title for both languages, but obviously for English use the English H1 of the homepage and for Portuguese use the Portuguese H1 of the website homepage. 
+* [ ] **5.13**
+  * Please check the Copyright in the footer: Year updates automatically (new Date()).
+* [ ] **5.14**
+  * Please check lazy loading for images and videos in order to have a good speed performance.Layout Shift (CLS): Text stays stable while fonts load (Score < 0.1). Also make sure that all the images have an appropriate file size and resolution and are in the WebP format. 
+* [ ] **5.15**
+  * Please check H-Tags: Exactly one H1 per page. Canonical Tags: Self-referencing tags present (stripping query params like ?ref=). Sitemap: /sitemap.xml is valid. Robots: /robots.txt allows indexing (User-agent: * Allow: /). Schema Markup: Verified LocalBusiness + VideoObject via Google Rich Results Test. Credits: "Bildnachweis" (Image Credits) included in Legal page.The images and videos have been provided by Anara itself.
+* [ ] **5.16**
+  * Please check the imprint page. there seems to miss a few details. in the section "Alternative Dispute Resolution" the info for "entity" and "website" is missing. please check the context and search for the right infos. I suppose it is some sort of legal binding complaint book that portuguese business have to have. Make sure to adjust it in both languages.
+
+
+  ## Phase 6: Manual testing and importaint steps 
+* [ ] **6.1 Final Mobile QA & Performance Testing: (This is a manual testitng task) do not execute.**
   * Test the site on actual iOS Safari and Android Chrome environments (do not rely solely on Chrome DevTools resizing).
   * Run a Lighthouse Audit to guarantee 90+ scores in Performance, Accessibility, Best Practices, and SEO.
   * Verify the smooth scrolling behavior (Lenis) is correctly disabled on touch devices.
   * Verify the language toggle correctly shifts URL parameters and translations without breaking the UI.
+* [ ] **6.2**
+  * Make sure to set up a new google spreadsheet for the client, where she can update the business hours. Important is to update that connection within the coede so that the wbesite synchronizes to that new google spreadsheet.
