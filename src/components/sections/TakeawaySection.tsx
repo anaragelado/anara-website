@@ -71,7 +71,7 @@ export default function TakeawaySection() {
         <div className="order-2">
           <FadeIn direction="right" delay={0.15}>
             <Image
-              src="/assets/images/takeaway-box (30).jpg"
+              src="/assets/images/takeaway-box-v1.webp"
               alt={t("imageAlt")}
               width={800}
               height={1067}

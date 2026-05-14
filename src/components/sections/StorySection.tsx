@@ -3,27 +3,15 @@ import SectionWrapper from "@/components/SectionWrapper";
 import FadeIn from "@/components/FadeIn";
 import StorySlider from "@/components/StorySlider";
 
-const storyImages = [
-  {
-    src: "/assets/images/ingredient-lemon-tree-with-ripe-fruits-01.jpg",
-    alt: "Lemon tree with ripe fruits",
-  },
-  {
-    src: "/assets/images/ingredient-fresh-mangoes-crates-overhead.jpg",
-    alt: "Fresh mangoes in wooden crates",
-  },
-  {
-    src: "/assets/images/ingredient-fresh-lemons-crate-overhead-01.jpg",
-    alt: "Fresh lemons in a crate",
-  },
-  {
-    src: "/assets/images/cone-strawberry-horizontal-v3.webp",
-    alt: "Strawberry artisanal gelato — Anara Gelado",
-  },
-];
-
 export default function StorySection() {
   const t = useTranslations("story");
+
+  const storyImages = [
+    { src: "/assets/images/ingredient-lemon-tree-with-ripe-fruits-01.webp", alt: t("imageAlt0") },
+    { src: "/assets/images/ingredient-fresh-mangoes-crates-overhead.webp", alt: t("imageAlt1") },
+    { src: "/assets/images/ingredient-fresh-lemons-crate-overhead-01.webp", alt: t("imageAlt2") },
+    { src: "/assets/images/cone-strawberry-horizontal-v3.webp", alt: t("imageAlt3") },
+  ];
 
   return (
     <SectionWrapper id="story">

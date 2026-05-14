@@ -63,6 +63,16 @@ function HoursTable({ hours }: { hours: DayHours[] }) {
 
 function LocationCard({ location }: { location: Location }) {
   const t = useTranslations("locations");
+  const locale = useLocale();
+
+  const imageAlt =
+    location.id === "hq"
+      ? locale === "pt"
+        ? "Loja de gelado artesanal Anara — Charneca de Caparica"
+        : "Anara artisanal gelato shop — Charneca de Caparica"
+      : locale === "pt"
+        ? "Carrinha de gelado artesanal Anara — Costa de Caparica"
+        : "Anara artisanal gelato mobile shop — Costa de Caparica";
 
   // Build a Google Maps embed URL with a marker pin
   const embedSrc = `https://maps.google.com/maps?q=${location.lat},${location.lng}&z=15&output=embed`;
@@ -73,7 +83,7 @@ function LocationCard({ location }: { location: Location }) {
       <div className="relative aspect-[16/9] w-full overflow-hidden">
         <Image
           src={location.image}
-          alt={location.name}
+          alt={imageAlt}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 50vw"

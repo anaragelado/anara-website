@@ -68,6 +68,7 @@ export default function StorySlider({ images, interval = 3500 }: StorySliderProp
             src={images[current].src}
             alt={images[current].alt}
             fill
+            priority={current === 0}
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
             draggable={false}

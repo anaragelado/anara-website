@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Leaf } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -7,6 +7,7 @@ import { flavors } from "@/data/flavors";
 
 export default function MenuSection() {
   const t = useTranslations("menu");
+  const locale = useLocale();
 
   return (
     <SectionWrapper id="menu">
@@ -39,7 +40,11 @@ export default function MenuSection() {
               ) : (
                 <Image
                   src={flavor.image}
-                  alt={flavor.imageAlt}
+                  alt={
+                    locale === "pt"
+                      ? `Gelado artesanal de ${t(`flavors.${flavor.id}`)} — Anara Gelado Artesanal`
+                      : `${t(`flavors.${flavor.id}`)} artisanal gelato — Anara Gelado Artesanal`
+                  }
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover"

@@ -36,7 +36,7 @@ export const locations: Location[] = [
     mapsUrl: "https://maps.app.goo.gl/2eSjBQy21V8MnQ9U7",
     lat: 38.6290808471835,
     lng: -9.18808227289466,
-    image: "/assets/images/anara-gelado-artesanal-charneca-da-caparica-shop.jpg",
+    image: "/assets/images/anara-gelado-artesanal-charneca-da-caparica-shop.webp",
     hours: [
       { day: "Mon", open: "Closed", close: "" },
       { day: "Tue", open: "12:00", close: "19:00" },
@@ -54,7 +54,7 @@ export const locations: Location[] = [
     mapsUrl: "https://maps.app.goo.gl/qWspRKD1hvDDoyhq6",
     lat: 38.64057216634567,
     lng: -9.23595848206488,
-    image: "/assets/images/food-cart-exterior-yellow-trailer-front-view.jpg",
+    image: "/assets/images/food-cart-exterior-yellow-trailer-front-view.webp",
     hours: [
       { day: "Mon", open: "Closed", close: "" },
       { day: "Tue", open: "13:00", close: "20:00" },

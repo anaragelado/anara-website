@@ -33,7 +33,11 @@
     "p1": "It all starts with seasonal and 100% fresh fruit, most of which is seasonal and some of which is organic, real milk and cream, and hand-picked ingredients like Bourbon Vanilla from Madagascar or Argentinian Dulce de Leche. No artificial additives, no colourings, no preservatives, just pure flavour with up to 75% fruit in each scoop.",
     "p2": "Every flavour is handcrafted in small batches at our lab in Charneca de Caparica, from fresh fruit to finished cone, because we believe the finest ingredients speak for themselves.",
     "p3": "This focus on quality comes from authentic techniques, learned and refined through professional gelato training with Italian expertise.",
-    "imageAlt": "Fresh ingredients for artisanal gelato"
+    "imageAlt": "Fresh ingredients for artisanal gelato",
+    "imageAlt0": "Lemon tree with ripe fruits — fresh ingredients for Anara gelato",
+    "imageAlt1": "Fresh mangoes in wooden crates — farm-fresh fruit for artisanal gelato",
+    "imageAlt2": "Fresh lemons in a crate — natural ingredients for Anara Gelado Artesanal",
+    "imageAlt3": "Strawberry artisanal gelato cone — Anara Gelado Artesanal"
   },
   "menu": {
     "title": "Our Flavours",

@@ -467,7 +467,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
     * `icons`: Includes BOTH "maskable" AND "any" purpose entries.
 * [x] **5.9**
   * please check the metadata. Title and Description change to the correct language and every page has its own?. (See chrome browser tab)
-* [ ] **5.10**
+* [x] **5.10**
   * Please check the alt text of the images. Make sure that the description is suitable for all the images, for the corresponding images, and it should be in the correct language.
 * [x] **5.11**
   * Please check Hreflang Tags: View Page Source. Do we see: <link rel="alternate" hreflang="de" ... />?
@@ -475,7 +475,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Please check The Open Graph Image. Make sure, if we have not defined an Open Graph Image, please choose one and make sure it has a resolution of 1200 x 630 pixels. I would prefer to use an image that showcases the HQ ice cream shop, so also feel free to look into the archive if there is an image that we can use. The social title should be in the social title format: client name, then the vertical line, then the slogan. Please choose a slogan that fits the business, which is basically the H1 of the website. I'm not sure if you can choose a title for both languages, but obviously for English use the English H1 of the homepage and for Portuguese use the Portuguese H1 of the website homepage. 
 * [x] **5.13**
   * Please check the Copyright in the footer: Year updates automatically (new Date()). — Already implemented.
-* [ ] **5.14**
+* [x] **5.14**
   * Please check lazy loading for images and videos in order to have a good speed performance.Layout Shift (CLS): Text stays stable while fonts load (Score < 0.1). Also make sure that all the images have an appropriate file size and resolution and are in the WebP format. 
 * [x] **5.15**
   * Please check H-Tags: Exactly one H1 per page. Canonical Tags: Self-referencing tags present (stripping query params like ?ref=). Sitemap: /sitemap.xml is valid. Robots: /robots.txt allows indexing (User-agent: * Allow: /). Schema Markup: Verified LocalBusiness + VideoObject via Google Rich Results Test. Credits: "Bildnachweis" (Image Credits) included in Legal page.The images and videos have been provided by Anara itself.
