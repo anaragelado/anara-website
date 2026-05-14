@@ -48,10 +48,8 @@ function HoursTable({ hours }: { hours: DayHours[] }) {
               <td className="py-1.5 font-medium">{t(`days.${h.day}`)}</td>
               <td className="py-1.5 text-right text-text-secondary">
                 {h.open === "Closed"
-                  ? t("dayClosed")
-                  : displayText
-                    ? displayText
-                    : `${h.open} – ${h.close}`}
+                  ? (displayText ?? t("dayClosed"))
+                  : (displayText ?? `${h.open} – ${h.close}`)}
               </td>
             </tr>
           );

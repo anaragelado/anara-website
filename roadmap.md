@@ -489,6 +489,8 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * When clikcing on the logo in the nav bar, it should link back to the homepage header.
 * [x] **5.20**
   * The favicon should be the logo public\assets\logo.svg on white background and not on yellow background. please update and check all favicons and icons.
+* [x] **5.21**
+  * Add this feature to the locations section: when the shop (doesnt mattetr if HQ or mobile) is closed but in "custom_display_text_en" and "custom_display_text_pt" is a text, that it should display that text instead of "closed". We will basically use this to tell the customer that for example the mobile shop will open soon (that means it the upcoming days or weeks). Also provide a rule list that I can add to the google spreadsheet manually, that explains the behaviour of the google spreadsheet. This should be a reminder cheat sheet for the customer in order to give the customer clear instructions what she needs to do. provide that as a text that I can copy and paste into the google spreadsheet. 
 
 
   ## Phase 6: Manual testing and importaint steps 
