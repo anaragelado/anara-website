@@ -25,7 +25,7 @@
   "hero": {
     "headline": "Gelado Artesanal",
     "subheadline": "Da quinta para o cone.",
-    "cta": "Encontre-nos"
+    "cta": "Visita-nos"
   },
   "story": {
     "title": "Da Quinta Para o Cone",
@@ -81,7 +81,7 @@
   },
   "locations": {
     "title": "Onde Estamos",
-    "subtitle": "Venha visitar-nos.",
+    "subtitle": "Vem visitar-nos.",
     "hq": "Sede · Charneca",
     "mobile": "Loja Móvel · Costa",
     "openNow": "Aberto agora",
@@ -102,7 +102,7 @@
     "dayClosed": "Fechado",
     "eventsTitle": "Eventos Privados & Catering",
     "eventsText": "Os nossos gelados e sorbets de estilo italiano estão disponíveis para casamentos, festas privadas e eventos corporativos.",
-    "eventsCta": "Contacte-nos"
+    "eventsCta": "Contacta-nos"
   },
   "reviews": {
     "title": "O Que Dizem de Nós",
