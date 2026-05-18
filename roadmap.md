@@ -501,3 +501,5 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Verify the language toggle correctly shifts URL parameters and translations without breaking the UI.
 * [ ] **6.2**
   * Make sure to set up a new google spreadsheet for the client, where she can update the business hours. Important is to update that connection within the coede so that the wbesite synchronizes to that new google spreadsheet.
+* [ ] **6.3**
+  * Google search console and other tasks from the checklist.
