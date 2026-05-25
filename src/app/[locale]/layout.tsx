@@ -16,7 +16,7 @@ import { fetchLocationsWithHours } from "@/lib/fetch-hours";
 // within ~1–5 minutes (accounting for Google's own CSV publish delay).
 export const revalidate = 60;
 
-const BASE_URL = "https://anaragelado.pt";
+const BASE_URL = "https://www.anaragelado.pt";
 
 const meta = {
   pt: {
