@@ -507,3 +507,7 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Make sure to set up a new google spreadsheet for the client, where she can update the business hours. Important is to update that connection within the coede so that the wbesite synchronizes to that new google spreadsheet.
 * [ ] **6.3**
   * Google search console and other tasks from the checklist.
+* [ ] **6.4 Backlog (optional): shrink git history**
+  * 2026-09-26: `_archive` media folders (1.26 GB) removed from the repo; all files kept in the NAS project folder under `I:°331_Anara Website\_website-archive\` and the other NAS media folders. Working tree is now ~30 MB, but `.git` is still ~1.5 GB because the files live on in history.
+  * To shrink it: `python -m pip install --user git-filter-repo`, then `python -m git_filter_repo --force --path public/assets/videos/_archive --path public/assets/images/_archive --invert-paths`, re-add `origin`, and `git push --force origin main`.
+  * Irreversible force push, commit hashes change; all other clones must be re-cloned afterwards. Decide later whether it is worth it.
