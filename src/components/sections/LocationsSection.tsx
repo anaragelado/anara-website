@@ -136,6 +136,7 @@ interface LocationsSectionProps {
 export default function LocationsSection({ locations }: LocationsSectionProps) {
   const t = useTranslations("locations");
   const [activeTab, setActiveTab] = useState<"hq" | "mobile">("hq");
+  const hasMultiple = locations.length > 1;
 
   return (
     <SectionWrapper id="locations" className="pt-8 md:pt-12 lg:pt-16">
@@ -150,42 +151,47 @@ export default function LocationsSection({ locations }: LocationsSectionProps) {
       </FadeIn>
 
       {/* Mobile toggle */}
-      <div className="mt-10 flex justify-center gap-2 md:hidden">
-        <button
-          type="button"
-          onClick={() => setActiveTab("hq")}
-          className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:scale-105 ${
-            activeTab === "hq"
-              ? "bg-brand-yellow text-text-primary"
-              : "bg-gray-100 text-text-secondary"
-          }`}
-        >
-          {t("hq")}
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab("mobile")}
-          className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:scale-105 ${
-            activeTab === "mobile"
-              ? "bg-brand-yellow text-text-primary"
-              : "bg-gray-100 text-text-secondary"
-          }`}
-        >
-          {t("mobile")}
-        </button>
-      </div>
+      {hasMultiple && (
+        <div className="mt-10 flex justify-center gap-2 md:hidden">
+          <button
+            type="button"
+            onClick={() => setActiveTab("hq")}
+            className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:scale-105 ${
+              activeTab === "hq"
+                ? "bg-brand-yellow text-text-primary"
+                : "bg-gray-100 text-text-secondary"
+            }`}
+          >
+            {t("hq")}
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("mobile")}
+            className={`min-h-[44px] rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 ease-in-out hover:scale-105 ${
+              activeTab === "mobile"
+                ? "bg-brand-yellow text-text-primary"
+                : "bg-gray-100 text-text-secondary"
+            }`}
+          >
+            {t("mobile")}
+          </button>
+        </div>
+      )}
 
       {/* Mobile: show active tab only */}
-      <div className="mt-6 md:hidden">
+      <div className={`${hasMultiple ? "mt-6" : "mt-10"} md:hidden`}>
         {locations
-          .filter((loc) => loc.id === activeTab)
+          .filter((loc) => !hasMultiple || loc.id === activeTab)
           .map((loc) => (
             <LocationCard key={loc.id} location={loc} />
           ))}
       </div>
 
       {/* Desktop: two-column split */}
-      <FadeIn delay={0.1} className="mt-10 hidden gap-6 md:grid md:grid-cols-2">
+      <FadeIn
+        delay={0.1}
+        className={`mt-10 hidden gap-6 md:grid ${hasMultiple ? "md:grid-cols-2" : "mx-auto max-w-xl"}`}
+      >
         {locations.map((loc) => (
           <LocationCard key={loc.id} location={loc} />
         ))}

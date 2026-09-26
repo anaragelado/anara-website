@@ -95,6 +95,27 @@ function parseCsv(raw: string): CsvRow[] {
   });
 }
 
+/** Label cell in the sheet; the cell to its right holds yes/no. */
+const MOBILE_VISIBILITY_LABEL = "visible";
+const HIDDEN_VALUES = new Set(["no", "não", "nao", "false", "0"]);
+
+/**
+ * Read the mobile shop visibility flag. It lives outside the hours table
+ * (a "visible" label cell with yes/no next to it), so every line is scanned.
+ * Missing flag or any value other than "no" keeps the shop visible.
+ */
+function isMobileShopVisible(raw: string): boolean {
+  for (const line of raw.split("\n")) {
+    const cols = parseCsvLine(line);
+    const labelIdx = cols.findIndex((c) => c.toLowerCase() === MOBILE_VISIBILITY_LABEL);
+    if (labelIdx === -1) continue;
+
+    const value = cols.slice(labelIdx + 1).find((c) => c !== "") ?? "";
+    return !HIDDEN_VALUES.has(value.toLowerCase());
+  }
+  return true;
+}
+
 /**
  * Convert parsed CSV rows into a map of location_id -> DayHours[].
  */
@@ -103,6 +124,8 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
 
   for (const row of rows) {
     const id = row.location_id;
+    // Skip non-hours rows, e.g. the visibility flag below the table.
+    if (!id || !row.day) continue;
     if (!map[id]) map[id] = [];
 
     const abbrev = DAY_ABBREV[row.day.toLowerCase()];
@@ -130,7 +153,8 @@ function rowsToHoursMap(rows: CsvRow[]): Record<string, DayHours[]> {
 
 /**
  * Fetch dynamic hours from the published Google Sheet CSV.
- * Returns the full Location[] array with hours overridden from the sheet.
+ * Returns the Location[] array with hours overridden from the sheet; the
+ * mobile shop is omitted when the sheet's "visible" flag says "no".
  * Falls back silently to hardcoded data on any failure.
  */
 export async function fetchLocationsWithHours(): Promise<Location[]> {
@@ -152,12 +176,15 @@ export async function fetchLocationsWithHours(): Promise<Location[]> {
     const raw = await res.text();
     const rows = parseCsv(raw);
     const hoursMap = rowsToHoursMap(rows);
+    const mobileVisible = isMobileShopVisible(raw);
 
     // Merge dynamic hours into the static location data.
-    return fallbackLocations.map((loc) => ({
-      ...loc,
-      hours: hoursMap[loc.id] ?? loc.hours,
-    }));
+    return fallbackLocations
+      .filter((loc) => loc.id !== "mobile" || mobileVisible)
+      .map((loc) => ({
+        ...loc,
+        hours: hoursMap[loc.id] ?? loc.hours,
+      }));
   } catch {
     // Silent fallback — no visible error to the user.
     return fallbackLocations;

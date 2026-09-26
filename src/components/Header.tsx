@@ -30,7 +30,7 @@ interface HeaderProps {
 }
 
 function useLocationsStatus(locationHours: LocationHours[]) {
-  const [statuses, setStatuses] = useState<{ hq: LocationStatus; mobile: LocationStatus }>({
+  const [statuses, setStatuses] = useState<{ hq: LocationStatus; mobile: LocationStatus | null }>({
     hq: "closed",
     mobile: "closed",
   });
@@ -43,7 +43,8 @@ function useLocationsStatus(locationHours: LocationHours[]) {
       const mobileData = locationHours.find((l) => l.id === "mobile");
       setStatuses({
         hq: hqData ? getLocationStatus(hqData.hours) : "closed",
-        mobile: mobileData ? getLocationStatus(mobileData.hours) : "closed",
+        // null = mobile shop hidden via the sheet's visibility flag
+        mobile: mobileData ? getLocationStatus(mobileData.hours) : null,
       });
     };
     check();
@@ -140,7 +141,9 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
         {/* Mobile Centered Open badge */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:hidden">
           {mounted && (
-            statuses.hq === statuses.mobile ? (
+            statuses.mobile === null ? (
+              <LocationBadge type="hq" status={statuses.hq} />
+            ) : statuses.hq === statuses.mobile ? (
               <CombinedBadge status={statuses.hq} />
             ) : (
               <div className="flex flex-col gap-0.5 items-center justify-center">
@@ -165,7 +168,9 @@ export default function Header({ onMobileMenuOpen, locationHours, activeSection 
           </a>
           {mounted && (
             <div className="hidden md:flex items-center gap-2">
-              {statuses.hq === statuses.mobile ? (
+              {statuses.mobile === null ? (
+                <LocationBadge type="hq" status={statuses.hq} />
+              ) : statuses.hq === statuses.mobile ? (
                 <CombinedBadge status={statuses.hq} />
               ) : (
                 <>

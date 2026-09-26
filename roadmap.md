@@ -492,6 +492,10 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
 * [x] **5.21**
   * Add this feature to the locations section: when the shop (doesnt mattetr if HQ or mobile) is closed but in "custom_display_text_en" and "custom_display_text_pt" is a text, that it should display that text instead of "closed". We will basically use this to tell the customer that for example the mobile shop will open soon (that means it the upcoming days or weeks). Also provide a rule list that I can add to the google spreadsheet manually, that explains the behaviour of the google spreadsheet. This should be a reminder cheat sheet for the customer in order to give the customer clear instructions what she needs to do. provide that as a text that I can copy and paste into the google spreadsheet... 
 
+* [x] **5.22 Mobile shop visibility toggle (Google Sheet)**
+  * Sheet cell G22 = `visible`, H22 = `yes` / `no` (explanation in G21). The label may sit anywhere in the sheet; the value is the next non-empty cell to its right.
+  * `no` hides the mobile shop in the Locations section (single centered card, no mobile tab toggle) and in the header open/closed badge. Anything else, a missing flag, or an unreachable sheet keeps it visible.
+  * Not covered by the flag: SEO schema markup (`SchemaMarkup.tsx`), "Costa 5.0" review badge, and static copy mentioning Costa da Caparica.
 
   ## Phase 6: Manual testing and importaint steps 
 * [ ] **6.1 Final Mobile QA & Performance Testing: (This is a manual testitng task) do not execute.**
