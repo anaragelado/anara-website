@@ -138,3 +138,6 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vercel
+
+# Archived media lives on the NAS project folder, not in the repo
+_archive/
