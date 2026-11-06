@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://anaragelado.pt";
+const BASE_URL = "https://www.anaragelado.pt";
 
 const INTERNAL_ROUTES = [
   "/pt/flavor-sorter",

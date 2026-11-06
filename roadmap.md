@@ -496,6 +496,11 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Sheet cell G22 = `visible`, H22 = `yes` / `no` (explanation in G21). The label may sit anywhere in the sheet; the value is the next non-empty cell to its right.
   * `no` hides the mobile shop in the Locations section (single centered card, no mobile tab toggle) and in the header open/closed badge. Anything else, a missing flag, or an unreachable sheet keeps it visible.
   * Not covered by the flag: SEO schema markup (`SchemaMarkup.tsx`), "Costa 5.0" review badge, and static copy mentioning Costa da Caparica.
+* [x] **5.23 Google setup for UNRULE agency (request of 2026-11-06, deadline 2026-11-09)**
+  * Google Tag Manager `GTM-WHD3ZW3B` in the root layout via `@next/third-parties` (covers /pt and /en). Analytics, Ads conversions and the cookie banner (Consent Mode) are managed by UNRULE inside GTM. Never add gtag.js (`G-…` / `AW-17785066700`) to the code.
+  * Privacy policy (EN + PT) rewritten as an interim version: GTM, Analytics and Ads only with consent, Google Maps, data transfers, GDPR rights, CNPD. UNRULE's appendix with their own texts was missing from the email; replace once received.
+  * Schema `@id`/`url` and robots.txt sitemap now use `https://www.anaragelado.pt`. `google-site-verification` tag kept.
+* [ ] **5.24 Vercel: switch apex redirect anaragelado.pt → www from 307 to 308** (Vercel dashboard → Project → Settings → Domains, manual).
 
   ## Phase 6: Manual testing and importaint steps 
 * [ ] **6.1 Final Mobile QA & Performance Testing: (This is a manual testitng task) do not execute.**

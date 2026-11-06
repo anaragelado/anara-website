@@ -1,4 +1,4 @@
-const BASE_URL = "https://anaragelado.pt";
+const BASE_URL = "https://www.anaragelado.pt";
 
 export default function SchemaMarkup({ locale }: { locale: string }) {
   const schema = {
