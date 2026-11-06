@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 function MeltingCone() {
   return (
@@ -90,12 +91,12 @@ export default function NotFound() {
         <p className="mt-2 text-sm font-medium text-text-secondary/70 italic">
           {t("hint")}
         </p>
-        <a
+        <Link
           href="/"
           className="mt-8 inline-block rounded-full bg-brand-yellow px-8 py-3 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
         >
           {t("cta")}
-        </a>
+        </Link>
       </div>
     </main>
   );

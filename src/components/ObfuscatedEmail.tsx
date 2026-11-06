@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useClientValue } from "@/lib/use-client-value";
 
 // Email stored as reversed string — decoded only on the client after hydration
 const ENCODED = "tp.odalegarana@ofni";
@@ -11,11 +11,10 @@ interface Props {
 }
 
 export default function ObfuscatedEmail({ className, children }: Props) {
-  const [email, setEmail] = useState<string | null>(null);
-
-  useEffect(() => {
-    setEmail(ENCODED.split("").reverse().join(""));
-  }, []);
+  const email = useClientValue<string | null>(
+    () => ENCODED.split("").reverse().join(""),
+    null,
+  );
 
   if (!email) {
     // Render a non-clickable placeholder until JS hydrates

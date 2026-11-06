@@ -19,12 +19,10 @@ export default async function MasterReviewPage({
   setRequestLocale(locale);
 
   const imagesDir = path.join(process.cwd(), "public/assets/new-cones");
-  let files: string[] = [];
-  try {
-    files = fs.readdirSync(imagesDir).filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f));
-  } catch (e) {
-    console.error("Could not read directory", e);
-  }
+  // The review folder is local working material and is not part of the repo.
+  const files = fs.existsSync(imagesDir)
+    ? fs.readdirSync(imagesDir).filter(f => /\.(jpg|jpeg|png|webp)$/i.test(f))
+    : [];
 
   const groupsMap = new Map<string, string[]>();
   files.forEach(file => {

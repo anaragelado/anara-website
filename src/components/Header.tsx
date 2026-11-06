@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { Menu } from "lucide-react";
 import { getLocationStatus, type DayHours, type LocationStatus } from "@/data/locations";
+import { useClientValue } from "@/lib/use-client-value";
 
 const NAV_LINKS = [
   { id: "story", key: "story" },
@@ -29,28 +30,27 @@ interface HeaderProps {
   activeSection: string;
 }
 
+const STATUS_REFRESH_MS = 60_000;
+
 function useLocationsStatus(locationHours: LocationHours[]) {
-  const [statuses, setStatuses] = useState<{ hq: LocationStatus; mobile: LocationStatus | null }>({
-    hq: "closed",
-    mobile: "closed",
-  });
-  const [mounted, setMounted] = useState(false);
+  // false during SSR and hydration, true afterwards: the status depends on the
+  // visitor's clock, so it is only rendered client-side.
+  const mounted = useClientValue(() => true, false);
+  // Re-render every minute so the status follows the clock.
+  const [, setTick] = useState(0);
 
   useEffect(() => {
-    setMounted(true);
-    const check = () => {
-      const hqData = locationHours.find((l) => l.id === "hq");
-      const mobileData = locationHours.find((l) => l.id === "mobile");
-      setStatuses({
-        hq: hqData ? getLocationStatus(hqData.hours) : "closed",
-        // null = mobile shop hidden via the sheet's visibility flag
-        mobile: mobileData ? getLocationStatus(mobileData.hours) : null,
-      });
-    };
-    check();
-    const interval = setInterval(check, 60_000);
+    const interval = setInterval(() => setTick((t) => t + 1), STATUS_REFRESH_MS);
     return () => clearInterval(interval);
-  }, [locationHours]);
+  }, []);
+
+  const hqData = locationHours.find((l) => l.id === "hq");
+  const mobileData = locationHours.find((l) => l.id === "mobile");
+  const statuses: { hq: LocationStatus; mobile: LocationStatus | null } = {
+    hq: hqData ? getLocationStatus(hqData.hours) : "closed",
+    // null = mobile shop hidden via the sheet's visibility flag
+    mobile: mobileData ? getLocationStatus(mobileData.hours) : null,
+  };
 
   return { statuses, mounted };
 }

@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { type ReactNode } from "react";
+import { isTouchDevice, useClientValue } from "@/lib/use-client-value";
 
 interface HeroParallaxProps {
   children: ReactNode;
@@ -10,13 +11,7 @@ interface HeroParallaxProps {
 
 export default function HeroParallax({ children }: HeroParallaxProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [isTouch, setIsTouch] = useState(true);
-
-  useEffect(() => {
-    setIsTouch(
-      "ontouchstart" in window || navigator.maxTouchPoints > 0,
-    );
-  }, []);
+  const isTouch = useClientValue(isTouchDevice, true);
 
   const { scrollYProgress } = useScroll({
     target: ref,

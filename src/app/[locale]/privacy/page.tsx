@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import SectionWrapper from "@/components/SectionWrapper";
 import ObfuscatedEmail from "@/components/ObfuscatedEmail";
+import Link from "next/link";
 
 export default async function PrivacyPage({
   params,
@@ -59,12 +60,12 @@ function PrivacyContent() {
         </section>
 
         <div className="mt-12">
-          <a
+          <Link
             href="/"
             className="inline-block rounded-full bg-brand-yellow px-6 py-2.5 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
           >
             {t("backHome")}
-          </a>
+          </Link>
         </div>
       </SectionWrapper>
     </main>

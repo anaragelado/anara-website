@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function RootNotFound() {
   return (
     <main className="flex flex-1 items-center justify-center px-4">
@@ -11,12 +13,12 @@ export default function RootNotFound() {
         <p className="mx-auto mt-3 max-w-md text-text-secondary">
           We searched the entire farm, but this page was nowhere to be found.
         </p>
-        <a
+        <Link
           href="/"
           className="mt-8 inline-block rounded-full bg-brand-yellow px-8 py-3 text-sm font-semibold text-text-primary transition-all duration-300 ease-in-out hover:scale-105 hover:bg-brand-green hover:text-white"
         >
           Back to the cone
-        </a>
+        </Link>
       </div>
     </main>
   );

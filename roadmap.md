@@ -500,7 +500,11 @@ Update this roadmap by checking off tasks (`[x]`) as they are completed.
   * Google Tag Manager `GTM-WHD3ZW3B` in the root layout via `@next/third-parties` (covers /pt and /en). Analytics, Ads conversions and the cookie banner (Consent Mode) are managed by UNRULE inside GTM. Never add gtag.js (`G-…` / `AW-17785066700`) to the code.
   * Privacy policy (EN + PT) rewritten as an interim version: GTM, Analytics and Ads only with consent, Google Maps, data transfers, GDPR rights, CNPD. UNRULE's appendix with their own texts was missing from the email; replace once received.
   * Schema `@id`/`url` and robots.txt sitemap now use `https://www.anaragelado.pt`. `google-site-verification` tag kept.
-* [ ] **5.24 Vercel: switch apex redirect anaragelado.pt → www from 307 to 308** (Vercel dashboard → Project → Settings → Domains, manual).
+* [x] **5.25 Lock internal tools + lint cleanup**
+  * Internal tool pages (color-test, flavor-curator, flavor-sorter, flavor-tagger, instagram-url-mapper, master-review) moved into the route group `src/app/[locale]/(internal-tools)/`; its layout returns 404 in production. URLs unchanged, still usable with `npm run dev`.
+  * master-review no longer errors when the local `public/assets/new-cones` folder is missing.
+  * `npm run lint` is clean: client-only values (touch detection, clock, decoded email) use `useClientValue` (`src/lib/use-client-value.ts`) instead of setState in effects; home links use `next/link`.
+* [ ] **5.24 Vercel: switch apex redirect anaragelado.pt → www from 307 to 308** (Vercel dashboard → Project → Settings → Domains, manual). Vercel project lives in Lucinda's account (kept there so hosting stays free); Patrick has no access.
 
   ## Phase 6: Manual testing and importaint steps 
 * [ ] **6.1 Final Mobile QA & Performance Testing: (This is a manual testitng task) do not execute.**

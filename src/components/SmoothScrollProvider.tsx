@@ -1,12 +1,8 @@
 "use client";
 
 import { ReactLenis, useLenis } from "lenis/react";
-import { useEffect, useState, type ReactNode } from "react";
-
-function isTouchDevice(): boolean {
-  if (typeof window === "undefined") return false;
-  return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-}
+import { useEffect, type ReactNode } from "react";
+import { isTouchDevice, useClientValue } from "@/lib/use-client-value";
 
 /**
  * Watches for layout shifts (sticky elements, animations) and
@@ -41,11 +37,7 @@ export default function SmoothScrollProvider({
 }: {
   children: ReactNode;
 }) {
-  const [isTouch, setIsTouch] = useState(true);
-
-  useEffect(() => {
-    setIsTouch(isTouchDevice());
-  }, []);
+  const isTouch = useClientValue(isTouchDevice, true);
 
   if (isTouch) {
     return <>{children}</>;
